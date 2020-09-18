@@ -19,7 +19,7 @@
           "id": "stream-reaches-map",
           "name": "Physical - Stream Reaches",
           "action": "displayMap",
-          "enabled": true,
+          "enabled": false,
           "mapProject" : "data-maps/SupportingData/Physical-StreamReaches/stream-reaches-map.json",
           "separatorBefore" : true
         },
@@ -34,6 +34,7 @@
         {
           "id": "irrigated-lands-map",
           "name":  "Agriculture - Irrigated Lands",
+          "enabled": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
         },
@@ -48,7 +49,8 @@
           "id": "data-openlands",
           "name": "Environment - Open Lands",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Environment-OpenLands/transfer-casestudies-map.json",
+          "enabled": "false",
+          "mapProject" : "data-maps/SupportingData/Environment-OpenLands/open-lands-map.json",
           "separatorBefore" : true
         },
         {
@@ -61,6 +63,7 @@
         {
           "id": "data-dedication",
           "name":  "Municipal - Dedication Policies",
+          "enabled": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Municipal-DedicationPolicies/water-dedication-map.json"
         },
@@ -68,14 +71,28 @@
           "id": "data-rental-programs",
           "name":  "Municipal - Water Rental Programs",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Municipal-WaterRentals/water-rentals-map.json"
+          "mapProject" : "data-maps/SupportingData/Municipal-WaterRentals/municipal-water-rentals-map.json"
         },
         {
-          "id": "data-projects",
-          "name": "Water Transfers - Case Studies",
+          "id": "data-case-studies",
+          "name": "Water Transfer - Case Studies",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/WaterTransfers-CaseStudies/transfer-casestudies-map.json",
+          "mapProject" : "data-maps/SupportingData/WaterTransfer-CaseStudies/transfer-case-studies-map.json",
           "separatorBefore" : true
+        },
+        {
+          "id": "data-isa",
+          "name": "Water Transfer - Interruptable Supply Agreements",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/WaterTransfer-InterruptableSupply/interruptable-supply-map.json"
+        },
+        {
+          "id": "data-swsp",
+          "name": "Water Transfer - Substitute Water Supply Plans",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/WaterTransfer-SWSPs/swsps-map.json"
         }
       ]
     },

@@ -1,0 +1,3 @@
+# Convert the transfer case studies in the Excel workbook into a GeoJSON layer file.
+ReadTableFromExcel(TableID="CaseStudies",InputFile="data/transfer-case-studies.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+WriteTableToGeoJSON(TableID="CaseStudies",OutputFile="layers\transfer-case-studies.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude",CoordinatePrecision=6)
