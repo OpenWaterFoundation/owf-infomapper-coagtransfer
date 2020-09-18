@@ -60,6 +60,28 @@ junk
 # Dynamic map configurations
 /workflow/SupportingData/Municipal-Municipalities/*.json
 
+# SupportingData/Municipal-WaterRentals
+/workflow/SupportingData/Municipal-WaterRentals/downloads/*
+!/workflow/SupportingData/Municipal-WaterRentals/downloads/README.md
+/workflow/SupportingData/Municipal-WaterRentals/layers/*
+!/workflow/SupportingData/Municipal-WaterRentals/layers/README.md
+!/workflow/SupportingData/Municipal-WaterRentals/layers/*.csv
+!/workflow/SupportingData/Municipal-WaterRentals/layers/*.md
+!/workflow/SupportingData/Municipal-WaterRentals/layers/*doc
+# Dynamic map configurations
+/workflow/SupportingData/Municipal-WaterRentals/*.json
+
+# SupportingData/WaterTransfer-CaseStudies
+/workflow/SupportingData/WaterTransfer-CaseStudies/downloads/*
+!/workflow/SupportingData/WaterTransfer-CaseStudies/downloads/README.md
+/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*
+!/workflow/SupportingData/WaterTransfer-CaseStudies/layers/README.md
+!/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*.csv
+!/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*.md
+!/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*doc
+# Dynamic map configurations
+/workflow/SupportingData/WaterTransfer-CaseStudies/*.json
+
 # ======================================================
 # Baseline Simulation menu
 # ======================================================

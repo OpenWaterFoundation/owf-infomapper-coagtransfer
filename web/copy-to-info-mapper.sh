@@ -39,6 +39,20 @@ copyMunicipalities() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-Municipalities ${folder}
 }
 
+copyMunicipalRentals() {
+  checkSupportingDataFolder
+
+  # Copy municipal water rentals map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-WaterRentals ${folder}
+}
+
+copyWaterTransferCaseStudies() {
+  checkSupportingDataFolder
+
+  # Copy transfer case studies map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/WaterTransfer-CaseStudies ${folder}
+}
+
 copyMainConfig() {
   # Make sure that folders exist
   if [ ! -d "${appFolder}" ]; then
@@ -78,24 +92,34 @@ runInteractive() {
     echo "ss.  Copy SupportingData/Physical - StreamReaches map files."
     echo "sl.  Copy SupportingData/Agriculture - IrrigatedLands map files."
     echo "sm.  Copy SupportingData/Municipal - Municipalities map files."
+    echo "smr. Copy SupportingData/Municipal - Water Rentals map files."
+    echo "stc. Copy SupportingData/WaterTransfer - Case Studies map files."
     echo ""
     echo "h.   Copy HistoricalSimulation/cm2015H2 map files."
     echo ""
     echo "q.  Quit"
     echo ""
     read -p "Enter command: " answer
+    # The following are in the order above
     if [ "${answer}" = "c" ]; then
       copyMainConfig
-    elif [ "${answer}" = "h" ]; then
-      copyCm2015H2
+
+    elif [ "${answer}" = "sw" ]; then
+      copyWaterDistricts
+    elif [ "${answer}" = "ss" ]; then
+      copyStreamReaches
     elif [ "${answer}" = "sl" ]; then
       copyIrrigatedLands
     elif [ "${answer}" = "sm" ]; then
       copyMunicipalities
-    elif [ "${answer}" = "ss" ]; then
-      copyStreamReaches
-    elif [ "${answer}" = "sw" ]; then
-      copyWaterDistricts
+    elif [ "${answer}" = "smr" ]; then
+      copyMunicipalRentals
+    elif [ "${answer}" = "stc" ]; then
+      copyWaterTransferCaseStudies
+
+    elif [ "${answer}" = "h" ]; then
+      copyCm2015H2
+
     elif [ "${answer}" = "q" ]; then
       break
     fi

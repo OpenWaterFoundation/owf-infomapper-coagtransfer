@@ -1,4 +1,4 @@
-# Create a GeoMapProject file for municipalities
+# Create a GeoMapProject file for municipal water provider water rental programs.
 # - read the previously downloaded layer file
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
@@ -8,14 +8,14 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Municipal-Municipalities")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Municipal-WaterRentals")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  MunicipalitiesProject
-# - GeoMapID:  MunicipalitiesMap
-CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Colorado Municipalities",Description="Colorado Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'municipalities-map.md'")
-AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalitiesProject",GeoMapID="MunicipalitiesMap")
+# - GeoMapProjectID:  WaterRentalsProject
+# - GeoMapID:  WaterRentalsMap
+CreateGeoMapProject(NewGeoMapProjectID="WaterRentalsProject",ProjectType="SingleMap",Name="Municipal Water Rentals",Description="Municipal Water Rentals.",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="WaterRentalsMap",Name="Municipal Water Rentals",Description="Municipal Water Rentals.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'municipal-water-rentals-map.md'")
+AddGeoMapToGeoMapProject(GeoMapProjectID="WaterRentalsProject",GeoMapID="WaterRentalsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -24,6 +24,7 @@ AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalitiesProject",GeoMapID="Munic
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BackgroundGroup",Name="Background Layers",Description="Background maps from image servers.",Properties="isBackground: true, selectedInitial: true")
 #
 # Mapbox background layers
+#
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia3Jpc3RpbnN3YWltIiwiYSI6ImNpc3Rjcnl3bDAzYWMycHBlM2phbDJuMHoifQ.vrDCYwkTZsrA_0FffnzvBw",GeoLayerID="MapBoxSatelliteLayer",Name="Satellite (MapBox)",Description="Satellite background map from MapBox.",Properties="attribution: 'MapBox',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxSatelliteLayer",GeoLayerViewID="MapBoxSatelliteLayerView",Name="Satellite (MapBox)",Description="Satellite background map from MapBox.",Properties="selectedInital: false")
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia3Jpc3RpbnN3YWltIiwiYSI6ImNpc3Rjcnl3bDAzYWMycHBlM2phbDJuMHoifQ.vrDCYwkTZsrA_0FffnzvBw",GeoLayerID="MapBoxStreetsLayer",Name="Streets (MapBox)",Description="Streets background map from MapBox.",Properties="attribution: 'MapBox',isBackground: true")
@@ -53,46 +54,44 @@ AddGeoLayerViewToGeoMap(GeoLayerID="EsriTopographic",GeoLayerViewID="EsriTopogra
 #
 # Google background layers
 ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",GeoLayerID="GoogleSatellite",Name="Satellite (Google)",Description="Satellite background map from Google.",Properties="attribution: 'Google',isBackground: true")
-AddGeoLayerViewToGeoMap(GeoLayerID="GoogleSatellite",GeoLayerViewID="GoogleSatelliteView",Name="Satellite (Google)",Description="Satellite background map from Google.",Properties="selectedInitial: false,separatorBefore:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="GoogleSatellite",GeoLayerViewID="GoogleSatelliteView",Name="Satellite (Google)",Description="Satellite background map from Google.",Properties="selectedInitial:false,separatorBefore:true")
 ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",GeoLayerID="GoogleStreets",Name="Streets (Google)",Description="Streets background map from Google.",Properties="attribution: 'Google',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="GoogleStreets",GeoLayerViewID="GoogleStreetsView",Name="Streets (Google)",Description="Streets background map from Google.",Properties="selectedInitial: false")
 ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",GeoLayerID="GoogleHybrid",Name="Streets & Satellite (Google)",Description="Streets & satellite background map from Google.",Properties="attribution: 'Google',isBackground: true")
-AddGeoLayerViewToGeoMap(GeoLayerID="GoogleHybrid",GeoLayerViewID="GoogleHybridView",Name="Streets & Satellite (Google)",Description="Streets & satellite background map from Google.",Properties="selectedInitial: false")
+AddGeoLayerViewToGeoMap(GeoLayerID="GoogleHybrid",GeoLayerViewID="GoogleHybridView",Name="Streets & Satellite (Google)",Description="Streets & satellite background map from Google.",Properties="selectedInitial: true")
 ReadRasterGeoLayerFromTileMapService(InputUrl="http://mt0.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",GeoLayerID="GoogleTerrain",Name="Terrain (Google)",Description="Terrain background map from Google.",Properties="attribution: 'Google',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrainView",Name="Terrain (Google)",Description="Terrain background map from Google.",Properties="selectedInitial: false")
 # Other
-ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
-AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial: true,separatorBefore:true")
+ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground:true")
+AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial:false,separatorBefore:true")
 # = = = = = = = = = =
-# Municipal boundaries:  read layer and add to a layer view group.
-# - TODO smalers 2020-06-13 this seems to hang the app when in production
-# GeoLayerViewGroupID: MunicipalBoundariesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
+# Municipal Water Rentals:  read layer and add to the same layer group
+# GeoLayerViewGroupID: WaterRentalsGroup
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
-# For now use single symbol
-# - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalWaterRentalGroup",Name="Municipal Water Rentals",Description="Municipal water rental to ditch companies.",InsertPosition="Top")
+#
 # = = = = = = = = = =
-# Municipalities:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: MunicipalitiesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Colorado Municipalities",Description="Colorado Municipalities")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
-# For now use single symbol
-# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+# Ditch Water Rentals:  read layer and add to the same layer group
+# GeoLayerViewGroupID: DitchWaterRentalsGroup
+#
+ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-water-rentals.geojson",GeoLayerID="DitchWaterRentalsLayer",Name="Ditch water rentals",Description="DWR Offices")
+AddGeoLayerViewToGeoMap(GeoLayerID="DitchWaterRentalsLayer",GeoLayerViewID="DitchWaterRentalsLayerView",Name="Ditch Water Rentals",Description="Ditch companies with water rental (buying) programs",Properties="docPath:layers/ditch-water-rentals.md",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchWaterRentalsLayerView",Name="Ditch water rentals symbol",Description="Use marker image for ditch water providers",Properties="symbolImage:/img/field-32x37.png,imageAnchorPoint:Bottom")
+# = = = = = = = = = =
+# Municipal Water Rentals:  read layer and add to the same layer group
+ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-water-rentals.geojson",GeoLayerID="MunicipalWaterRentalsLayer",Name="Municipal water rentals",Description="DWR Offices")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalWaterRentalsLayer",GeoLayerViewID="MunicipalWaterRentalsLayerView",Name="Municipal Water Rentals",Description="Municipal water providers with water rental (selling) programs",Properties="docPath:layers/municipal-water-rentals.md",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalWaterRentalsLayerView",Name="Municipal water rentals symbol",Description="Use marker image for municipal water providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="MunicipalitiesProject",Indent="2",OutputFile="municipalities-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="WaterRentalsProject",Indent="2",OutputFile="municipal-water-rentals-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="municipalities-map.json",DestinationFile="${MapFolder}/municipalities-map.json")
-CopyFile(SourceFile="municipalities-map.md",DestinationFile="${MapFolder}/municipalities-map.md")
+CopyFile(SourceFile="municipal-water-rentals-map.json",DestinationFile="${MapFolder}/municipal-water-rentals-map.json")
+CopyFile(SourceFile="municipal-water-rentals-map.md",DestinationFile="${MapFolder}/municipal-water-rentals-map.md")
 #
-CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
-CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")
+CopyFile(SourceFile="layers/municipal-water-rentals.geojson",DestinationFile="${MapFolder}/layers/municipal-water-rentals.geojson")
+CopyFile(SourceFile="layers/municipal-water-rentals.md",DestinationFile="${MapFolder}/layers/municipal-water-rentals.md")
 #
-CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
-CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")
+CopyFile(SourceFile="layers/ditch-water-rentals.geojson",DestinationFile="${MapFolder}/layers/ditch-water-rentals.geojson")
+CopyFile(SourceFile="layers/ditch-water-rentals.md",DestinationFile="${MapFolder}/layers/ditch-water-rentals.md")

@@ -1,0 +1,3 @@
+# Convert the ditchs with water rental programs in the Excel workbook into a GeoJSON layer file.
+ReadTableFromExcel(TableID="WaterRentalPrograms",InputFile="data/ditch-water-rentals.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+WriteTableToGeoJSON(TableID="WaterRentalPrograms",OutputFile="layers\ditch-water-rentals.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude",CoordinatePrecision=6)
