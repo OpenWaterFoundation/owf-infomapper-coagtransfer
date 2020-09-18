@@ -1,0 +1,183 @@
+{
+  "title": "Colorado Agricultural Water Transfer",
+  "homePage": "/content-pages/home.md",
+  "favicon": "/img/owf-favicon-32x32.ico",
+  "version": "0.2.0 (2020-09-16)",
+  "mainMenu": [
+    {
+      "id": "SupportingData",
+      "name": "Supporting Data",
+      "align": "left",
+      "menus": [
+        {
+          "id": "codwr-waterdistricts-map",
+          "name": "Administration - CO DWR Water Districts",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
+        },
+        {
+          "id": "stream-reaches-map",
+          "name": "Physical - Stream Reaches",
+          "action": "displayMap",
+          "enabled": true,
+          "mapProject" : "data-maps/SupportingData/Physical-StreamReaches/stream-reaches-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "entities-ditches",
+          "name":  "Agriculture - Ditch Service Areas",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Agriculture-Ditches/ditches.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "irrigated-lands-map",
+          "name":  "Agriculture - Irrigated Lands",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
+        },
+        {
+          "id": "conservation-easements-map",
+          "name":  "Agriculture - Conservation Easements",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Agriculture-ConservationEasements/conservation-easements-map.json",
+          "enabled": false
+        },
+        {
+          "id": "data-openlands",
+          "name": "Environment - Open Lands",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Environment-OpenLands/transfer-casestudies-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "municipalities",
+          "name": "Municipal - Municipalities",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Municipal-Municipalities/municipalities-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "data-dedication",
+          "name":  "Municipal - Dedication Policies",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Municipal-DedicationPolicies/water-dedication-map.json"
+        },
+        {
+          "id": "data-rental-programs",
+          "name":  "Municipal - Water Rental Programs",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Municipal-WaterRentals/water-rentals-map.json"
+        },
+        {
+          "id": "data-projects",
+          "name": "Water Transfers - Case Studies",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/WaterTransfers-CaseStudies/transfer-casestudies-map.json",
+          "separatorBefore" : true
+        }
+      ]
+    },
+    {
+      "id": "BaselineSimulation",
+      "name": "Baseline Simulation",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "baseline",
+          "name": "Baseline Dataset Map",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject": "data-maps/BaselineSimulation/Baseline/baseline.json"
+        },
+        {
+          "id": "baseline-executive-summary",
+          "name": "Executive Summary",
+          "action": "externalLink",
+          "align": "right",
+          "url": "http://openwaterfoundation.org",
+          "separatorBefore" : true
+        },
+        {
+          "id": "baseline-documentation",
+          "name": "Documentation",
+          "action": "externalLink",
+          "align": "right",
+          "url": "http://openwaterfoundation.org"
+        }
+      ]
+    },
+    {
+      "id": "scenario1",
+      "name": "Scenario 1",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "scenario1",
+          "name": "Scenario 1 Simulation",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        }
+      ]
+    },
+    {
+      "id": "scenario2",
+      "name": "Scenario 2",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "scenario2",
+          "name": "Scenario 2 Simulation",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        }
+      ]
+    },
+    {
+      "id": "Resources",
+      "name": "Resources",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "about-the-project",
+          "name": "About the Project",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/about-the-project.md"
+        },
+        {
+          "id": "contact",
+          "name": "Contact",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/contact.md"
+        },
+        {
+          "id": "report-issue",
+          "name": "Report an Issue",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/report-issue.md"
+        },
+        {
+          "id": "release-notes",
+          "name": "Release Notes",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/release-notes.md"
+        },
+        {
+          "id": "infomapper-doc",
+          "name": "InfoMapper Documentation",
+          "separatorBefore": true,
+          "action": "externalLink",
+          "align": "right",
+          "url": "http://software.openwaterfoundation.org/infomapper/latest/doc-user/"
+        }
+      ]
+    }
+  ]
+}

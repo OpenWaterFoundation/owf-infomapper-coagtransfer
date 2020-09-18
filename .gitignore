@@ -1,0 +1,65 @@
+# Ignore files in repository working files
+
+# Ignore "junk" and other files often used for work
+junk
+
+# Ignore compiled Python files, in case Python scripts are used.
+*.py[cod]
+
+# Ignore Python stack dump files when a crash occurs
+*.stackdump
+
+# Ignore log files
+*.log
+
+# vim editor files
+
+*.swp
+*.swo
+
+# Microsoft temporary files
+*.tmp
+~$*
+
+# Ignore file extension used as temporary for .bat, etc. so email attachment works
+*.xxx
+
+# Ignore working files, in particular dynamically-created files created for InfoMapper.
+# Putting these items here avoids the need for many separate .gitignore files,
+# but need to pay attention to conventions.
+#
+#
+# For web, just ignore dynamically-created files
+# - all other content is version-controlled
+/web/data-maps/*
+/web/data-ts/*
+
+# ======================================================
+# Supporting Data menu
+# ======================================================
+
+# SupportingData/Administration-CoDwrWaterDistricts
+/workflow/SupportingData/Administration-CoDwrWaterDistricts/downloads/*
+!/workflow/SupportingData/Administration-CoDwrWaterDistricts/downloads/README.md
+/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*
+!/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/README.md
+!/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*.csv
+!/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*.md
+!/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*doc
+# Dynamic map configurations
+/workflow/SupportingData/Administration-CoDwrWaterDistricts/*.json
+
+# SupportingData/Municipal-Municipalities
+/workflow/SupportingData/Municipal-Municipalities/downloads/*
+!/workflow/SupportingData/Municipal-Municipalities/downloads/README.md
+/workflow/SupportingData/Municipal-Municipalities/layers/*
+!/workflow/SupportingData/Municipal-Municipalities/layers/README.md
+!/workflow/SupportingData/Municipal-Municipalities/layers/*.csv
+!/workflow/SupportingData/Municipal-Municipalities/layers/*.md
+!/workflow/SupportingData/Municipal-Municipalities/layers/*doc
+# Dynamic map configurations
+/workflow/SupportingData/Municipal-Municipalities/*.json
+
+# ======================================================
+# Baseline Simulation menu
+# ======================================================

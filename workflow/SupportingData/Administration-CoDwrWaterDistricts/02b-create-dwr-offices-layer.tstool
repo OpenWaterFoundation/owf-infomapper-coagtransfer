@@ -1,0 +1,3 @@
+# Convert the DWR office locations in the Excel workbook into a GeoJSON layer file.
+ReadTableFromExcel(TableID="DWR_Offices",InputFile="data/dwr-offices.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+WriteTableToGeoJSON(TableID="DWR_Offices",OutputFile="layers\co-dwr-offices-division1.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude",CoordinatePrecision=6)

@@ -1,0 +1,12 @@
+# Category classification table for single CO division.
+# - the value corresponds to DIV attribute
+# - the fill color is varies but all other properties are constant
+# - the label uses DIV and BASIN values, currently hard-coded here because simple
+value,color,opacity,fillColor,fillOpacity,weight,label
+1,#b30000,1.0,#b30000,0.3,2,"1, South Platte"
+2,#ff6600,1.0,#ff6600,0.3,2,"2, Akansas"
+3,#ff0000,1.0,#ff0000,0.3,2,"3, Rio Greande"
+4,#59b300,1.0,#59b300,0.3,2,"4, Gunnison"
+5,#6a00b3,1.0,#6a00b3,0.3,2,"5, Colorado"
+6,#b3ff66,1.0,#b3ff66,0.3,2,"6, Yampa/White"
+7,#00ffff,1.0,#00ffff,0.3,2,"7, San Juan/Dolores"
