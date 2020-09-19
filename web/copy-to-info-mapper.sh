@@ -46,13 +46,6 @@ copyMunicipalRentals() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-WaterRentals ${folder}
 }
 
-copyWaterTransferCaseStudies() {
-  checkSupportingDataFolder
-
-  # Copy transfer case studies map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/WaterTransfer-CaseStudies ${folder}
-}
-
 copyMainConfig() {
   # Make sure that folders exist
   if [ ! -d "${appFolder}" ]; then
@@ -82,6 +75,20 @@ copyWaterDistricts() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Administration-CoDwrWaterDistricts ${folder}
 }
 
+copyWaterTransferCaseStudies() {
+  checkSupportingDataFolder
+
+  # Copy transfer case studies map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/WaterTransfer-CaseStudies ${folder}
+}
+
+copyWaterProviders() {
+  checkSupportingDataFolder
+
+  # Copy municipal water providers map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/WaterSupply-WaterProviders ${folder}
+}
+
 runInteractive() {
   while true; do
     echo ""
@@ -93,6 +100,7 @@ runInteractive() {
     echo "sl.  Copy SupportingData/Agriculture - IrrigatedLands map files."
     echo "sm.  Copy SupportingData/Municipal - Municipalities map files."
     echo "smr. Copy SupportingData/Municipal - Water Rentals map files."
+    echo "swp. Copy SupportingData/WaterSupply - Water Providers map files."
     echo "stc. Copy SupportingData/WaterTransfer - Case Studies map files."
     echo ""
     echo "h.   Copy HistoricalSimulation/cm2015H2 map files."
@@ -114,6 +122,8 @@ runInteractive() {
       copyMunicipalities
     elif [ "${answer}" = "smr" ]; then
       copyMunicipalRentals
+    elif [ "${answer}" = "swp" ]; then
+      copyWaterProviders
     elif [ "${answer}" = "stc" ]; then
       copyWaterTransferCaseStudies
 
