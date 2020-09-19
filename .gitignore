@@ -49,6 +49,17 @@ junk
 # Dynamic map configurations
 /workflow/SupportingData/Administration-CoDwrWaterDistricts/*.json
 
+# SupportingData/Municipal-WaterDedicationPolicies
+/workflow/SupportingData/Municipal-WaterDedicationPolicies/downloads/*
+!/workflow/SupportingData/Municipal-WaterDedicationPolicies/downloads/README.md
+/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*
+!/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/README.md
+!/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*.csv
+!/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*.md
+!/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*doc
+# Dynamic map configurations
+/workflow/SupportingData/Municipal-WaterDedicationPolicies/*.json
+
 # SupportingData/Municipal-Municipalities
 /workflow/SupportingData/Municipal-Municipalities/downloads/*
 !/workflow/SupportingData/Municipal-Municipalities/downloads/README.md

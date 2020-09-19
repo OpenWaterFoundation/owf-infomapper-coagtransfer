@@ -46,6 +46,13 @@ copyMunicipalRentals() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-WaterRentals ${folder}
 }
 
+copyMunicipalDedicationPolicies() {
+  checkSupportingDataFolder
+
+  # Copy municipal water dedication policies map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-WaterDedicationPolicies ${folder}
+}
+
 copyMainConfig() {
   # Make sure that folders exist
   if [ ! -d "${appFolder}" ]; then
@@ -99,6 +106,7 @@ runInteractive() {
     echo "ss.  Copy SupportingData/Physical - StreamReaches map files."
     echo "sl.  Copy SupportingData/Agriculture - IrrigatedLands map files."
     echo "sm.  Copy SupportingData/Municipal - Municipalities map files."
+    echo "smd. Copy SupportingData/Municipal - Water Dedication Policies map files."
     echo "smr. Copy SupportingData/Municipal - Water Rentals map files."
     echo "swp. Copy SupportingData/WaterSupply - Water Providers map files."
     echo "stc. Copy SupportingData/WaterTransfer - Case Studies map files."
@@ -120,6 +128,8 @@ runInteractive() {
       copyIrrigatedLands
     elif [ "${answer}" = "sm" ]; then
       copyMunicipalities
+    elif [ "${answer}" = "smd" ]; then
+      copyMunicipalDedicationPolicies
     elif [ "${answer}" = "smr" ]; then
       copyMunicipalRentals
     elif [ "${answer}" = "swp" ]; then

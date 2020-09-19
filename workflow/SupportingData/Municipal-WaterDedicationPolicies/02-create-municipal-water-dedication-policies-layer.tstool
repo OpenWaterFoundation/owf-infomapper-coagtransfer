@@ -1,0 +1,3 @@
+# Convert the municipal water dedication policies the Excel workbook into a GeoJSON layer file.
+ReadTableFromExcel(TableID="WaterDedicationPolicies",InputFile="data/municipal-water-dedication-policies.xlsx",Worksheet="Data",ExcelColumnNames=FirstRowInRange)
+WriteTableToGeoJSON(TableID="WaterDedicationPolicies",OutputFile="layers/municipal-water-dedication-policies.geojson",LongitudeColumn="Longitude",LatitudeColumn="Latitude",CoordinatePrecision=6)

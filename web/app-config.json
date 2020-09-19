@@ -41,17 +41,19 @@
         {
           "id": "conservation-easements-map",
           "name":  "Agriculture - Conservation Easements",
-          "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Agriculture-ConservationEasements/conservation-easements-map.json",
-          "enabled": false
+          "action": "contentPage",
+          "markdownFile": "content-pages/conservation-easements.md",
+          "x-action": "displayMap",
+          "x-mapProject" : "data-maps/SupportingData/Agriculture-ConservationEasements/conservation-easements-map.json"
         },
         {
           "id": "data-openlands",
           "name": "Environment - Open Lands",
-          "action": "displayMap",
-          "enabled": "false",
-          "mapProject" : "data-maps/SupportingData/Environment-OpenLands/open-lands-map.json",
-          "separatorBefore" : true
+          "separatorBefore" : true,
+          "action": "contentPage",
+          "markdownFile": "content-pages/open-lands.md",
+          "x-action": "displayMap",
+          "x-mapProject" : "data-maps/SupportingData/Environment-OpenLands/open-lands-map.json"
         },
         {
           "id": "municipalities",
@@ -62,10 +64,9 @@
         },
         {
           "id": "data-dedication",
-          "name":  "Municipal - Dedication Policies",
-          "enabled": "false",
+          "name":  "Municipal - Water Dedication Policies",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Municipal-DedicationPolicies/water-dedication-map.json"
+          "mapProject" : "data-maps/SupportingData/Municipal-WaterDedicationPolicies/municipal-water-dedication-policies-map.json"
         },
         {
           "id": "data-rental-programs",
@@ -90,16 +91,18 @@
         {
           "id": "data-isa",
           "name": "Water Transfer - Interruptable Supply Agreements",
-          "action": "displayMap",
-          "enabled": false,
-          "mapProject" : "data-maps/SupportingData/WaterTransfer-InterruptableSupply/interruptable-supply-map.json"
+          "action": "contentPage",
+          "markdownFile": "content-pages/interruptable-supply.md",
+          "x-action": "displayMap",
+          "x-mapProject" : "data-maps/SupportingData/WaterTransfer-InterruptableSupply/interruptable-supply-map.json"
         },
         {
           "id": "data-swsp",
           "name": "Water Transfer - Substitute Water Supply Plans",
-          "action": "displayMap",
-          "enabled": false,
-          "mapProject" : "data-maps/SupportingData/WaterTransfer-SWSPs/swsps-map.json"
+          "action": "contentPage",
+          "markdownFile": "content-pages/swsp.md",
+          "x-action": "displayMap",
+          "x-mapProject" : "data-maps/SupportingData/WaterTransfer-SWSPs/swsp-map.json"
         }
       ]
     },
@@ -200,6 +203,13 @@
           "action": "externalLink",
           "align": "right",
           "url": "http://software.openwaterfoundation.org/infomapper/latest/doc-user/"
+        },
+        {
+          "id": "credits",
+          "name": "Credits",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/credits.md"
         }
       ]
     }

@@ -1,4 +1,4 @@
-# Create a GeoMapProject file for transfer case studies.
+# Create a GeoMapProject file for municipal water provider water dedication policies.
 # - read the previously downloaded layer file
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
@@ -8,14 +8,14 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/WaterTransfer-CaseStudies")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Municipal-WaterDedicationPolicies")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  TransferCaseStudies
-# - GeoMapID:  TransferCaseStudiesMap
-CreateGeoMapProject(NewGeoMapProjectID="TransferCaseStudies",ProjectType="SingleMap",Name="Water Transfer Case Studies",Description="Water Transfer Case Studies.",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="TransferCaseStudiesMap",Name="Water Transfer Case Studies",Description="Water Transfer case studies.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'transfer-case-studies-map.md'")
-AddGeoMapToGeoMapProject(GeoMapProjectID="TransferCaseStudies",GeoMapID="TransferCaseStudiesMap")
+# - GeoMapProjectID:  WaterDedicationPoliciesProject
+# - GeoMapID:  WaterRentalsMap
+CreateGeoMapProject(NewGeoMapProjectID="WaterDedicationPoliciesProject",ProjectType="SingleMap",Name="Municipal Water Dedication Policies",Description="Municipal Water Dedication Policies.",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="WaterRentalsMap",Name="Water Dedication Policies",Description="Water Dedication Policies.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'municipal-water-dedication-policies-map.md'")
+AddGeoMapToGeoMapProject(GeoMapProjectID="WaterDedicationPoliciesProject",GeoMapID="WaterRentalsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -73,21 +73,21 @@ ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/4402a8e0
 AddGeoLayerViewToGeoMap(GeoLayerID="StateBoundaryLayer",GeoLayerViewID="StateBoundaryLayerView",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State boundary symbol",Description="State boundary in black.",Properties="color:#000000,fillColor:#0000000,fillOpacity:0.0,weight:2")
 # = = = = = = = = = =
-# Transfer Case Studies:  read layer and add to the same layer group
-# GeoLayerViewGroupID: TransferCaseStudiesGroup
+# Municipal Water Dedication Policies:  read layer and add to the same layer group
+# GeoLayerViewGroupID: WaterDedicationPoliciesGroup
 #
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalWaterRentalGroup",Name="Water Transfer Case Studies",Description="Agricultural water transfer case studies.",InsertPosition="Top")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDedicationPoliciesGroup",Name="Municipal Water Dedication Policies",Description="Municipal water dedication policies.",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/transfer-case-studies.geojson",GeoLayerID="TransferCaseStudiesLayer",Name="Water transfer case studies",Description="Water transfer case studies")
-AddGeoLayerViewToGeoMap(GeoLayerID="TransferCaseStudiesLayer",GeoLayerViewID="TransferCaseStudiesLayerView",Name="Water transfer Case Studies",Description="Agricultural water transfer case studies",Properties="docPath:layers/transfer-case-studies.md",InsertPosition="Top")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="TransferCaseStudiesLayerView",Name="Transfer case studies symbol",Description="Use marker image for agriculture field",Properties="symbolImage:/img/field-32x37.png,imageAnchorPoint:Bottom")
+ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-water-dedication-policies.geojson",GeoLayerID="MunicipalWaterDedicationPoliciesLayer",Name="Municipal Water Dedication Policies",Description="Municipal water dedication policies")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalWaterDedicationPoliciesLayer",GeoLayerViewID="MunicipalWaterDedicationPoliciesLayerView",Name="Municipal Water Dedication Policies",Description="Municipal water dedication policies (right, cash, or both)",Properties="docPath:layers/municipal-water-dedication-policies.md",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalWaterDedicationPoliciesLayerView",Name="Municipal Water Dedication Policies symbol",Description="Use marker image for both but need to show each symbol as category",Properties="symbolImage:/img/symbol_and-32x37.png,imageAnchorPoint:Bottom")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="TransferCaseStudies",Indent="2",OutputFile="transfer-case-studies-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDedicationPoliciesProject",Indent="2",OutputFile="municipal-water-dedication-policies-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="transfer-case-studies-map.json",DestinationFile="${MapFolder}/transfer-case-studies-map.json")
-CopyFile(SourceFile="transfer-case-studies-map.md",DestinationFile="${MapFolder}/transfer-case-studies-map.md")
+CopyFile(SourceFile="municipal-water-dedication-policies-map.json",DestinationFile="${MapFolder}/municipal-water-dedication-policies-map.json")
+CopyFile(SourceFile="municipal-water-dedication-policies-map.md",DestinationFile="${MapFolder}/municipal-water-dedication-policies-map.md")
 #
-CopyFile(SourceFile="layers/transfer-case-studies.geojson",DestinationFile="${MapFolder}/layers/transfer-case-studies.geojson")
-CopyFile(SourceFile="layers/transfer-case-studies.md",DestinationFile="${MapFolder}/layers/transfer-case-studies.md")
+CopyFile(SourceFile="layers/municipal-water-dedication-policies.geojson",DestinationFile="${MapFolder}/layers/municipal-water-dedication-policies.geojson")
+CopyFile(SourceFile="layers/municipal-water-dedication-policies.md",DestinationFile="${MapFolder}/layers/municipal-water-dedication-policies.md")
