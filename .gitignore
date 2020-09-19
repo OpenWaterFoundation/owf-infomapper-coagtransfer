@@ -82,6 +82,17 @@ junk
 # Dynamic map configurations
 /workflow/SupportingData/WaterTransfer-CaseStudies/*.json
 
+# SupportingData/WaterSupply-WaterProviders
+/workflow/SupportingData/WaterSupply-WaterProviders/downloads/*
+!/workflow/SupportingData/WaterSupply-WaterProviders/downloads/README.md
+/workflow/SupportingData/WaterSupply-WaterProviders/layers/*
+!/workflow/SupportingData/WaterSupply-WaterProviders/layers/README.md
+!/workflow/SupportingData/WaterSupply-WaterProviders/layers/*.csv
+!/workflow/SupportingData/WaterSupply-WaterProviders/layers/*.md
+!/workflow/SupportingData/WaterSupply-WaterProviders/layers/*doc
+# Dynamic map configurations
+/workflow/SupportingData/WaterSupply-WaterProviders/*.json
+
 # ======================================================
 # Baseline Simulation menu
 # ======================================================

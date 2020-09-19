@@ -74,6 +74,13 @@
           "mapProject" : "data-maps/SupportingData/Municipal-WaterRentals/municipal-water-rentals-map.json"
         },
         {
+          "id": "entities-water-providers",
+          "name": "Water Supply - Water Providers",
+          "separatorBefore" : true,
+          "action": "displayMap",
+          "mapProject": "data-maps/SupportingData/WaterSupply-WaterProviders/water-providers-map.json"
+        },
+        {
           "id": "data-case-studies",
           "name": "Water Transfer - Case Studies",
           "action": "displayMap",

@@ -7,7 +7,7 @@
 
 ## Background
 
-The Municipal Water Rentals map shows municipal water providers that have water rental programs,
+The Municipal Water Rentals map shows municipal water providers that have water rental (lease) programs,
 which are used to provide raw water to agriculture.
 Water providers, such as utilities and water districts associated with municipal supply,
 often acquire agricultural water rights to ensure that future raw water supplies are available for municipal use.
@@ -16,7 +16,7 @@ can be rented (leased) back to agricultural producers.
 Rental program policies and procedures vary by water provider.
 The available supply is typically estimated based on snowpack, reservoir storage, and other conditions.
 
-**This is an example using incomplete dataset.  Funding is needed to implement full dataset.**
+**This is an example using an incomplete dataset.  Funding is needed to implement full dataset.**
 
 ## Layer Groups
 
