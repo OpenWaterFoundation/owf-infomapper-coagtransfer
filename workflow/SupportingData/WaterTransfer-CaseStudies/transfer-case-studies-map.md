@@ -12,6 +12,8 @@ and are example that may be appropriate to implement in some form in other locat
 
 **This is an example using incomplete dataset.  Funding is needed to implement full dataset.**
 
+**The analysis presented on this web site did not consider using SWSPs to temporarily meet urban water demand.**
+
 ## Layer Groups
 
 The following layer groups are included in this map.
