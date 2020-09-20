@@ -107,8 +107,8 @@
       ]
     },
     {
-      "id": "BaselineSimulation",
-      "name": "Baseline Simulation",
+      "id": "BaselineScenario",
+      "name": "Baseline Scenario",
       "align": "left",
       "menus" : [
         {
@@ -169,25 +169,40 @@
       "align": "left",
       "menus" : [
         {
-          "id": "about-the-project",
-          "name": "About the Project",
+          "id": "about",
+          "name": "About this Project and Website",
           "action": "contentPage",
           "align": "right",
-          "markdownFile": "content-pages/about-the-project.md"
+          "markdownFile": "content-pages/about.md"
+        },
+        {
+          "id": "infomapper-doc",
+          "name": "InfoMapper Documentation",
+          "action": "externalLink",
+          "align": "right",
+          "url": "http://software.openwaterfoundation.org/infomapper/latest/doc-user/"
         },
         {
           "id": "contact",
           "name": "Contact",
+          "separatorBefore": true,
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/contact.md"
         },
         {
-          "id": "report-issue",
-          "name": "Report an Issue",
+          "id": "credits",
+          "name": "Credits",
           "action": "contentPage",
           "align": "right",
-          "markdownFile": "content-pages/report-issue.md"
+          "markdownFile": "content-pages/credits.md"
+        },
+        {
+          "id": "license",
+          "name": "License",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/license.md"
         },
         {
           "id": "release-notes",
@@ -197,19 +212,19 @@
           "markdownFile": "content-pages/release-notes.md"
         },
         {
-          "id": "infomapper-doc",
-          "name": "InfoMapper Documentation",
-          "separatorBefore": true,
-          "action": "externalLink",
-          "align": "right",
-          "url": "http://software.openwaterfoundation.org/infomapper/latest/doc-user/"
-        },
-        {
-          "id": "credits",
-          "name": "Credits",
+          "id": "report-issue",
+          "name": "Reporting an Issue",
           "action": "contentPage",
           "align": "right",
-          "markdownFile": "content-pages/credits.md"
+          "markdownFile": "content-pages/report-issue.md"
+        },
+        {
+          "id": "owf",
+          "name": "Open Water Foundation",
+          "action": "externalLink",
+          "separatorBefore": true,
+          "align": "right",
+          "url": "http://openwaterfoundation.org"
         }
       ]
     }
