@@ -1,6 +1,6 @@
 # Colorado Agricultural Water Transfer #
 
-This website provides information about Agricultural Water Transfer in Colorado,
+This website provides information about agricultural water transfer in Colorado,
 currently focusing on transfers in the Colorado Front Range.
 
 Colorado's Front Range continues to experience population growth.
