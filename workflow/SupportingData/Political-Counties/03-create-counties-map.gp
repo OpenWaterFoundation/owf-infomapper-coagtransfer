@@ -1,5 +1,6 @@
-# Create a GeoMapProject file for municipalities
+# Create a GeoMapProject file for counties for the Poudre Basin
 # - read the previously downloaded layer file
+# - filter out counties that intersect the Poudre Basin
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
 #
@@ -8,22 +9,23 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Municipal-Municipalities")
+#SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Political-Counties")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  MunicipalitiesProject
-# - GeoMapID:  MunicipalitiesMap
-CreateGeoMapProject(NewGeoMapProjectID="MunicipalitiesProject",ProjectType="SingleMap",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Colorado Municipalities",Description="Colorado Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'municipalities-map.md'")
-AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalitiesProject",GeoMapID="MunicipalitiesMap")
+# - GeoMapProjectID:  CountiesProject
+# - GeoMapID:  CountiesMap
+CreateGeoMapProject(NewGeoMapProjectID="CountiesProject",ProjectType="SingleMap",Name="CO Counties",Description="Colorado Counties",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="CountiesMap",Name="Colorado Counties",Description="Colorado Counties",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8',docPath:counties-map.md")
+AddGeoMapToGeoMapProject(GeoMapProjectID="CountiesProject",GeoMapID="CountiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
 # - add tile servers from MapBox, Esri, and Google
 #
+# Mapbox background layers
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="BackgroundGroup",Name="Background Layers",Description="Background maps from image servers.",Properties="isBackground: true, selectedInitial: true")
 #
-# Mapbox background layers
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia3Jpc3RpbnN3YWltIiwiYSI6ImNpc3Rjcnl3bDAzYWMycHBlM2phbDJuMHoifQ.vrDCYwkTZsrA_0FffnzvBw",GeoLayerID="MapBoxSatelliteLayer",Name="Satellite (MapBox)",Description="Satellite background map from MapBox.",Properties="attribution: 'MapBox',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxSatelliteLayer",GeoLayerViewID="MapBoxSatelliteLayerView",Name="Satellite (MapBox)",Description="Satellite background map from MapBox.",Properties="selectedInital: false")
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoia3Jpc3RpbnN3YWltIiwiYSI6ImNpc3Rjcnl3bDAzYWMycHBlM2phbDJuMHoifQ.vrDCYwkTZsrA_0FffnzvBw",GeoLayerID="MapBoxStreetsLayer",Name="Streets (MapBox)",Description="Streets background map from MapBox.",Properties="attribution: 'MapBox',isBackground: true")
@@ -70,43 +72,69 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateBoundaryGroup",Name="Colo
 #
 ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/4402a8e032ed49eb8b37fd729e4e8f03_9.geojson",GeoLayerID="StateBoundaryLayer",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE.")
 AddGeoLayerViewToGeoMap(GeoLayerID="StateBoundaryLayer",GeoLayerViewID="StateBoundaryLayerView",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE",InsertPosition="Top")
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State boundary symbol",Description="State boundary in black.",Properties="color:#000000,opacity:0.0,fillColor:#000000,fillOpacity:0.0,weight:2")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State boundary symbol",Description="State boundary in black.",Properties="color:#000000,fillColor:#000000,fillOpacity:0.0,weight:2")
 # = = = = = = = = = =
-# Municipal boundaries:  read layer and add to a layer view group.
-# - TODO smalers 2020-06-13 this seems to hang the app when in production
-# GeoLayerViewGroupID: MunicipalBoundariesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
+# Continental divide in Colorado:  read layer and add to layer view group.
+# LayerViewGroupID: ContinentalDivideGroup
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
-# For now use single symbol
-# - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ContinentalDivideGroup",Name="Continental Divide",Description="Continental Divide based on Hydrologic Unit Code basins.",Properties="selectedInitial: true",InsertPosition="Top")
+#
+ReadGeoLayerFromGeoJSON(InputFile="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson",GeoLayerID="ContinentalDivideLayer",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins")
+AddGeoLayerViewToGeoMap(GeoLayerID="ContinentalDivideLayer",GeoLayerViewID="ContinentalDivideLayerView",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="ContinentalDivideLayerView",Name="Continental divide symbol",Description="Continental divide line in wide dark grey.",Properties="color:#663300,opacity:0.5,fillColor:#663300,fillOpacity:0.5,weight:10")
 # = = = = = = = = = =
-# Municipalities:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: MunicipalitiesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Colorado Municipalities",Description="Colorado Municipalities")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
-# For now use single symbol
-# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
-SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="click",Properties="popupConfigPath:graphs/municipality-popup-config.json")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+# Water division:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: WaterDistrictsGroup
+#AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.",Properties="selectedInitial: true",InsertPosition="Top")
+#
+#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division.geojson",DestinationFile="layers/co-dwr-water-division.geojson")
+# Don't copy since symbol configuration is slightly different from the original
+#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division-classify-division.csv",DestinationFile="layers/co-dwr-water-division-classify-division.csv")
+#ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-division.geojson",GeoLayerID="WaterDivisionLayer",Name="CO DWR Division 1",Description="Water Division 1 boundary from the Colorado Division of Water Resources.")
+#AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 1",Description="Boundary for Division 1 from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-division.md",InsertPosition="Top")
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDivisionLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-division-classify-division.csv'")
+# = = = = = = = = = =
+# Water district 3:  read layer and add to layer view group.
+# GeoLayerViewGroupID: WaterDistrictsGroup
+# - group added above
+# - not used ag transfer map
+#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.geojson",DestinationFile="layers/co-dwr-water-district-3.geojson")
+#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="layers/co-dwr-water-district-3-classify-district.csv")
+#ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-district-3.geojson",GeoLayerID="WaterDistrictLayer",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources.")
+#AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictLayer",GeoLayerViewID="WaterDistrictLayerView",Name="CO DWR Water District 3",Description="Water District 3 boundary from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-district-3.md",InsertPosition="Top")
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictLayerView",Name="Colorize district",Description="Show Water District 3 in black.",ClassificationAttribute="DISTRICT",Properties="classificationFile:layers/co-dwr-water-district-3-classify-district.csv")
+# = = = = = = = = = =
+# Counties:  read layer and add to a layer view group.
+# GeoLayerViewGroupID: CountiesGroup
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="CountiesGroup",Name="Colorado Counties",Description="Colorado Counties",Properties="selectedInitial: true",InsertPosition="Top")
+ReadGeoLayerFromGeoJSON(InputFile="layers/counties.geojson",GeoLayerID="CountiesLayer",Name="Colorado Counties",Description="Colorado Counties")
+AddGeoLayerViewToGeoMap(GeoLayerID="CountiesLayer",GeoLayerViewID="CountiesLayerView",Name="Colorado Counties",Description="Colorado Counties",Properties="docPath:layers/counties.md")
+# Use single symbol
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/counties-classify-county.csv'")
+SetGeoLayerViewSingleSymbol(GeoLayerViewID="CountiesLayerView",Name="Colorado counties",Description="Colorado counties in grey.",Properties="color:#999999,fillColor:#999999,fillOpacity:0.0,weight:2")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="click",Properties="popupConfigPath:graphs/county-popup-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="MunicipalitiesProject",Indent="2",OutputFile="municipalities-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="CountiesProject",Indent="2",OutputFile="counties-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="municipalities-map.json",DestinationFile="${MapFolder}/municipalities-map.json")
-CopyFile(SourceFile="municipalities-map.md",DestinationFile="${MapFolder}/municipalities-map.md")
+CopyFile(SourceFile="counties-map.json",DestinationFile="${MapFolder}/counties-map.json")
+CopyFile(SourceFile="counties-map.md",DestinationFile="${MapFolder}/counties-map.md")
+# -----
+# Layers
+CopyFile(SourceFile="layers/co-dwr-water-division.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division-classify-division.csv")
+#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-division.md",DestinationFile="${MapFolder}/layers/co-dwr-water-division.md")
 #
-CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
-CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")
+CopyFile(SourceFile="layers/co-dwr-water-district-3.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.geojson")
+CopyFile(SourceFile="layers/co-dwr-water-district-3-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3-classify-district.csv")
+#CopyFile(SourceFile="../Administration-CoDwrWaterDistricts/layers/co-dwr-water-district-3.md",DestinationFile="${MapFolder}/layers/co-dwr-water-district-3.md")
 #
-CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
-CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")
+CopyFile(SourceFile="layers/counties.geojson",DestinationFile="${MapFolder}/layers/counties.geojson")
+CopyFile(SourceFile="layers/counties-classify-county.csv",DestinationFile="${MapFolder}/layers/counties-classify-county.csv")
+CopyFile(SourceFile="layers/counties.md",DestinationFile="${MapFolder}/layers/counties.md")
 # -------
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="graphs/municipality-popup-config.json",DestinationFile="${MapFolder}/graphs/municipality-popup-config.json")
-CopyFile(SourceFile="graphs/municipality-population-graph-config.json",DestinationFile="${MapFolder}/graphs/municipality-population-graph-config.json")
+CopyFile(SourceFile="graphs/county-popup-config.json",DestinationFile="${MapFolder}/graphs/county-popup-config.json")
+CopyFile(SourceFile="graphs/county-population-graph-config.json",DestinationFile="${MapFolder}/graphs/county-population-graph-config.json")

@@ -1,0 +1,18 @@
+{
+  "id" : "municipal-popup-config",
+  "name": "Municipal popup configuration",
+  "description":  "List main attributes and provide buttons to graph time series.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+      {
+        "label" : "Population",
+        "action" : "displayTimeSeries",
+        "resourcePath" : "graphs/municipality-population-graph-config.json",
+        "saveFile" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-population-total.csv"
+      }
+  ]
+}

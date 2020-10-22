@@ -1,0 +1,6 @@
+# Category classification table for CO DWR Water District 3
+# - the value corresponds to DISTRICT attribute
+# - use the same properties as the multi-district layer but make the district totally transparent
+# - the label uses DISTRICT and NAME values, currently hard-coded here because simple
+value,color,opacity,fillColor,fillOpacity,weight,label
+3,#000000,1.0,#ffb366,0.0,5,"3, Cache La Poudre River"

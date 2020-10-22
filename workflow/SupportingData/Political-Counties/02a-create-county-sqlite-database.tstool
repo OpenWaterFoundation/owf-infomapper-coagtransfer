@@ -1,0 +1,111 @@
+StartLog(LogFile="02a-create-county-sqlite-database.tstool.log",MaxSize="100000000")
+# Create the SQLite database of county population data.
+# The database is subsequently queried and data converted into time series.
+#
+# County name case requires handling:
+# - county data use the following variations: 'SAN JUAN COUNTY', 'SAN JUAN', and 'San Juan
+# - case can be handled using case-independent queries, but some standardization is good to avoid
+#   comparison issues
+# - case use is as follows:
+#   Dataset/source               County Name Case
+#   ------------------------     -------------------------------------
+#   DOLA historical data csv     SAN JUAN COUNTY
+#   DOLA forecast xls            San Juan
+#   HydroBase                    SAN JUAN
+#   OWF County GitHub            San Juan
+#   TSTool County FIPS           San Juan
+#   US Census FIPS               San Juan, San Juan County
+#   ========================     =====================================
+#   Overall                      San Juan (better for displays, etc.)
+#
+# ===================================================================================================
+# CREATE SQLITE DATABASE IN MEMORY
+#
+# Create an in-memory SQLite database containing county population data.
+# - totalpopulation has some missing in the csv file so don't require NOT NULL
+# - placefips has some missing in the csv file so don't require NOT NULL
+NewSQLiteDatabase(DataStore="CountyDatabase",DatabaseFile="Memory")
+# ===================================================================================================
+# LOAD DOLA HISTORICAL (ESTIMATED, FROM 1980) POPULATION DATA
+#
+# Read the historical population estimate data file downloaded from DOLA
+# - need to adjust some strings to deal with inconsistencies
+# - "City Of Castle Pines" replaced with "City of Castle Pines" because mixture causes problems sorting
+ReadTableFromDelimitedFile(TableID="CountyPopulationEstimates_DOLA_Table",InputFile="downloads/county-muni-population-timeseries-dola.csv",HeaderLines="1")
+ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="City Of Castle Pines",InputValue3="City of Castle Pines",OutputColumn="municipalityname")
+SortTable(TableID="CountyPopulationEstimates_DOLA_Table",SortColumns="municipalityname,year")
+#
+# Write the data from the file to the database
+RunSql(DataStore="CountyDatabase",Sql="CREATE TABLE IF NOT EXISTS county_pop_estimate_dola (id INTEGER, countyfips INTEGER NOT NULL, placefips INTEGER, municipalityname TEXT NOT NULL, year INTEGER NOT NULL, totalpopulation INTEGER, countyplace INTEGER NOT NULL);")
+WriteTableToDataStore(TableID="CountyPopulationEstimates_DOLA_Table",DataStore="CountyDatabase",DataStoreTable="county_pop_estimate_dola",WriteMode=InsertUpdate)
+# Use the following to compare original counties tables read from csv and database table
+# - this validates that the data load is accurate
+# - ignore case in the ORDER BY because database 'municipalityname' has mixed case
+ReadTableFromDataStore(DataStore="CountyDatabase",DataStoreTable="county_pop_estimate_dola",OrderBy="municipalityname COLLATE NOCASE,year",TableID="tmp_county_population_estimate_dola")
+CompareTables(Table1ID="CountyPopulationEstimates_DOLA_Table",Table2ID="tmp_county_population_estimate_dola",NewTableID="ComparisonTable_Estimated_DOLA",OutputFile="ComparisonTable_Estimated_DOLA.tmp.html",IfDifferent=Warn)
+# ===================================================================================================
+# CREATE DOLA COUNTY TABLE
+#
+# Create a table that contains DOLA counties, in order to join to other data and do cross-checks.
+# - for example, later can join the counties from DOLA and OWF to confirm that they are consistent
+# - because downstream data process requires different variations on the county name,
+#   include those in the database:  county_upper (SAN JUAN), county (San Juan), county_no_space (SanJuan)
+# - first get the unique list of counties
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, countyfips, countyplace FROM county_pop_estimate_dola WHERE municipalityname LIKE '%COUNTY%' ORDER BY municipalityname",TableID="CountyList_DOLA_Table")
+ManipulateTableString(TableID="CountyList_DOLA_Table",InputColumn1="municipalityname",Operator="Remove",InputValue2="\sCOUNTY",OutputColumn="county_upper")
+ManipulateTableString(TableID="CountyList_DOLA_Table",InputColumn1="county_upper",Operator="ToMixedCase",OutputColumn="county")
+ManipulateTableString(TableID="CountyList_DOLA_Table",InputColumn1="county",Operator="Remove",InputValue2="\s",OutputColumn="county_no_space")
+RunSql(DataStore="CountyDatabase",Sql="CREATE TABLE IF NOT EXISTS county_dola (municipalityname TEXT NOT NULL, countyfips INTEGER NOT NULL, countyplace INTEGER, county_upper TEXT NOT NULL, county TEXT NOT NULL, county_no_space TEXT NOT NULL);")
+WriteTableToDataStore(TableID="CountyList_DOLA_Table",DataStore="CountyDatabase",DataStoreTable="county_dola",WriteMode=InsertUpdate)
+# Use the following to compare original counties tables read from TSTool and database table
+# - this validates that the data load is accurate
+ReadTableFromDataStore(DataStore="CountyDatabase",DataStoreTable="county_dola",OrderBy="county",TableID="tmp_county_dola")
+CompareTables(Table1ID="CountyList_DOLA_Table",ExcludeColumns1="county_upper",Table2ID="tmp_county_dola",NewTableID="ComparisonTable_County_DOLA",OutputFile="ComparisonTable_County_DOLA.tmp.html",IfDifferent=Warn)
+# ===================================================================================================
+# LOAD OWF COUNTIES DATASET
+#
+# Read the counties dataset file downloaded from GitHub
+# - also create a column County that contains uppercsae, to match the DOLA data
+ReadTableFromDelimitedFile(TableID="CountyList_OWF_Table",InputFile="downloads/county-data-owf.csv",HeaderLines="1")
+SortTable(TableID="CountyList_OWF_Table",SortColumns="CountyName")
+#
+# Write the data from the file to the database
+RunSql(DataStore="CountyDatabase",SqlFile="02a-create-owf-county-sqlite-table.sql")
+WriteTableToDataStore(TableID="CountyList_OWF_Table",DataStore="CountyDatabase",DataStoreTable="county_owf",WriteMode=InsertUpdate)
+# Use the following to compare original counties tables read from csv and database table
+# - this validates that the data load is accurate
+ReadTableFromDataStore(DataStore="CountyDatabase",DataStoreTable="county_owf",OrderBy="CountyName",TableID="tmp_county_owf")
+CompareTables(Table1ID="CountyList_OWF_Table",ExcludeColumns1="CountyNameUpper",Table2ID="tmp_county_owf",NewTableID="ComparisonTable_County_OWF",OutputFile="ComparisonTable_County_OWF.tmp.html",IfDifferent=Warn)
+#
+# Try joining DOLA and OWF county data
+# - if the result is not 64 rows, warn
+JoinTables(TableID="tmp_county_owf",TableToJoinID="tmp_county_dola",JoinColumns="CountyName:county",JoinMethod=JoinIfInBoth,HandleMultipleJoinMatchesHow=UseLastMatch,RowCountProperty="CountyJoinRowCount")
+If(Name="If_CountyJoinCount",Condition="${CountyJoinRowCount} != 64")
+Message(Message="DOLA and OWF county lists do not align. Expect 64 matches.  Found ${CountyJoinRowCount}",CommandStatus=WARNING)
+EndIf(Name="If_CountyJoinCount")
+# ===================================================================================================
+# LOAD DOLA COUNTY FORECAST (WITH ESTIMATED FROM 2000) DATASET
+#
+# Read the counties dataset Excel file downloaded from DOLA website
+# - have to translate the rows of time into a typical time series order
+# - this dataset also has estimated data values in the first few years, which should agree with above
+# - loop through the cells in the matrix and copy into new table
+ReadTableFromExcel(TableID="CountyForecast_DOLA_Table",NumberPrecision=0,InputFile="downloads\county-population-forecast-dola.xls",Worksheet="A",ExcelAddress="A4:AZ71",ExcelColumnNames=FirstRowInRange,ColumnExcludeFilters="Counties:COLORADO,Counties:")
+DeleteTableRows(TableID="CountyForecast_DOLA_Table",Condition="Counties contains COLORADO")
+RunSql(DataStore="CountyDatabase",Sql="CREATE TABLE IF NOT EXISTS population_forecast_dola (county TEXT NOT NULL, year INTEGER NOT NULL, population_forecast NOT NULL);")
+For(Name="For_ForecastCounties",IteratorProperty="County",TableID="CountyList_OWF_Table",TableColumn="CountyName")
+For(Name="For_Year",IteratorProperty="Year",SequenceStart="2000",SequenceEnd="2050")
+SetPropertyFromTable(TableID="CountyForecast_DOLA_Table",Column="${Year}",ColumnIncludeFilters="Counties:*${County}*",PropertyName="ForecastValue")
+# Insert one value at a time since transposing the original table
+RunSql(DataStore="CountyDatabase",Sql="INSERT INTO population_forecast_dola (county, year, population_forecast) VALUES ('${County}', ${Year}, ${ForecastValue});")
+EndFor(Name="For_Year")
+EndFor(Name="For_ForecastCounties")
+ReadTableFromDataStore(DataStore="CountyDatabase",DataStoreTable="population_forecast_dola",OrderBy="county, year",TableID="tmp_population_forecast_dola")
+# TODO smalers 2020-10-19 need something like the following but don't have in-memory table
+#CompareTables(Table1ID="CountyForecast_DOLA_Table",Table2ID="tmp_population_forecast_dola",NewTableID="ComparisonTable_CountyForecast_DOLA",OutputFile="ComparisonTable_CountyForecast_DOLA.tmp.html",IfDifferent=Warn)
+# ===================================================================================================
+# SAVE SQLITE DATABASE TO FILE
+#
+# Save the in-memory database to a file for later use:
+# - do this at the end because writing to SQLite file is slow
+RunSql(DataStore="CountyDatabase",Sql="backup to ${WorkingDirPortable}/db/counties.db")
