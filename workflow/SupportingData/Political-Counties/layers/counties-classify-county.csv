@@ -1,0 +1,82 @@
+# Category classification table for CO counties.
+# - the value corresponds to COUNTY attribute
+# - the symbol for most counties is the same
+# - the label uses COUNTY value, currently hard-coded here because simple
+value,color,opacity,fillColor,fillOpacity,weight,label
+# Larimer and Weld, which include the Poudre and directly physically benefit
+# - dark green
+LARIMER,#59b300,1.0,#59b300,0.3,5,"Larimer - Poudre in County"
+WELD,#59b300,1.0,#59b300,0.3,5,"Weld - Poudre in County"
+# Counties that provide water to the Poudre via transbasin diversions
+# - light blue
+JACKSON,#003cb3,1.0,#003cb3,0.3,2,"JACKSON - Transbasin diversion to Poudre"
+GRAND,#003cb3,1.0,#003cb3,0.3,2,"GRAND - Transbasin diversion to Poudre"
+# Counties that do transfers out of the basin via transbasin diversions
+# - yellow for planned
+# - reddish for actual #b30000
+ADAMS,#ffff00,1.0,#ffff00,0.3,2,"ADAMS - Transbasin diversion from Poudre - Thornton (future)"
+# Counties in Division 1
+# - light green, #b3ff66
+ARAPAHOE,#b3ff66,1.0,#b3ff66,0.3,2,"ARAPAHOE - South Platte (Division 1) Counties"
+BOULDER,#b3ff66,1.0,#b3ff66,0.3,2,"BOULDER"
+BROOMFIELD,#b3ff66,1.0,#b3ff66,0.3,2,"BROOMFIELD"
+CHEYENNE,#b3ff66,1.0,#b3ff66,0.3,2,"CHEYENNE"
+CLEAR CREEK,#b3ff66,1.0,#b3ff66,0.3,2,"CLEAR CREAK"
+DENVER,#b3ff66,1.0,#b3ff66,0.3,2,"DENVER"
+DOUGLAS,#b3ff66,1.0,#b3ff66,0.3,2,"DOUGLAS"
+ELBERT,#b3ff66,1.0,#b3ff66,0.3,2,"ELBERT"
+EL PASO,#b3ff66,1.0,#b3ff66,0.3,2,"EL PASO"
+GILPIN,#b3ff66,1.0,#b3ff66,0.3,2,"GILPIN"
+JEFFERSON,#b3ff66,1.0,#b3ff66,0.3,2,"JEFFERSON"
+KIT CARSON,#b3ff66,1.0,#b3ff66,0.3,2,"KIT CARSON"
+LINCOLN,#b3ff66,1.0,#b3ff66,0.3,2,"LINCOLN"
+LOGAN,#b3ff66,1.0,#b3ff66,0.3,2,"LOGAN"
+MORGAN,#b3ff66,1.0,#b3ff66,0.3,2,"MORGAN"
+PARK,#b3ff66,1.0,#b3ff66,0.3,2,"PARK"
+PHILLIPS,#b3ff66,1.0,#b3ff66,0.3,2,"PHILLIPS"
+SEDGWICK,#b3ff66,1.0,#b3ff66,0.3,2,"SEDGWICK"
+TELLER,#b3ff66,1.0,#b3ff66,0.3,2,"TELLER"
+WASHINGTON,#b3ff66,1.0,#b3ff66,0.3,2,"WASHINGTON"
+YUMA,#b3ff66,1.0,#b3ff66,0.3,2,"YUMA"
+# All other counties
+# - grey boundary, full transparency
+# - #f2f2f2 works with MapBox Topographic
+ALAMOSA,#999999,1.0,#999999,0.0,2,"ALAMOSA - Other Counties"
+ARCHULETA,#999999,1.0,#999999,0.0,2,"ARCHULETA"
+BACA,#999999,1.0,#999999,0.0,2,"BACA"
+BENT,#999999,1.0,#999999,0.0,2,"BENT"
+CHAFFEE,#999999,1.0,#999999,0.0,2,"CHAFFEE"
+CONEJOS,#999999,1.0,#999999,0.0,2,"CONEJOS"
+COSTILLA,#999999,1.0,#999999,0.0,2,"COSTILLA"
+CROWLEY,#999999,1.0,#999999,0.0,2,"CROWLEY"
+CUSTER,#999999,1.0,#999999,0.0,2,"CUSTER"
+DELTA,#999999,1.0,#999999,0.0,2,"DELTA"
+DOLORES,#999999,1.0,#999999,0.0,2,"DOLORES"
+EAGLE,#999999,1.0,#999999,0.0,2,"EAGLE"
+FREMONT,#999999,1.0,#999999,0.0,2,"FREMONT"
+GARFIELD,#999999,1.0,#999999,0.0,2,"GARFIELD"
+GUNNISON,#999999,1.0,#999999,0.0,2,"GUNNISON"
+HINSDALE,#999999,1.0,#999999,0.0,2,"HINSDALE"
+HUERFANO,#999999,1.0,#999999,0.0,2,"HUERFANO"
+KIOWA,#999999,1.0,#999999,0.0,2,"KIOWA"
+LA PLATA,#999999,1.0,#999999,0.0,2,"LA PLATA"
+LAKE,#999999,1.0,#999999,0.0,2,"LAKE"
+LARIMER,#999999,1.0,#999999,0.0,2,"LARIMER"
+LAS ANIMAS,#999999,1.0,#999999,0.0,2,"LAS ANIMAS"
+MESA,#999999,1.0,#999999,0.0,2,"MESA"
+MINERAL,#999999,1.0,#999999,0.0,2,"MINERAL"
+MOFFAT,#999999,1.0,#999999,0.0,2,"MOFFAT"
+MONTEZUMA,#999999,1.0,#999999,0.0,2,"MONTEZUMA"
+MONTROSE,#999999,1.0,#999999,0.0,2,"MONTROSE"
+OTERO,#999999,1.0,#999999,0.0,2,"OTERO"
+OURAY,#999999,1.0,#999999,0.0,2,"OURAY"
+PITKIN,#999999,1.0,#999999,0.0,2,"PITKIN"
+PROWERS,#999999,1.0,#999999,0.0,2,"PROWERS"
+PUEBLO,#999999,1.0,#999999,0.0,2,"PUEBLO"
+RIO BLANCO,#999999,1.0,#999999,0.0,2,"RIO BLANCO"
+RIO GRANDE,#999999,1.0,#999999,0.0,2,"RIO GRANDE"
+ROUTT,#999999,1.0,#999999,0.0,2,"ROUTT"
+SAGUACHE,#999999,1.0,#999999,0.0,2,"SAGUACHE"
+SAN JUAN,#999999,1.0,#999999,0.0,2,"SAN JUAN"
+SAN MIGUEL,#999999,1.0,#999999,0.0,2,"SAN MIGUEL"
+SUMMIT,#999999,1.0,#999999,0.0,2,"SUMMIT"

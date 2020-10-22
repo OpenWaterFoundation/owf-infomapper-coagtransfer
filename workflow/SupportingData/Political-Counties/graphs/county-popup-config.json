@@ -1,0 +1,18 @@
+{
+  "id" : "county-popup-config",
+  "name": "County popup configuration",
+  "description":  "List main attributes and provide buttons to graph time series.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+      {
+        "label" : "Population",
+        "action" : "displayTimeSeries",
+        "resourcePath" : "graphs/county-population-graph-config.json",
+        "saveFile" : "${featureAttribute:county}.toMixedCase().replace(' ','')-population-total.csv"
+      }
+  ]
+}

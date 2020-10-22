@@ -12,6 +12,9 @@ junk
 # Ignore log files
 *.log
 
+# Ignore temporary HTML files
+*.tmp.html
+
 # vim editor files
 
 *.swp
@@ -47,7 +50,33 @@ junk
 !/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*.md
 !/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*doc
 # Dynamic map configurations
-/workflow/SupportingData/Administration-CoDwrWaterDistricts/*.json
+#/workflow/SupportingData/Administration-CoDwrWaterDistricts/*.json
+
+# SupportingData/Political-Counties/
+# Dynamic map configurations
+#/workflow/SupportingData/Political-Counties/*.json
+# downloads/
+/workflow/SupportingData/Political-Counties/downloads/*
+!/workflow/SupportingData/Political-Counties/downloads/README.md
+# db/
+# - ignore generated database
+/workflow/SupportingData/Political-Counties/db/*
+!/workflow/SupportingData/Political-Counties/db/README.md
+# layers/
+# - csv are layer classification files
+# - md are Markdown filees to document layers
+/workflow/SupportingData/Political-Counties/layers/*
+!/workflow/SupportingData/Political-Counties/layers/README.md
+!/workflow/SupportingData/Political-Counties/layers/*.csv
+!/workflow/SupportingData/Political-Counties/layers/*.md
+!/workflow/SupportingData/Political-Counties/layers/*doc
+# ts/
+# - ignore generated time series files
+/workflow/SupportingData/Political-Counties/ts/*
+!/workflow/SupportingData/Political-Counties/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/SupportingData/Political-Counties/graphs/*.png
 
 # SupportingData/Municipal-WaterDedicationPolicies
 /workflow/SupportingData/Municipal-WaterDedicationPolicies/downloads/*
@@ -58,7 +87,7 @@ junk
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*.md
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*doc
 # Dynamic map configurations
-/workflow/SupportingData/Municipal-WaterDedicationPolicies/*.json
+#/workflow/SupportingData/Municipal-WaterDedicationPolicies/*.json
 
 # SupportingData/Municipal-Municipalities
 /workflow/SupportingData/Municipal-Municipalities/downloads/*
@@ -69,7 +98,14 @@ junk
 !/workflow/SupportingData/Municipal-Municipalities/layers/*.md
 !/workflow/SupportingData/Municipal-Municipalities/layers/*doc
 # Dynamic map configurations
-/workflow/SupportingData/Municipal-Municipalities/*.json
+#/workflow/SupportingData/Municipal-Municipalities/*.json
+# ts/
+# - ignore generated time series files
+/workflow/SupportingData/Municipal-Municipalities/ts/*
+!/workflow/SupportingData/Municipal-Municipalities/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/SupportingData/Municipal-Municipalities/graphs/*.png
 
 # SupportingData/Municipal-WaterRentals
 /workflow/SupportingData/Municipal-WaterRentals/downloads/*
@@ -80,7 +116,7 @@ junk
 !/workflow/SupportingData/Municipal-WaterRentals/layers/*.md
 !/workflow/SupportingData/Municipal-WaterRentals/layers/*doc
 # Dynamic map configurations
-/workflow/SupportingData/Municipal-WaterRentals/*.json
+#/workflow/SupportingData/Municipal-WaterRentals/*.json
 
 # SupportingData/WaterTransfer-CaseStudies
 /workflow/SupportingData/WaterTransfer-CaseStudies/downloads/*
@@ -91,7 +127,7 @@ junk
 !/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*.md
 !/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*doc
 # Dynamic map configurations
-/workflow/SupportingData/WaterTransfer-CaseStudies/*.json
+#/workflow/SupportingData/WaterTransfer-CaseStudies/*.json
 
 # SupportingData/WaterSupply-WaterProviders
 /workflow/SupportingData/WaterSupply-WaterProviders/downloads/*
@@ -102,7 +138,7 @@ junk
 !/workflow/SupportingData/WaterSupply-WaterProviders/layers/*.md
 !/workflow/SupportingData/WaterSupply-WaterProviders/layers/*doc
 # Dynamic map configurations
-/workflow/SupportingData/WaterSupply-WaterProviders/*.json
+#/workflow/SupportingData/WaterSupply-WaterProviders/*.json
 
 # ======================================================
 # Baseline Simulation menu

@@ -1,0 +1,7 @@
+# Category classification table for single CO division.
+# - the value corresponds to DIVISION attribute
+# - the fill color is varies but all other properties are constant
+# - the label uses DIVISION and NAME values, currently hard-coded here because simple
+# - wide line and no fill so as to not obscure county polygons
+value,color,opacity,fillColor,fillOpacity,weight,label
+1,#ffcc66,1.0,#ffcc66,0.0,5,"1, South Platte"
