@@ -344,16 +344,24 @@
                   "color": "#999999",
                   "fillColor": "#999999",
                   "fillOpacity": "0.0",
-                  "weight": "2"
+                  "weight": "4"
                 }
               },
               "eventHandlers": [
                 {
                   "eventType": "click",
-                  "name": null,
+                  "name": "CountyClickEvents",
                   "description": "",
                   "properties": {
-                    "popupConfigPath": "graphs/county-popup-config.json"
+                    "eventConfigPath": "layers/counties-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": "CountyHoverEvents",
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/counties-event-config.json"
                   }
                 }
               ]
@@ -387,7 +395,24 @@
                   "weight": "10"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

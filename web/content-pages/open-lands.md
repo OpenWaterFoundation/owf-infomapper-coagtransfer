@@ -8,6 +8,7 @@ and which agricultural lands can have water transferred away from the land.
 
 See the following resources:
 
-* [Colorado Open Lands](https://coloradoopenlands.org/)
+* [Keep it Colorado](https://www.keepitco.org/) - coalition of conservation organizations in Colorado
+* [Colorado Open Lands](https://coloradoopenlands.org/) - statewide conservation organization
 * Open lands programs for local government, such as county and city open lands programs
 * ***Supporting Data / Agriculture - Conservation Easements***

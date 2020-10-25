@@ -81,6 +81,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersLayer",GeoLayerViewID="WaterPr
 # For now use single symbol
 # - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProvidersLayerView",Name="Colorado Water Providers",Description="Colorado Water Providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/water-providers-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -91,3 +93,4 @@ CopyFile(SourceFile="water-providers-map.md",DestinationFile="${MapFolder}/water
 #
 CopyFile(SourceFile="layers/water-providers.geojson",DestinationFile="${MapFolder}/layers/water-providers.geojson")
 CopyFile(SourceFile="layers/water-providers.md",DestinationFile="${MapFolder}/layers/water-providers.md")
+CopyFile(SourceFile="layers/water-providers-event-config.json",DestinationFile="${MapFolder}/layers/water-providers-event-config.json")

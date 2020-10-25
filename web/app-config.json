@@ -47,7 +47,7 @@
         },
         {
           "id": "conservation-easements-map",
-          "name":  "Agriculture - Conservation Easements (Proposed)",
+          "name":  "Agriculture - Conservation Easements (*)",
           "action": "contentPage",
           "markdownFile": "content-pages/conservation-easements.md",
           "x-action": "displayMap",
@@ -55,7 +55,7 @@
         },
         {
           "id": "data-openlands",
-          "name": "Environment - Open Lands (Proposed)",
+          "name": "Environment - Open Lands (*)",
           "separatorBefore" : true,
           "action": "contentPage",
           "markdownFile": "content-pages/open-lands.md",
@@ -71,13 +71,13 @@
         },
         {
           "id": "data-dedication",
-          "name":  "Municipal - Water Dedication Policies (Proposed)",
+          "name":  "Municipal - Water Dedication Policies (*)",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Municipal-WaterDedicationPolicies/municipal-water-dedication-policies-map.json"
         },
         {
           "id": "data-rental-programs",
-          "name":  "Municipal - Water Rental Programs (Proposed)",
+          "name":  "Municipal - Water Rental Programs (*)",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Municipal-WaterRentals/municipal-water-rentals-map.json"
         },
@@ -90,14 +90,14 @@
         },
         {
           "id": "data-case-studies",
-          "name": "Water Transfer - Case Studies (Proposed)",
+          "name": "Water Transfer - Case Studies (*)",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/WaterTransfer-CaseStudies/transfer-case-studies-map.json",
           "separatorBefore" : true
         },
         {
           "id": "data-isa",
-          "name": "Water Transfer - Interruptable Supply Agreements (Proposed)",
+          "name": "Water Transfer - Interruptable Supply Agreements (*)",
           "action": "contentPage",
           "markdownFile": "content-pages/interruptable-supply.md",
           "x-action": "displayMap",
@@ -105,7 +105,7 @@
         },
         {
           "id": "data-swsp",
-          "name": "Water Transfer - Substitute Water Supply Plans (Proposed)",
+          "name": "Water Transfer - Substitute Water Supply Plans (*)",
           "action": "contentPage",
           "markdownFile": "content-pages/swsp.md",
           "x-action": "displayMap",

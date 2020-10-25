@@ -35,7 +35,7 @@ copyCounties() {
 copyIrrigatedLands() {
   checkSupportingDataFolder
 
-  # Copy stream reaches map folder and files
+  # Copy irrigated lands map folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/Agriculture-IrrigatedLands ${folder}
 }
 
@@ -110,10 +110,10 @@ runInteractive() {
     echo ""
     echo "  c. Copy main configuration files."
     echo " sw. Copy SupportingData/Administration - CoDwrWaterDistricts map files."
-    echo " ss. Copy SupportingData/Physical - StreamReaches map files."
-    echo " sc. Copy SupportingData/Political - Counties map files."
+    echo " sc. Copy SupportingData/Political - Counties map files and time series."
+    #echo " ss. Copy SupportingData/Physical - StreamReaches map files."
     echo " sl. Copy SupportingData/Agriculture - IrrigatedLands map files."
-    echo " sm. Copy SupportingData/Municipal - Municipalities map files."
+    echo " sm. Copy SupportingData/Municipal - Municipalities map files and time series."
     echo "smd. Copy SupportingData/Municipal - Water Dedication Policies map files."
     echo "smr. Copy SupportingData/Municipal - Water Rentals map files."
     echo "swp. Copy SupportingData/WaterSupply - Water Providers map files."
@@ -132,8 +132,8 @@ runInteractive() {
       copyWaterDistricts
     elif [ "${answer}" = "sc" ]; then
       copyCounties
-    elif [ "${answer}" = "ss" ]; then
-      copyStreamReaches
+    #elif [ "${answer}" = "ss" ]; then
+      #copyStreamReaches
     elif [ "${answer}" = "sl" ]; then
       copyIrrigatedLands
     elif [ "${answer}" = "sm" ]; then

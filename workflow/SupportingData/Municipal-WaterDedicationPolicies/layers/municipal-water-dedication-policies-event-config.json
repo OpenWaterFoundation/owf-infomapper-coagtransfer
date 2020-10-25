@@ -1,0 +1,12 @@
+{
+  "id" : "municipal-water-dedication-policies-event-config",
+  "name": "Municipal water dedication policy event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "WaterProviderName", "OWF_ID", "URL", "PolicyType" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

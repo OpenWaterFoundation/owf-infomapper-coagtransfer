@@ -329,7 +329,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/transfer-case-studies-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/transfer-case-studies-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -354,7 +371,7 @@
                 "classificationAttribute": "",
                 "properties": {
                   "color": "#000000",
-                  "fillColor": "#0000000",
+                  "fillColor": "#000000",
                   "fillOpacity": "0.0",
                   "weight": "2"
                 }

@@ -1,9 +1,9 @@
 {
-  "id" : "municipal-popup-config",
-  "name": "Municipal popup configuration",
+  "id" : "municipalities-event-config",
+  "name": "Municipal event configuration",
   "description":  "List main attributes and provide buttons to graph time series.",
   "layerAttributes" : {
-    "include" : [ "*" ],
+    "include" : [ "MunicipalityName", "County_CSV", "IBCC_Basin_CSV", "Website" ],
     "exclude" : [],
     "formats": []
   },
@@ -12,7 +12,7 @@
         "label" : "Population",
         "action" : "displayTimeSeries",
         "resourcePath" : "graphs/municipality-population-graph-config.json",
-        "saveFile" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-population-total.csv"
+        "downloadFile" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-population-total.csv"
       }
   ]
 }

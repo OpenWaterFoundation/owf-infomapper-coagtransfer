@@ -1,0 +1,12 @@
+{
+  "id" : "co-dwr-water-district-3-division1-event-config",
+  "name": "CO DWR water district 3 event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "DISTRICT", "DIVISION", "BASIN", "NAME" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

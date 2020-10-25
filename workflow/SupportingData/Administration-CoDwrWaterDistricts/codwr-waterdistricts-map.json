@@ -381,7 +381,24 @@
                   "weight": "3"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-districts-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-districts-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "WaterDivisionsLayerView",
@@ -400,7 +417,24 @@
                   "classificationFile": "layers/co-dwr-water-divisions-classify-division.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-divisions-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/co-dwr-water-divisions-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -430,7 +464,24 @@
                   "weight": "10"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/continental-divide-co-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

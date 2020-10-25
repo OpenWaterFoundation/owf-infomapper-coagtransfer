@@ -1,0 +1,12 @@
+{
+  "id" : "ditch-water-rentals-event-config",
+  "name": "Ditch water rental event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "DitchCompanyName", "URL" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

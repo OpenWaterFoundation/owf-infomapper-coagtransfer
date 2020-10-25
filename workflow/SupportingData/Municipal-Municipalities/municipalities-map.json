@@ -349,7 +349,15 @@
                   "name": null,
                   "description": "",
                   "properties": {
-                    "popupConfigPath": "graphs/municipality-popup-config.json"
+                    "eventConfigPath": "layers/municipalities-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/municipalities-event-config.json"
                   }
                 }
               ]
@@ -375,7 +383,24 @@
                   "weight": "2"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/municipal-boundaries-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/municipal-boundaries-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

@@ -1,9 +1,9 @@
 {
-  "id" : "county-popup-config",
-  "name": "County popup configuration",
+  "id" : "counties-event-config",
+  "name": "County event configuration",
   "description":  "List main attributes and provide buttons to graph time series.",
   "layerAttributes" : {
-    "include" : [ "*" ],
+    "include" : [ "county", "pop_2010", "househo_20" ],
     "exclude" : [],
     "formats": []
   },

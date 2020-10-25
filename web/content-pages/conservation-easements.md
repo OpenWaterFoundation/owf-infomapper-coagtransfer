@@ -12,5 +12,6 @@ such as municipal use.
 
 See the following resources:
 
-* [Colorado Open Lands](https://coloradoopenlands.org/)
+* [Keep it Colorado](https://www.keepitco.org/) - coalition of conservation organizations in Colorado
+* [Colorado Open Lands](https://coloradoopenlands.org/) - statewide conservation organization
 * [Sharing Water to Save the Farm:  A Guide to Agriculture-Municipal Water Sharing for Colorado's Land Conservation Community](https://coloradoopenlands.org/wp-content/uploads/2018/07/SHARING-WATER-TO-SAVE-THE-FARM-digital.pdf)

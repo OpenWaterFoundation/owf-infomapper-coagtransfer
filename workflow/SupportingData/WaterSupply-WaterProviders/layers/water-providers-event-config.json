@@ -1,0 +1,12 @@
+{
+  "id" : "water-providers-event-config",
+  "name": "Water providers event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "WaterProviderName", "OWF_ID", "LocalGovtType", "Website" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

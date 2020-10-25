@@ -331,7 +331,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/water-providers-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/water-providers-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -356,7 +373,7 @@
                 "classificationAttribute": "",
                 "properties": {
                   "color": "#000000",
-                  "fillColor": "#0000000",
+                  "fillColor": "#000000",
                   "fillOpacity": "0.0",
                   "weight": "2"
                 }

@@ -46,3 +46,5 @@ OWF has automating the original WWR analysis and implementing this initial websi
 This website uses the [InfoMapper](http://software.openwaterfoundation.org/) tool developed by OWF.
 The resulting tool can be implemented for other locations and the analysis
 can be enhanced to consider more data inputs.
+
+Menus that end in ***(\*)*** are proposed features and have been implemented in limited form to illustrate potential enhancements.

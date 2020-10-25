@@ -1,0 +1,12 @@
+{
+  "id" : "transfer-case-studies-event-config",
+  "name": "Transfer case studies event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "CaseStudyName", "URL", "County" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}
