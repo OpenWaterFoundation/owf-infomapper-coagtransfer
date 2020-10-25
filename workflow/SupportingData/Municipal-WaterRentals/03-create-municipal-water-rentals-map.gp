@@ -85,11 +85,15 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalWaterRentalGroup",Nam
 ReadGeoLayerFromGeoJSON(InputFile="layers/ditch-water-rentals.geojson",GeoLayerID="DitchWaterRentalsLayer",Name="Ditch water rentals",Description="DWR Offices")
 AddGeoLayerViewToGeoMap(GeoLayerID="DitchWaterRentalsLayer",GeoLayerViewID="DitchWaterRentalsLayerView",Name="Ditch Water Rentals",Description="Ditch companies with water rental (buying) programs",Properties="docPath:layers/ditch-water-rentals.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DitchWaterRentalsLayerView",Name="Ditch water rentals symbol",Description="Use marker image for ditch water providers",Properties="symbolImage:/img/field-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DitchWaterRentalsLayerView",EventType="click",Properties="eventConfigPath:layers/ditch-water-rentals-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DitchWaterRentalsLayerView",EventType="hover",Properties="eventConfigPath:layers/ditch-water-rentals-event-config.json")
 # = = = = = = = = = =
 # Municipal Water Rentals:  read layer and add to the same layer group
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-water-rentals.geojson",GeoLayerID="MunicipalWaterRentalsLayer",Name="Municipal water rentals",Description="DWR Offices")
 AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalWaterRentalsLayer",GeoLayerViewID="MunicipalWaterRentalsLayerView",Name="Municipal Water Rentals",Description="Municipal water providers with water rental (selling) programs",Properties="docPath:layers/municipal-water-rentals.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalWaterRentalsLayerView",Name="Municipal water rentals symbol",Description="Use marker image for municipal water providers",Properties="symbolImage:/img/drinkingwater-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalWaterRentalsLayerView",EventType="click",Properties="eventConfigPath:layers/municipal-water-rentals-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalWaterRentalsLayerView",EventType="hover",Properties="eventConfigPath:layers/municipal-water-rentals-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -100,6 +104,8 @@ CopyFile(SourceFile="municipal-water-rentals-map.md",DestinationFile="${MapFolde
 #
 CopyFile(SourceFile="layers/municipal-water-rentals.geojson",DestinationFile="${MapFolder}/layers/municipal-water-rentals.geojson")
 CopyFile(SourceFile="layers/municipal-water-rentals.md",DestinationFile="${MapFolder}/layers/municipal-water-rentals.md")
+CopyFile(SourceFile="layers/municipal-water-rentals-event-config.json",DestinationFile="${MapFolder}/layers/municipal-water-rentals-event-config.json")
 #
 CopyFile(SourceFile="layers/ditch-water-rentals.geojson",DestinationFile="${MapFolder}/layers/ditch-water-rentals.geojson")
 CopyFile(SourceFile="layers/ditch-water-rentals.md",DestinationFile="${MapFolder}/layers/ditch-water-rentals.md")
+CopyFile(SourceFile="layers/ditch-water-rentals-event-config.json",DestinationFile="${MapFolder}/layers/ditch-water-rentals-event-config.json")

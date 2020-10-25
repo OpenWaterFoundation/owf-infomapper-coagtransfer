@@ -1,0 +1,12 @@
+{
+  "id" : "co-dwr-water-division-event-config",
+  "name": "CO DWR water division event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "DIV", "BASIN" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

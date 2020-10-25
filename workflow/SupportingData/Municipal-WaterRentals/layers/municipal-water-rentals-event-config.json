@@ -1,0 +1,12 @@
+{
+  "id" : "municipal-water-rentals-event-config",
+  "name": "Municipal water rental event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "WaterProviderName", "OWF_ID", "URL" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

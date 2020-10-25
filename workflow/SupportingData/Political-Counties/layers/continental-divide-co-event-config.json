@@ -1,0 +1,12 @@
+{
+  "id" : "continental-divide-co-event-config",
+  "name": "Continental divide event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "LENGTH" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

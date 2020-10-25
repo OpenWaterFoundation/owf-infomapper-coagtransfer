@@ -74,6 +74,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ContinentalDivideGroup",Name="
 ReadGeoLayerFromGeoJSON(InputFile="https://raw.githubusercontent.com/OpenWaterFoundation/owf-data-us-continental-divide/master/data/continental-divide-co.geojson",GeoLayerID="ContinentalDivideLayer",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins")
 AddGeoLayerViewToGeoMap(GeoLayerID="ContinentalDivideLayer",GeoLayerViewID="ContinentalDivideLayerView",Name="Continental Divide",Description="Continental divide based on Hydrologic Unit Code basins",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="ContinentalDivideLayerView",Name="Continental divide symbol",Description="Continental divide line in wide dark grey.",Properties="color:#663300,fillColor:#663300,fillOpacity:0.2,weight:10")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/continental-divide-co-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ContinentalDivideLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/continental-divide-co-event-config.json")
 # = = = = = = = = = =
 # Water divisions:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
@@ -82,6 +84,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO 
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-divisions.geojson",GeoLayerID="WaterDivisionsLayer",Name="CO DWR Divisions",Description="Water Division boundaries from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionsLayer",GeoLayerViewID="WaterDivisionsLayerView",Name="CO DWR Water Divisions",Description="Boundary for Water Divisions from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-divisions.md",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDivisionsLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-divisions-classify-division.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDivisionsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-divisions-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDivisionsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-divisions-event-config.json")
 # = = = = = = = = = =
 # Water districts:  read layer and add to the layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
@@ -89,6 +93,8 @@ SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDivisionsLayerView",Name="
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-districts.geojson",GeoLayerID="WaterDistrictsLayer",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictsLayer",GeoLayerViewID="WaterDistrictsLayerView",Name="CO DWR Water Districts",Description="Water District boundaries from the Colorado Division of Water Resources",Properties="docPath:layers/co-dwr-water-districts.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterDistrictsLayerView",Name="Colorize districts",Description="Show each water districts in orange.",Properties="color:#000000,fillColor:#0000000,fillOpacity:0.0,weight:3")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-districts-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-districts-event-config.json")
 # = = = = = = = = = =
 # DWR offices:  read layer and add to the same layer group
 # GeoLayerViewGroupID: WaterDistrictsGroup
@@ -107,9 +113,13 @@ CopyFile(SourceFile="codwr-waterdistricts-map.md",DestinationFile="${MapFolder}/
 CopyFile(SourceFile="layers/co-dwr-water-divisions.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-divisions.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-divisions.md",DestinationFile="${MapFolder}/layers/co-dwr-water-divisions.md")
 CopyFile(SourceFile="layers/co-dwr-water-divisions-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-divisions-classify-division.csv")
+CopyFile(SourceFile="layers/co-dwr-water-divisions-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-divisions-event-config.json")
 #
 CopyFile(SourceFile="layers/co-dwr-water-districts.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-districts.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-districts.md",DestinationFile="${MapFolder}/layers/co-dwr-water-districts.md")
+CopyFile(SourceFile="layers/co-dwr-water-districts-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-event-config.json")
 #
 CopyFile(SourceFile="layers/co-dwr-offices.geojson",DestinationFile="${MapFolder}/layers/co-dwr-offices.geojson")
 CopyFile(SourceFile="layers/co-dwr-offices.md",DestinationFile="${MapFolder}/layers/co-dwr-offices.md")
+#
+CopyFile(SourceFile="layers/continental-divide-co-event-config.json",DestinationFile="${MapFolder}/layers/continental-divide-co-event-config.json")

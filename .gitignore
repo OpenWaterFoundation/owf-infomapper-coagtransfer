@@ -47,6 +47,7 @@ junk
 /workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*
 !/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/README.md
 !/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*.csv
+!/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*.json
 !/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*.md
 !/workflow/SupportingData/Administration-CoDwrWaterDistricts/layers/*doc
 # Dynamic map configurations
@@ -68,6 +69,7 @@ junk
 /workflow/SupportingData/Political-Counties/layers/*
 !/workflow/SupportingData/Political-Counties/layers/README.md
 !/workflow/SupportingData/Political-Counties/layers/*.csv
+!/workflow/SupportingData/Political-Counties/layers/*.json
 !/workflow/SupportingData/Political-Counties/layers/*.md
 !/workflow/SupportingData/Political-Counties/layers/*doc
 # ts/
@@ -84,6 +86,7 @@ junk
 /workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/README.md
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*.csv
+!/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*.json
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*.md
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/layers/*doc
 # Dynamic map configurations
@@ -95,6 +98,7 @@ junk
 /workflow/SupportingData/Municipal-Municipalities/layers/*
 !/workflow/SupportingData/Municipal-Municipalities/layers/README.md
 !/workflow/SupportingData/Municipal-Municipalities/layers/*.csv
+!/workflow/SupportingData/Municipal-Municipalities/layers/*.json
 !/workflow/SupportingData/Municipal-Municipalities/layers/*.md
 !/workflow/SupportingData/Municipal-Municipalities/layers/*doc
 # Dynamic map configurations
@@ -113,6 +117,7 @@ junk
 /workflow/SupportingData/Municipal-WaterRentals/layers/*
 !/workflow/SupportingData/Municipal-WaterRentals/layers/README.md
 !/workflow/SupportingData/Municipal-WaterRentals/layers/*.csv
+!/workflow/SupportingData/Municipal-WaterRentals/layers/*.json
 !/workflow/SupportingData/Municipal-WaterRentals/layers/*.md
 !/workflow/SupportingData/Municipal-WaterRentals/layers/*doc
 # Dynamic map configurations
@@ -124,6 +129,7 @@ junk
 /workflow/SupportingData/WaterTransfer-CaseStudies/layers/*
 !/workflow/SupportingData/WaterTransfer-CaseStudies/layers/README.md
 !/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*.csv
+!/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*.json
 !/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*.md
 !/workflow/SupportingData/WaterTransfer-CaseStudies/layers/*doc
 # Dynamic map configurations
@@ -135,6 +141,7 @@ junk
 /workflow/SupportingData/WaterSupply-WaterProviders/layers/*
 !/workflow/SupportingData/WaterSupply-WaterProviders/layers/README.md
 !/workflow/SupportingData/WaterSupply-WaterProviders/layers/*.csv
+!/workflow/SupportingData/WaterSupply-WaterProviders/layers/*.json
 !/workflow/SupportingData/WaterSupply-WaterProviders/layers/*.md
 !/workflow/SupportingData/WaterSupply-WaterProviders/layers/*doc
 # Dynamic map configurations

@@ -300,7 +300,7 @@
           "sourcePath": "layers/municipal-water-dedication-policies.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\SupportingData\\Municipal-DedicationPolicies\\layers\\municipal-water-dedication-policies.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\SupportingData\\Municipal-WaterDedicationPolicies\\layers\\municipal-water-dedication-policies.geojson'"
           ]
         }
       ],
@@ -329,7 +329,24 @@
                   "imageAnchorPoint": "Bottom"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/municipal-water-dedication-policies-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/municipal-water-dedication-policies-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -354,7 +371,7 @@
                 "classificationAttribute": "",
                 "properties": {
                   "color": "#000000",
-                  "fillColor": "#0000000",
+                  "fillColor": "#000000",
                   "fillOpacity": "0.0",
                   "weight": "2"
                 }

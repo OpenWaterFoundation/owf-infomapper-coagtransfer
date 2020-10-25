@@ -81,6 +81,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalWaterRentalGroup",Nam
 ReadGeoLayerFromGeoJSON(InputFile="layers/transfer-case-studies.geojson",GeoLayerID="TransferCaseStudiesLayer",Name="Water transfer case studies",Description="Water transfer case studies")
 AddGeoLayerViewToGeoMap(GeoLayerID="TransferCaseStudiesLayer",GeoLayerViewID="TransferCaseStudiesLayerView",Name="Water transfer Case Studies",Description="Agricultural water transfer case studies",Properties="docPath:layers/transfer-case-studies.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="TransferCaseStudiesLayerView",Name="Transfer case studies symbol",Description="Use marker image for agriculture field",Properties="symbolImage:/img/field-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="TransferCaseStudiesLayerView",EventType="click",Properties="eventConfigPath:layers/transfer-case-studies-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="TransferCaseStudiesLayerView",EventType="hover",Properties="eventConfigPath:layers/transfer-case-studies-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -91,3 +93,4 @@ CopyFile(SourceFile="transfer-case-studies-map.md",DestinationFile="${MapFolder}
 #
 CopyFile(SourceFile="layers/transfer-case-studies.geojson",DestinationFile="${MapFolder}/layers/transfer-case-studies.geojson")
 CopyFile(SourceFile="layers/transfer-case-studies.md",DestinationFile="${MapFolder}/layers/transfer-case-studies.md")
+CopyFile(SourceFile="layers/transfer-case-studies-event-config.json",DestinationFile="${MapFolder}/layers/transfer-case-studies-event-config.json")

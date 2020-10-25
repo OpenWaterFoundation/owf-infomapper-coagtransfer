@@ -81,6 +81,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDedicationPoliciesGroup",
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-water-dedication-policies.geojson",GeoLayerID="MunicipalWaterDedicationPoliciesLayer",Name="Municipal Water Dedication Policies",Description="Municipal water dedication policies")
 AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalWaterDedicationPoliciesLayer",GeoLayerViewID="MunicipalWaterDedicationPoliciesLayerView",Name="Municipal Water Dedication Policies",Description="Municipal water dedication policies (right, cash, or both)",Properties="docPath:layers/municipal-water-dedication-policies.md",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalWaterDedicationPoliciesLayerView",Name="Municipal Water Dedication Policies symbol",Description="Use marker image for both but need to show each symbol as category",Properties="symbolImage:/img/symbol_and-32x37.png,imageAnchorPoint:Bottom")
+SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalWaterDedicationPoliciesLayerView",EventType="click",Properties="eventConfigPath:layers/municipal-water-dedication-policies-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalWaterDedicationPoliciesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipal-water-dedication-policies-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -91,3 +93,4 @@ CopyFile(SourceFile="municipal-water-dedication-policies-map.md",DestinationFile
 #
 CopyFile(SourceFile="layers/municipal-water-dedication-policies.geojson",DestinationFile="${MapFolder}/layers/municipal-water-dedication-policies.geojson")
 CopyFile(SourceFile="layers/municipal-water-dedication-policies.md",DestinationFile="${MapFolder}/layers/municipal-water-dedication-policies.md")
+CopyFile(SourceFile="layers/municipal-water-dedication-policies-event-config.json",DestinationFile="${MapFolder}/layers/municipal-water-dedication-policies-event-config.json")
