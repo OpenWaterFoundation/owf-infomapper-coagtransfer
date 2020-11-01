@@ -1,0 +1,12 @@
+{
+  "id" : "municipal-boundaries-event-config",
+  "name": "Municipal boundaries event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "first_city" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

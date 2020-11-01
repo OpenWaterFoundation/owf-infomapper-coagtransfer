@@ -1,7 +1,8 @@
 # About the Colorado Agricultural Water Transfer Project and Website #
 
-The [Open Water Foundation (OWF)](http://openwaterfoundation.org) is a nonprofit social enterprise
-that develops open source software and open data solutions to make better decisions about water.
+This website has been developed by the [Open Water Foundation (OWF)](http://openwaterfoundation.org),
+which is a nonprofit social enterprise that develops open source software and open data solutions
+to make better decisions about water.
 
 The Colorado Agricultural Water Transfer website provides access to cross-jurisdictional
 datasets and visualizations related to agricultural water transfer in Colorado.
@@ -11,9 +12,6 @@ based on work completed by [WestWater Research (WWR)](https://www.waterexchange.
 with financial support of the [Environmental Defense Fund (EDF)](https://www.edf.org/).
 Some additional resources are included in ***Supporting Data*** information products in order to
 point out limitations in the analysis and need for additional analysis.
-See the following:
-
-* Need to insert link(s) to report and other resourcess.
 
 This website and content published on the website use the following software:
 
