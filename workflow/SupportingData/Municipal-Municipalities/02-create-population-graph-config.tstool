@@ -130,30 +130,51 @@ Message(Message="Municipality ${OWF_ID_Full} has ${MuniCountyPartRowCount} count
 # Loop through the county parts
 SetProperty(PropertyName="PartCount",PropertyType=Integer,PropertyValue="0")
 For(Name="For_Muni_County_Part",IteratorProperty="countyfips",TableID="${OWF_ID_Full}_MuniPart_Table",TableColumn="countyfips")
-Message(Message="Municipality ${OWF_ID_Full} has county part with county=${CountyForPart}, countyfips=${countyfips}")
+Message(Message="Municipality ${OWF_ID_Full} has county part with county=${CountyForMuni}, countyfips=${countyfips}")
 SetProperty(PropertyName="PartCount",PropertyType=Integer,PropertyValue="${PartCount}",Add="1")
 # Read the data records from the database for the muni/county part.
 # - look up the county name from the county list for use in time series
-SetPropertyFromTable(TableID="CountyListTable",Column="county_no_space",ColumnIncludeFilters="countyfips:${countyfips}",PropertyName="CountyForPart")
+SetPropertyFromTable(TableID="CountyListTable",Column="county_no_space",ColumnIncludeFilters="countyfips:${countyfips}",PropertyName="CountyForMuni")
 SetPropertyFromTable(TableID="CountyListTable",Column="county_no_space",ColumnIncludeFilters="countyfips:${countyfips}",PropertyName="county_no_space")
-ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((placefips = ${placefips}) AND (municipalityname LIKE '%Part%') AND (countyfips = ${countyfips})) ORDER BY year",TableID="${OWF_ID_Full}_${CountyForPart}_Population_MuniPart_Table")
+ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((placefips = ${placefips}) AND (municipalityname LIKE '%Part%') AND (countyfips = ${countyfips})) ORDER BY year",TableID="${OWF_ID_Full}_${CountyForMuni}_Population_MuniPart_Table")
 # Convert the data records to a time series.
-TableToTimeSeries(TableID="${OWF_ID_Full}_${CountyForPart}_Population_MuniPart_Table",DateColumn="year",LocationID="${OWF_ID_Full}-${CountyForPart}",LocationType="MuniPart",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-MuniPart-%T")
+TableToTimeSeries(TableID="${OWF_ID_Full}_${CountyForMuni}_Population_MuniPart_Table",DateColumn="year",LocationID="${OWF_ID_Full}-${CountyForMuni}",LocationType="MuniPart",ValueColumn="totalpopulation",DataSource="DOLA",DataType="Population-Total",Interval=Year,Units="persons",Alias="%L-MuniPart-%T")
 # Set the county for use later.
 SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",PropertyName="County_CSV_NoSpace",PropertyType=String,PropertyValue="${County_CSV_NoSpace}")
+# Handle Broomfield special case
+If(Name="If_BroomfieldMunicipality",Condition="${dola_municipality} == Broomfield")
+If(Name="If_BroomfieldCounty",Condition="${CountyForMuni} == Broomfield")
+# Part that is in Broomfield county
+# - all values 1980 to 1999 are missing because the county did not exist
+# - need to set that to zero and then set to the total 2000 and after
+SetConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",ConstantValue=0,SetStart="1980",SetEnd="1999")
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewEnd="2018")
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="Broomfield-Muni-Population-Total",SetStart="2000",SetEnd="2018",TransferHow=ByDateTime)
+EndIf(Name="If_BroomfieldCounty")
+If(Name="If_NotBroomfieldCounty",Condition="${CountyForMuni} != Broomfield")
+# Make sure years start in 1980 and are filled with zero
+# - seems to only be an issue for Broomfield and Weld county, although Weld population is only a few people
+# - TODO smalers 2020-11-01 need a way to fill constant or repeat only at start of period
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewStart="1980",NewEnd="2018")
+FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",ConstantValue=0,FillStart="1980",FillEnd="1984")
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewStart="1980",NewEnd="2018")
+SetDataValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",SetDateTime="2000",NewValue=0)
+FillRepeat(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",FillDirection=Forward)
+EndIf(Name="If_NotBroomfieldCounty")
+EndIf(Name="If_BroomfieldMunicipality")
 # Create or add to the total of the parts - needed because total is not always available
-If(Name="If_PartCount1",Condition="${PartCount} == 1")
-Copy(TSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",NewTSID="MuniPart:${OWF_ID_Full}-PartTotal.DOLA.Population-Total.Year",Alias="${OWF_ID_Full}-AllMuniParts-Population-Total")
-EndIf(Name="If_PartCount1")
-If(Name="If_PartCount2",Condition="${PartCount} > 1")
-Add(TSID="${OWF_ID_Full}-AllMuniParts-Population-Total",AddTSList=AllMatchingTSID,AddTSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",HandleMissingHow="IgnoreMissing")
-EndIf(Name="If_PartCount2")
+If(Name="If_OneCounty",Condition="${PartCount} == 1")
+Copy(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewTSID="MuniPart:${OWF_ID_Full}-PartTotal.DOLA.Population-Total.Year",Alias="${OWF_ID_Full}-AllMuniParts-Population-Total")
+EndIf(Name="If_OneCounty")
+If(Name="If_MoreThanOneCounty",Condition="${PartCount} > 1")
+Add(TSID="${OWF_ID_Full}-AllMuniParts-Population-Total",AddTSList=AllMatchingTSID,AddTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",HandleMissingHow="IgnoreMissing")
+EndIf(Name="If_MoreThanOneCounty")
 # Write the part time series files
-SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",PropertyName="County",PropertyType=String,PropertyValue="${CountyForPart}")
-SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",PropertyName="CountyNum",PropertyType=String,PropertyValue="${MuniCountyPartRowCount}")
-SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",PropertyName="County_CSV_NoSpace",PropertyType=String,PropertyValue="${County_CSV_NoSpace}")
-WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",OutputFile="${MunicipalitiesTsFolder}/MuniPart_${OWF_ID_Full}-${county_no_space}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
-WriteDateValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForPart}-MuniPart-Population-Total",OutputFile="${MunicipalitiesTsFolder}/MuniPart_${OWF_ID_Full}-${county_no_space}.DOLA.Population-Total.Year.dv",Precision=0,IncludeProperties="County,CountyNum,County_CSV_NoSpace")
+SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",PropertyName="County",PropertyType=String,PropertyValue="${CountyForMuni}")
+SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",PropertyName="CountyNum",PropertyType=String,PropertyValue="${MuniCountyPartRowCount}")
+SetTimeSeriesProperty(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",PropertyName="County_CSV_NoSpace",PropertyType=String,PropertyValue="${County_CSV_NoSpace}")
+WriteDelimitedFile(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",OutputFile="${MunicipalitiesTsFolder}/MuniPart_${OWF_ID_Full}-${county_no_space}.DOLA.Population-Total.Year.csv",DateTimeColumn="year",ValueColumns="population",Precision=0)
+WriteDateValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",OutputFile="${MunicipalitiesTsFolder}/MuniPart_${OWF_ID_Full}-${county_no_space}.DOLA.Population-Total.Year.dv",Precision=0,IncludeProperties="County,CountyNum,County_CSV_NoSpace")
 EndFor(Name="For_Muni_County_Part")
 # Fill the original municipality time series with the total of parts,
 # - just in case there were not total records for the period of the parts

@@ -148,27 +148,29 @@ ReadDateValue(InputFile="${SupportingDataMunicipalitiesTsFolder}/MuniPart_${OWF_
 # Copy the original time series
 Copy(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewTSID="MuniPart:${OWF_ID_Full}-${CountyForMuni}.DOLA.Population-CountyFraction.Year",Alias="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",CopyHistory=False)
 # Divide the copy by the county population to get fraction
-Divide(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",DivisorTSID="${County}-County-Population-Total",NewUnits="fraction")
+Divide(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",DivisorTSID="${CountyForMuni}-County-Population-Total",NewUnits="fraction")
 # Fill the fraction part to 2050 since it is being held constant for the population forecast
 ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewEnd="2050")
 # Special case for Broomfield county parts since Broomfield is a new county in 2000 DOLA population data
 # - set all other county parts to 0 before filling
+# - the following does not need to be done now because it is handled in SupportingData
 If(Name="If_Broomfield_Municipality",Condition="${OWF_ID_Full} == Broomfield")
-If(Name="If_Broomfield_County",Condition="${CountyForMuni} != Broomfield")
+If(Name="If_Broomfield_County",Condition="${CountyForMuni} == Broomfield")
 # Part that is in Broomfield county
-# - all values 1980 to 1999 are missing
+# - all values 1980 to 1999 are missing because can't divide by zero county population
 # - need to set that to zero and then part after that to the total
+SetConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,SetStart="1980",SetEnd="1999")
 EndIf(Name="If_Broomfield_County")
-If(Name="If_NotBroomfield_County",Condition="${CountyForMuni} != Broomfield")
-# Parts that are not in Broomfield county
-# - last year of data is 1999
-SetDataValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",SetDateTime="2000",NewValue=0)
-# Make sure years start in 1980 and are filled with zero
-# - seems to only be an issue for Broomfield and Weld county
-# - TODO smalers 2020-11-01 need a way to fill constant or repeat only at start of period
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewEnd="1980")
-FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,FillStart="1980",FillEnd="1984")
-EndIf(Name="If_NotBroomfield_County")
+# # If(Name="If_NotBroomfield_County",Condition="${CountyForMuni} != Broomfield")
+# # # Parts that are not in Broomfield county
+# # # - last year of data is 1999, set a zero in 2000 so it will fill forward below
+# # SetDataValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",SetDateTime="2000",NewValue=0)
+# # # Make sure years start in 1980 and are filled with zero
+# # # - seems to only be an issue for Broomfield and Weld county, although Weld population is only a few people
+# # # - TODO smalers 2020-11-01 need a way to fill constant or repeat only at start of period
+# # ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewStart="1980")
+# # FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,FillStart="1980",FillEnd="1984")
+# # EndIf(Name="If_NotBroomfield_County")
 EndIf(Name="If_Broomfield_Municipality")
 FillRepeat(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",FillDirection=Forward)
 EndFor(Name="For_MuniParts")
