@@ -1,0 +1,18 @@
+{
+  "id" : "municipalities-event-config",
+  "name": "Municipal event configuration",
+  "description":  "List main attributes and provide buttons to graph time series.",
+  "layerAttributes" : {
+    "include" : [ "MunicipalityName", "County_CSV", "IBCC_Basin_CSV", "Website" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+      {
+        "label" : "Population",
+        "action" : "displayTimeSeries",
+        "resourcePath" : "graphs/municipality-population-graph-config.json",
+        "downloadFile" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-population-total.csv"
+      }
+  ]
+}

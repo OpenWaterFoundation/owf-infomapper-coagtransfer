@@ -18,7 +18,7 @@ and flexibility in assuring municipal water supplies and reserves.
 
 In partnership with the [Environmental Defense Fund (EDF)](https://www.edf.org/),
 [WestWater Research (WWR)](https://www.waterexchange.com/)
-evaluated economic aspects of Alternative Water Transfer Methods (ATMs).
+evaluated economic aspects of [Alternative Water Transfer Methods (ATMs)](https://cwcb.colorado.gov/focus-areas/supply/alternative-transfer-methods).
 This work has contributed important insights into the challenges and opportunities for ATM development in Colorado.
 The primary state policy objective behind ATMs is to reduce the permanent
 dry-up of agricultural lands due to municipal water supply acquisitions,
@@ -29,22 +29,23 @@ In 2018, WWR worked with EDF to develop an analysis of municipal growth and muni
 water supply shortages for the Front Range to the year 2050.
 The analysis was both a water balance of individual municipal water providers and a spatial analysis to
 map what land development and agricultural dry-up might look like under various future scenarios.
-The analysis provided a better understanding of both the opportunity and benefits of ATMs for the Front Range.
+The analysis provides a better understanding of both the opportunity and benefits of ATMs for the Front Range.
 
-While the analysis provided a better understanding of ATMs,
-it also required estimates about future population growth, land development,
+While the analysis provides a better understanding of ATMs,
+it also requires estimates about future population growth, land development,
 and municipal water supplies that are inherently difficult to predict.
 There is a broader and more powerful benefit to be gained from the analytical tools developed by
 WWR by creating a public and open dashboard for evaluating alternative futures for the Front Range.
-An online dashboard with maps and charts can allow any user to simulate municipal growth,
+The [Open Water Foundation (OWF)](http://openwaterfoundation.org/) has subsequently automated the analysis and
+implemented this website to publish analysis input and results.
+
+The following main menus are provided.
+An online dashboard with maps and charts allows any user to better understand municipal growth,
 land development, and agricultural dry-up for the Front Range.
 
-In 2019, the [Open Water Foundation (OWF)](http://openwaterfoundation.org/)
-began the next phase of the project,
-represented in this website and [GitHub repository](https://github.com/OpenWaterFoundation/owf-app-ag-urban-workflow).
-OWF has automating the original WWR analysis and implementing this initial website to publish the results.
-This website uses the [InfoMapper](http://software.openwaterfoundation.org/) tool developed by OWF.
-The resulting tool can be implemented for other locations and the analysis
-can be enhanced to consider more data inputs.
-
-Menus that end in ***(\*)*** are proposed features and have been implemented in limited form to illustrate potential enhancements.
+| **Menu** | **Description** |
+| -- | -- |
+| ***Supporting Data*** | Input data needed by the analysis.  Menus that end in ***(\*)*** are proposed features and have been implemented in limited form to illustrate potential enhancements. |
+| ***Baseline Scenario*** | Baseline analysis scenario using simple assumptions across the Front Range.  See the ***Synopsis*** menu item for a summary of the analysis. |
+| ***Scenario 1*** | A placeholder for specific analysis scenario.  Enhancements to this web application may implement one or more scenarios. |
+| ***Resources*** | Additional useful resources. |

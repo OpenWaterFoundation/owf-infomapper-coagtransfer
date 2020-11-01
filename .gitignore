@@ -148,5 +148,43 @@ junk
 #/workflow/SupportingData/WaterSupply-WaterProviders/*.json
 
 # ======================================================
-# Baseline Simulation menu
+# Baseline Scenario menu
 # ======================================================
+
+# BaselineScenario/01-CountyPopulation
+/workflow/BaselineScenario/01-CountyPopulation/downloads/*
+!/workflow/BaselineScenario/01-CountyPopulation/downloads/README.md
+/workflow/BaselineScenario/01-CountyPopulation/layers/*
+!/workflow/BaselineScenario/01-CountyPopulation/layers/README.md
+!/workflow/BaselineScenario/01-CountyPopulation/layers/*.csv
+!/workflow/BaselineScenario/01-CountyPopulation/layers/*.json
+!/workflow/BaselineScenario/01-CountyPopulation/layers/*.md
+!/workflow/BaselineScenario/01-CountyPopulation/layers/*doc
+# Dynamic map configurations
+#/workflow/BaselineScenario/01-CountyPopulation/*.json
+# ts/
+# - ignore generated time series files
+/workflow/BaselineScenario/01-CountyPopulation/ts/*
+!/workflow/BaselineScenario/01-CountyPopulation/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/BaselineScenario/01-CountyPopulation/graphs/*.png
+
+# BaselineScenario/02-MunicipalPopulation
+/workflow/BaselineScenario/02-MunicipalPopulation/downloads/*
+!/workflow/BaselineScenario/02-MunicipalPopulation/downloads/README.md
+/workflow/BaselineScenario/02-MunicipalPopulation/layers/*
+!/workflow/BaselineScenario/02-MunicipalPopulation/layers/README.md
+!/workflow/BaselineScenario/02-MunicipalPopulation/layers/*.csv
+!/workflow/BaselineScenario/02-MunicipalPopulation/layers/*.json
+!/workflow/BaselineScenario/02-MunicipalPopulation/layers/*.md
+!/workflow/BaselineScenario/02-MunicipalPopulation/layers/*doc
+# Dynamic map configurations
+#/workflow/BaselineScenario/02-MunicipalPopulation/*.json
+# ts/
+# - ignore generated time series files
+/workflow/BaselineScenario/02-MunicipalPopulation/ts/*
+!/workflow/BaselineScenario/02-MunicipalPopulation/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/BaselineScenario/02-MunicipalPopulation/graphs/*.png

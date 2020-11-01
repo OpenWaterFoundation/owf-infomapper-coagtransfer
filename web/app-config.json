@@ -119,26 +119,25 @@
       "align": "left",
       "menus" : [
         {
-          "id": "baseline",
-          "name": "Baseline Dataset Map",
+          "id": "baseline-synopsis",
+          "name": "Synopsis",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "data-maps/BaselineScenario/00-Synopsis/synopsis.md"
+        },
+        {
+          "id": "baseline-county-population",
+          "name": "County Population",
+          "action": "contentPage",
+          "align": "right",
+          "separatorBefore" : true,
+          "markdownFile": "data-maps/BaselineScenario/01-CountyPopulation/county-population.md"
+        },
+        {
+          "id": "baseline-municipality-population",
+          "name": "Municipality Population",
           "action": "displayMap",
-          "enabled": false,
-          "mapProject": "data-maps/BaselineSimulation/Baseline/baseline.json"
-        },
-        {
-          "id": "baseline-executive-summary",
-          "name": "Executive Summary",
-          "action": "externalLink",
-          "align": "right",
-          "url": "http://openwaterfoundation.org",
-          "separatorBefore" : true
-        },
-        {
-          "id": "baseline-documentation",
-          "name": "Documentation",
-          "action": "externalLink",
-          "align": "right",
-          "url": "http://openwaterfoundation.org"
+          "mapProject" : "data-maps/BaselineScenario/02-MunicipalityPopulation/municipalities-map.json"
         }
       ]
     },
@@ -148,25 +147,11 @@
       "align": "left",
       "menus" : [
         {
-          "id": "scenario1",
-          "name": "Scenario 1 Simulation",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
-        }
-      ]
-    },
-    {
-      "id": "scenario2",
-      "name": "Scenario 2",
-      "align": "left",
-      "menus" : [
-        {
-          "id": "scenario2",
-          "name": "Scenario 2 Simulation",
-          "enabled": "false",
-          "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "id": "scenario1-synopsis",
+          "name": "Synopsis",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "data-maps/Scenario1/00-Synopsis/synopsis.md"
         }
       ]
     },
