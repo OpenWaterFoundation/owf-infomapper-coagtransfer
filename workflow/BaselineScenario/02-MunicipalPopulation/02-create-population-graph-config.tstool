@@ -36,8 +36,10 @@ StartLog(LogFile="02-create-population-graph-config.tstool.log",MaxSize="5000000
 #
 #===================================================================
 # Define properties to control processing.
+# - read controlling properies from the main confiration Excel file
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
+ReadPropertiesFromExcel(InputFile="../00-Synopsis\scenario-config.xlsx",Worksheet="Baseline-Config",PropertyCellMap="ScenarioId:ScenarioId,ScenarioDescription:ScenarioDescription,StartYear:StartYear,EndYear:EndYear,HistStartYear:HistStartYear,HistEndYear:HistEndYear,ForecastStartYear:ForecastStartYear,ForecastEndYear:ForecastEndYear",IntegerProperties="StartYear,EndYear,HistStartYear,HistEndYear,ForecastStartYear,ForecastEndYear")
 SetProperty(PropertyName="AppFolder",PropertyType=String,PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType=String,PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="SupportingDataCountiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/SupportingData/Political-Counties")
@@ -49,11 +51,6 @@ SetProperty(PropertyName="SupportingDataMunicipalitiesTsFolder",PropertyType=Str
 #SetProperty(PropertyName="BaselineScenarioCountiesTsFolder",PropertyType=String,PropertyValue="${BaselineScenarioCountiesMapFolder}/ts")
 SetProperty(PropertyName="BaselineScenarioMunicipalityPopulationMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/BaselineScenario/02-MunicipalityPopulation")
 SetProperty(PropertyName="BaselineScenarioMunicipalityPopulationTsFolder",PropertyType=String,PropertyValue="${BaselineScenarioMunicipalityPopulationMapFolder}/ts")
-#
-SetProperty(PropertyName="HistPopulationStart",PropertyType=DateTime,PropertyValue="1980")
-SetProperty(PropertyName="HistPopulationEnd",PropertyType=DateTime,PropertyValue="2018")
-SetProperty(PropertyName="ForecastPopulationStart",PropertyType=DateTime,PropertyValue="2019")
-SetProperty(PropertyName="ForecastPopulationEnd",PropertyType=DateTime,PropertyValue="2050")
 #
 # Create the output folders for time series
 CreateFolder(Folder="${BaselineScenarioMunicipalityPopulationTsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
@@ -133,19 +130,19 @@ Copy(TSID="${OWF_ID_Full}-Muni-Population-Total",NewTSID="Muni:${OWF_ID_Full}.DO
 # Divide the copy by the county population to get fraction
 SetPropertyFromTimeSeries(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",PropertyName="County",PropertyValue="${ts:County}")
 Divide(TSID="${OWF_ID_Full}-Muni-Population-CountyFraction",DivisorTSID="${County}-County-Population-Total",NewUnits="fraction")
-# Fill the fraction part to 2050 since it is being held constant for the population forecast
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-CountyFraction",NewEnd="2050")
+# Fill the fraction part to 2050 (${EndYear}) since it is being held constant for the population forecast
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-CountyFraction",NewEnd="${EndYear}")
 FillRepeat(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-CountyFraction",FillDirection=Forward)
 # Calculate the forecasted time series as the county forecast multiplied by the county fraction for the municipality
-NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Forecast.Year.Baseline",Description="${OWF_ID_Full} municipality population forecast",SetStart="2019",SetEnd="2050",Units="persons",MissingValue=NaN)
+NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Forecast.Year.Baseline",Description="${OWF_ID_Full} municipality population forecast",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",Units="persons",MissingValue=NaN)
 SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${County}-County-Population-Total",TransferHow=ByDateTime)
 Multiply(TSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",MultiplierTSID="${OWF_ID_Full}-Muni-Population-CountyFraction",NewUnits="persons")
 # Create a new time series for muni population for the scenario so original data from DOLA is not changed
 # - set from the original
 # - period will not include any forecast
-NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Total-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Total.Year.Baseline",Description="${OWF_ID_Full} municipality total population, baseline scenario",SetStart="1980",SetEnd="2050",Units="persons",MissingValue=NaN)
-SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-Muni-Population-Total",SetStart="1980",SetEnd="2018",TransferHow=ByDateTime)
-SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",SetStart="2019",SetEnd="2050",TransferHow=ByDateTime)
+NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Total-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Total.Year.Baseline",Description="${OWF_ID_Full} municipality total population, baseline scenario",SetStart="${StartYear}",SetEnd="${EndYear}",Units="persons",MissingValue=NaN)
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-Muni-Population-Total",SetStart="${StartYear}",SetEnd="${HistEndYear}",TransferHow=ByDateTime)
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",TransferHow=ByDateTime)
 # Write the full time series and forecast to files
 # - for now only write the full muni but can output parts if needed
 # Total population (historical and forecast)
@@ -183,37 +180,37 @@ ReadDateValue(InputFile="${SupportingDataMunicipalitiesTsFolder}/MuniPart_${OWF_
 Copy(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewTSID="MuniPart:${OWF_ID_Full}-${CountyForMuni}.DOLA.Population-CountyFraction.Year",Alias="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",CopyHistory=False)
 # Divide the copy by the county population to get fraction
 Divide(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",DivisorTSID="${CountyForMuni}-County-Population-Total",NewUnits="fraction")
-# Fill the fraction part to 2050 since it is being held constant for the population forecast
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewEnd="2050")
+# Fill the fraction part to 2050 (${EndYear}) since it is being held constant for the population forecast
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewEnd="${EndYear}")
 # Special case for Broomfield county parts since Broomfield is a new county in 2000 DOLA population data
 # - set all other county parts to 0 before filling
 # - the following does not need to be done now because it is handled in SupportingData
 If(Name="If_Broomfield_Municipality",Condition="${OWF_ID_Full} == Broomfield")
 If(Name="If_Broomfield_County",Condition="${CountyForMuni} == Broomfield")
 # Part that is in Broomfield county
-# - all values 1980 to 1999 are missing because can't divide by zero county population
+# - all values 1980 (${StartYear}) to 1999 are missing because can't divide by zero county population
 # - need to set that to zero and then part after that to the total
-SetConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,SetStart="1980",SetEnd="1999")
+SetConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,SetStart="${StartYear}",SetEnd="1999")
 EndIf(Name="If_Broomfield_County")
 # # If(Name="If_NotBroomfield_County",Condition="${CountyForMuni} != Broomfield")
 # # # Parts that are not in Broomfield county
 # # # - last year of data is 1999, set a zero in 2000 so it will fill forward below
 # # SetDataValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",SetDateTime="2000",NewValue=0)
-# # # Make sure years start in 1980 and are filled with zero
+# # # Make sure years start in 1980 (${StartYear}) and are filled with zero
 # # # - seems to only be an issue for Broomfield and Weld county, although Weld population is only a few people
 # # # - TODO smalers 2020-11-01 need a way to fill constant or repeat only at start of period
-# # ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewStart="1980")
-# # FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,FillStart="1980",FillEnd="1984")
+# # ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewStart="${StartYear}")
+# # FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",ConstantValue=0,FillStart="${StartYear}",FillEnd="1984")
 # # EndIf(Name="If_NotBroomfield_County")
 EndIf(Name="If_Broomfield_Municipality")
 FillRepeat(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",FillDirection=Forward)
 # Calculate the forecasted time series as the county forecast multiplied by the county part fraction for the municipality
-NewTimeSeries(Alias="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",NewTSID="MuniPart:${OWF_ID_Full}-${CountyForMuni}.Model.Population-Forecast.Year.Baseline",Description="${OWF_ID_Full}-${CountyForMuni} municipality population forecast",SetStart="2019",SetEnd="2050",Units="persons",MissingValue=NaN)
+NewTimeSeries(Alias="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",NewTSID="MuniPart:${OWF_ID_Full}-${CountyForMuni}.Model.Population-Forecast.Year.Baseline",Description="${OWF_ID_Full}-${CountyForMuni} municipality population forecast",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",Units="persons",MissingValue=NaN)
 SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${CountyForMuni}-County-Population-Total",TransferHow=ByDateTime)
 Multiply(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",MultiplierTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-CountyFraction",NewUnits="persons")
 # Don't change the original time series - do that below as a scenario
-#ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewEnd="2050")
-#SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast",SetStart="2019",SetEnd="2050",TransferHow=ByDateTime)
+#ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewEnd="${EndYear}")
+#SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",TransferHow=ByDateTime)
 # Create and increment the total for a municipality from parts in multiple counties:
 # - initialize with the first part
 # - then add each additional part
@@ -222,17 +219,17 @@ If(Name="If_PartCount1",Condition="${PartCount} == 1")
 #Copy(TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast",NewTSID="MuniPart:${OWF_ID_Full}-PartTotal.DOLA.Population-Forecast.Year.Baseline",Alias="${OWF_ID_Full}-Muni-Population-Forecast-Baseline")
 # Total
 # - copy from original total for the municipality (this assumes that parts will add to the total)
-NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Total-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Total.Year.Baseline",Description="${OWF_ID_Full} municipality total population (historical and forecast)",SetStart="1980",SetEnd="2050",Units="persons",MissingValue=NaN)
-SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-Muni-Population-Total",SetStart="1980",SetEnd="2018",TransferHow=ByDateTime)
-SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",SetStart="2019",SetEnd="2050",TransferHow=ByDateTime)
+NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Total-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Total.Year.Baseline",Description="${OWF_ID_Full} municipality total population (historical and forecast)",SetStart="${StartYear}",SetEnd="${EndYear}",Units="persons",MissingValue=NaN)
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-Muni-Population-Total",SetStart="${StartYear}",SetEnd="${HistEndYear}",TransferHow=ByDateTime)
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",TransferHow=ByDateTime)
 # Forecast - initialize to first part
-NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Forecast.Year.Baseline",Description="${OWF_ID_Full} municipality total population (forecast only)",SetStart="2019",SetEnd="2050",Units="persons",MissingValue=NaN)
-SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",SetStart="2019",SetEnd="2050",TransferHow=ByDateTime)
+NewTimeSeries(Alias="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",NewTSID="Muni:${OWF_ID_Full}.Model.Population-Forecast.Year.Baseline",Description="${OWF_ID_Full} municipality total population (forecast only)",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",Units="persons",MissingValue=NaN)
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",SetStart="${ForecastStartYear}",SetEnd="${EndYear}",TransferHow=ByDateTime)
 EndIf(Name="If_PartCount1")
 If(Name="If_PartCount2",Condition="${PartCount} > 1")
 # Only need to add the forecast, but add to the full time series and the forecast
-Add(TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",AddTSList=AllMatchingTSID,AddTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",HandleMissingHow="IgnoreMissing",AnalysisStart="2019",AnalysisEnd="2050")
-Add(TSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",AddTSList=AllMatchingTSID,AddTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",HandleMissingHow="IgnoreMissing",AnalysisStart="2019",AnalysisEnd="2050")
+Add(TSID="${OWF_ID_Full}-Muni-Population-Total-Baseline",AddTSList=AllMatchingTSID,AddTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",HandleMissingHow="IgnoreMissing",AnalysisStart="${ForecastStartYear}",AnalysisEnd="${EndYear}")
+Add(TSID="${OWF_ID_Full}-Muni-Population-Forecast-Baseline",AddTSList=AllMatchingTSID,AddTSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Forecast-Baseline",HandleMissingHow="IgnoreMissing",AnalysisStart="${ForecastStartYear}",AnalysisEnd="${EndYear}")
 EndIf(Name="If_PartCount2")
 EndFor(Name="For_MuniParts")
 # Write the full time series and forecast to files
