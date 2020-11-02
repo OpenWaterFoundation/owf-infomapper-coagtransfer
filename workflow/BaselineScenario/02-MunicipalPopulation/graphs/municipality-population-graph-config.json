@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:MunicipalityName}.toMixedCase() Municipality Total Population",
+      "MainTitleString" : "${featureAttribute:MunicipalityName}.toMixedCase() Municipality Total Population (Baseline)",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
@@ -18,7 +18,7 @@
       "SubTitleFontName" : "Arial",
       "SubTitleFontSize" : "10",
       "SubTitleFontStyle" : "Plain",
-      "SubTitleString" : "Source:  DOLA",
+      "SubTitleString" : "Source:  DOLA, Model",
       "TotalHeight" : "400",
       "TotalWidth" : "600"
     },
@@ -119,8 +119,26 @@
           "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-Muni-Population-Total",
-          "TSID" : "Muni:${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').DOLA.Population-Total.Year~dv~ts/Muni_${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').DOLA.Population-Total.Year.dv",
+          "TSAlias" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-Muni-Population-Total-Baseline",
+          "TSID" : "Muni:${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').Model.Population-Total.Year.Baseline~dv~ts/Muni_${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').Model.Population-Total.Year.Baseline.dv",
+          "XAxis" : "Bottom",
+          "YAxis" : "Left"
+        }
+      }, {
+        "properties" : {
+          "Color" : "0xff0000",
+          "DataLabelFormat" : "",
+          "DataLabelPosition" : "Right",
+          "Enabled" : "True",
+          "FlaggedDataSymbolStyle" : "Circle-Filled",
+          "GraphType" : "Point",
+          "LegendFormat" : "Auto",
+          "LineStyle" : "Solid",
+          "LineWidth" : "1",
+          "SymbolSize" : "5",
+          "SymbolStyle" : "Circle-Filled",
+          "TSAlias" : "${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','')-Muni-Population-Forecast-Baseline",
+          "TSID" : "Muni:${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').Model.Population-Forecast.Year.Baseline~dv~ts/Muni_${featureAttribute:MunicipalityName}.toMixedCase().replace(' ','').Model.Population-Forecast.Year.Baseline.dv",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "Swink Municipality Total Population",
+      "MainTitleString" : "Swink Municipality Total Population (Baseline)",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
@@ -18,7 +18,7 @@
       "SubTitleFontName" : "Arial",
       "SubTitleFontSize" : "10",
       "SubTitleFontStyle" : "Plain",
-      "SubTitleString" : "Source:  DOLA",
+      "SubTitleString" : "Source:  DOLA, Model",
       "TotalHeight" : "400",
       "TotalWidth" : "600"
     },
@@ -119,8 +119,26 @@
           "LineWidth" : "2",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "Swink-Muni-Population-Total",
-          "TSID" : "Muni:Swink.DOLA.Population-Total.Year",
+          "TSAlias" : "Swink-Muni-Population-Total-Baseline",
+          "TSID" : "Muni:Swink.Model.Population-Total.Year.Baseline",
+          "XAxis" : "Bottom",
+          "YAxis" : "Left"
+        }
+      }, {
+        "properties" : {
+          "Color" : "0xff0000",
+          "DataLabelFormat" : "",
+          "DataLabelPosition" : "Right",
+          "Enabled" : "True",
+          "FlaggedDataSymbolStyle" : "Circle-Filled",
+          "GraphType" : "Point",
+          "LegendFormat" : "Auto",
+          "LineStyle" : "Solid",
+          "LineWidth" : "1",
+          "SymbolSize" : "5",
+          "SymbolStyle" : "Circle-Filled",
+          "TSAlias" : "Swink-Muni-Population-Forecast-Baseline",
+          "TSID" : "Muni:Swink.Model.Population-Forecast.Year.Baseline",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
