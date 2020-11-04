@@ -19,6 +19,13 @@ StartLog(LogFile="02a-create-county-sqlite-database.tstool.log",MaxSize="1000000
 #   Overall                      San Juan (better for displays, etc.)
 #
 # ===================================================================================================
+# Main configuration properties, based on downloaded DOLA data.
+# - TODO smalers 2020-11-02 could write these to the database so later steps will be configured
+SetProperty(PropertyName="HistStartYear",PropertyType=Integer,PropertyValue="1980")
+SetProperty(PropertyName="HistEndYear",PropertyType=Integer,PropertyValue="2019")
+SetProperty(PropertyName="ForecastStartYear",PropertyType=Integer,PropertyValue="2020")
+SetProperty(PropertyName="ForecastEndYear",PropertyType=Integer,PropertyValue="2050")
+# ===================================================================================================
 # CREATE SQLITE DATABASE IN MEMORY
 #
 # Create an in-memory SQLite database containing county population data.
@@ -31,8 +38,13 @@ NewSQLiteDatabase(DataStore="CountyDatabase",DatabaseFile="Memory")
 # Read the historical population estimate data file downloaded from DOLA
 # - need to adjust some strings to deal with inconsistencies
 # - "City Of Castle Pines" replaced with "City of Castle Pines" because mixture causes problems sorting
-ReadTableFromDelimitedFile(TableID="CountyPopulationEstimates_DOLA_Table",InputFile="downloads/county-muni-population-timeseries-dola.csv",HeaderLines="1")
+# - replace '(Part)' with '(part)' to be consistent
+ReadTableFromDelimitedFile(TableID="CountyPopulationEstimates_DOLA_Table",InputFile="downloads/county-muni-population-timeseries-dola.csv",HeaderLines="1",IntegerColumns="id,placefips,totalpopulation,countyplace")
+#ReadTableFromDelimitedFile(TableID="CountyPopulationEstimates_DOLA_2019_Table",InputFile="downloads/county-muni-population-timeseries-dola-2019.csv",HeaderLines="1")
 ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="City Of Castle Pines",InputValue3="City of Castle Pines",OutputColumn="municipalityname")
+ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="(Part)",InputValue3="(part)",OutputColumn="municipalityname")
+ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="Idaho Sprgs",InputValue3="Idaho Springs",OutputColumn="municipalityname")
+ManipulateTableString(TableID="CountyPopulationEstimates_DOLA_Table",InputColumn1="municipalityname",Operator="Replace",InputValue2="Mount Crested Butte/G",InputValue3="Mount Crested Butte",OutputColumn="municipalityname")
 SortTable(TableID="CountyPopulationEstimates_DOLA_Table",SortColumns="municipalityname,year")
 #
 # Write the data from the file to the database
@@ -84,7 +96,7 @@ If(Name="If_CountyJoinCount",Condition="${CountyJoinRowCount} != 64")
 Message(Message="DOLA and OWF county lists do not align. Expect 64 matches.  Found ${CountyJoinRowCount}",CommandStatus=WARNING)
 EndIf(Name="If_CountyJoinCount")
 # ===================================================================================================
-# LOAD DOLA COUNTY FORECAST (WITH ESTIMATED FROM 2000) DATASET
+# LOAD DOLA COUNTY FORECAST (WITH ESTIMATED FROM 2000, FORECAST FROM ${ForecastStartYear}) DATASET
 #
 # Read the counties dataset Excel file downloaded from DOLA website
 # - have to translate the rows of time into a typical time series order
@@ -94,7 +106,7 @@ ReadTableFromExcel(TableID="CountyForecast_DOLA_Table",NumberPrecision=0,InputFi
 DeleteTableRows(TableID="CountyForecast_DOLA_Table",Condition="Counties contains COLORADO")
 RunSql(DataStore="CountyDatabase",Sql="CREATE TABLE IF NOT EXISTS population_forecast_dola (county TEXT NOT NULL, year INTEGER NOT NULL, population_forecast NOT NULL);")
 For(Name="For_ForecastCounties",IteratorProperty="County",TableID="CountyList_OWF_Table",TableColumn="CountyName")
-For(Name="For_Year",IteratorProperty="Year",SequenceStart="2000",SequenceEnd="2050")
+For(Name="For_Year",IteratorProperty="Year",SequenceStart="${ForecastStartYear}",SequenceEnd="${ForecastEndYear}")
 SetPropertyFromTable(TableID="CountyForecast_DOLA_Table",Column="${Year}",ColumnIncludeFilters="Counties:*${County}*",PropertyName="ForecastValue")
 # Insert one value at a time since transposing the original table
 RunSql(DataStore="CountyDatabase",Sql="INSERT INTO population_forecast_dola (county, year, population_forecast) VALUES ('${County}', ${Year}, ${ForecastValue});")
