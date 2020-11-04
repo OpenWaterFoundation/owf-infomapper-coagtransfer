@@ -93,11 +93,10 @@ CopyTable(TableID="MunicipalityList_DOLA_Table0",NewTableID="MunicipalityList_DO
 # Join to OWF municipality list that additional inforamtion such as OWF_ID_Full can be used
 # - if the result is not 272 rows (length of OWF dataset), warn
 JoinTables(TableID="MunicipalityList_DOLA_Table",TableToJoinID="MunicipalityList_OWF_Table",JoinColumns="placefips:FIPS_ID_int",JoinMethod=JoinIfInBoth,HandleMultipleJoinMatchesHow=UseLastMatch,RowCountProperty="MunicipalityJoinRowCount")
-SetProperty(PropertyName="MunicipalityList_OWF_Table_RowCount_Minus1",PropertyType=Integer,PropertyValue="${MunicipalityList_OWF_Table_RowCount}",Subtract="1")
 # Add County_CSV_NoSpace column for use below
 ManipulateTableString(TableID="MunicipalityList_DOLA_Table",InputColumn1="County_CSV",Operator="Remove",InputValue2="\s",OutputColumn="County_CSV_NoSpace")
-If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount_Minus1}")
-Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount_Minus1} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
+If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount}")
+Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
 EndIf(Name="If_MunicipalityJoinCount")
 #===================================================================
 #

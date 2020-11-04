@@ -39,10 +39,12 @@ SetProperty(PropertyName="CountiesTsFolder",PropertyType=String,PropertyValue="$
 SetProperty(PropertyName="MunicipalitiesMapFolder",PropertyType=String,PropertyValue="${MapsFolder}/SupportingData/Municipal-Municipalities")
 SetProperty(PropertyName="MunicipalitiesTsFolder",PropertyType=String,PropertyValue="${MunicipalitiesMapFolder}/ts")
 #
-SetProperty(PropertyName="HistPopulationStart",PropertyType=DateTime,PropertyValue="1980")
-SetProperty(PropertyName="HistPopulationEnd",PropertyType=DateTime,PropertyValue="2018")
-SetProperty(PropertyName="ForecastPopulationStart",PropertyType=DateTime,PropertyValue="2019")
-SetProperty(PropertyName="ForecastPopulationEnd",PropertyType=DateTime,PropertyValue="2050")
+# Main configuration properties, based on downloaded DOLA data.
+# - TODO smalers 2020-11-02 could write these to the database so later steps will be configured
+SetProperty(PropertyName="HistStartYear",PropertyType=DateTime,PropertyValue="1980")
+SetProperty(PropertyName="HistEndYear",PropertyType=DateTime,PropertyValue="2019")
+SetProperty(PropertyName="ForecastStartYear",PropertyType=DateTime,PropertyValue="2020")
+SetProperty(PropertyName="ForecastEndYear",PropertyType=DateTime,PropertyValue="2050")
 #
 # Create the output folders for time series
 CreateFolder(Folder="${MunicipalitiesTsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
@@ -87,9 +89,8 @@ CopyTable(TableID="MunicipalityList_DOLA_Table0",NewTableID="MunicipalityList_DO
 # Join to OWF municipality list that additional inforamtion such as OWF_ID_Full can be used
 # - if the result is not 272 rows (length of OWF dataset), warn
 JoinTables(TableID="MunicipalityList_DOLA_Table",TableToJoinID="MunicipalityList_OWF_Table",JoinColumns="placefips:FIPS_ID_int",JoinMethod=JoinIfInBoth,HandleMultipleJoinMatchesHow=UseLastMatch,RowCountProperty="MunicipalityJoinRowCount")
-SetProperty(PropertyName="MunicipalityList_OWF_Table_RowCount_Minus1",PropertyType=Integer,PropertyValue="${MunicipalityList_OWF_Table_RowCount}",Subtract="1")
-If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount_Minus1}")
-Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount_Minus1} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
+If(Name="If_MunicipalityJoinCount",Condition="${MunicipalityJoinRowCount} != ${MunicipalityList_OWF_Table_RowCount}")
+Message(Message="DOLA and OWF municipality datasets do not align. Expect ${MunicipalityList_OWF_Table_RowCount} matches from OWF dataset size.  Found ${MunicipalityJoinRowCount}.",CommandStatus=WARNING)
 EndIf(Name="If_MunicipalityJoinCount")
 #===================================================================
 #
@@ -147,17 +148,17 @@ If(Name="If_BroomfieldCounty",Condition="${CountyForMuni} == Broomfield")
 # Part that is in Broomfield county
 # - all values 1980 to 1999 are missing because the county did not exist
 # - need to set that to zero and then set to the total 2000 and after
-SetConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",ConstantValue=0,SetStart="1980",SetEnd="1999")
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewEnd="2018")
-SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="Broomfield-Muni-Population-Total",SetStart="2000",SetEnd="2018",TransferHow=ByDateTime)
+SetConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",ConstantValue=0,SetStart="${HistStartYear}",SetEnd="1999")
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewEnd="${HistEndYear}")
+SetFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="Broomfield-Muni-Population-Total",SetStart="2000",SetEnd="${HistEndYear}",TransferHow=ByDateTime)
 EndIf(Name="If_BroomfieldCounty")
 If(Name="If_NotBroomfieldCounty",Condition="${CountyForMuni} != Broomfield")
 # Make sure years start in 1980 and are filled with zero
 # - seems to only be an issue for Broomfield and Weld county, although Weld population is only a few people
 # - TODO smalers 2020-11-01 need a way to fill constant or repeat only at start of period
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewStart="1980",NewEnd="2018")
-FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",ConstantValue=0,FillStart="1980",FillEnd="1984")
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewStart="1980",NewEnd="2018")
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewStart="${HistStartYear}",NewEnd="${HistEndYear}")
+FillConstant(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",ConstantValue=0,FillStart="${HistStartYear}",FillEnd="1984")
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",NewStart="${HistStartYear}",NewEnd="${HistEndYear}")
 SetDataValue(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",SetDateTime="2000",NewValue=0)
 FillRepeat(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-${CountyForMuni}-MuniPart-Population-Total",FillDirection=Forward)
 EndIf(Name="If_NotBroomfieldCounty")
@@ -180,7 +181,7 @@ EndFor(Name="For_Muni_County_Part")
 # - just in case there were not total records for the period of the parts
 # - ask to extend the original time series
 If(Name="If_FillFromParts",Condition="${MuniCountyPartRowCount} > 0")
-ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",NewStart="1980")
+ChangePeriod(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",NewStart="${HistStartYear}")
 FillFromTS(TSList=AllMatchingTSID,TSID="${OWF_ID_Full}-Muni-Population-Total",IndependentTSList=AllMatchingTSID,IndependentTSID="${OWF_ID_Full}-AllMuniParts-Population-Total")
 # Rewrite the time series that were updated
 # - County property is not valid when there are parts but County_CSV_NoSpace is valid
