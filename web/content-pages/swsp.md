@@ -3,7 +3,7 @@
 A substitute water supply plan (SWSP) is a mechanism to temporarily transfer water.
 SWSPs are used for short-term (e.g., 1 year) arrangements.
 
-**The analysis presented on this web site did not consider using SWSPs to temporarily meet urban water demand.**
+**The analysis presented on this web site did not consider using SWSPs to temporarily meet municipal water demand.**
 
 See the following information:
 

@@ -12,7 +12,7 @@ and are example that may be appropriate to implement in some form in other locat
 
 **This is an example using incomplete dataset.  Funding is needed to implement full dataset.**
 
-**The analysis presented on this web site did not consider using SWSPs to temporarily meet urban water demand.**
+**The analysis presented on this web site did not consider using SWSPs to temporarily meet municipal water demand.**
 
 ## Layer Groups
 

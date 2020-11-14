@@ -15,8 +15,8 @@ Dedication general occurs by the following approaches:
 water right portfolio is important.
 Agricultural use water rights may be transferred in various ways, such as:
     1. municipal area grows onto agricultural land
-    2. agricultural lands at a distance from the urban area transfer water rights from agriculture
-    to municipal water provide, with land undergoing "buy and dry"
+    2. agricultural lands at a distance from the municipal area transfer water rights from agriculture
+    to municipal water provider, with land undergoing "buy and dry"
     3. agricultural land water rights purchased using "buy and supply" (water provider owns water and
     leases back to agriculture)
     4. other arrangements

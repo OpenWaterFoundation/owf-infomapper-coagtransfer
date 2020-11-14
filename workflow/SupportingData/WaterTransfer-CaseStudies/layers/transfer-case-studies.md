@@ -5,7 +5,7 @@ agricultural water transfer to other uses has occurred,
 while attempting to preserve some level agriculture.
 These case studies illustrate examples that may be appropriate in some form in other locations.
 
-**The analysis presented on this web site did not consider using ATMs to meet urban water demand.**
+**The analysis presented on this web site did not consider using ATMs to meet municipal water demand.**
 
 See the following resources for information about agricultural water transfers:
 
