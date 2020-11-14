@@ -41,7 +41,7 @@ copyBaselineScenario_CountyPopulation() {
   cp -rv ${scriptFolder}/data-maps/BaselineScenario/01-CountyPopulation ${folder}
 }
 
-copyBaselineScenario_MunicipalPopulation() {
+copyBaselineScenario_MunicipalityPopulation() {
   checkBaselineScenarioFolder
 
   # Copy counties map folder and files
@@ -159,7 +159,7 @@ runInteractive() {
     echo ""
     echo " bs. Copy BaselineScenario/Synopsis map files."
     echo " bc. Copy BaselineScenario/CountyPopulation map files."
-    echo " bm. Copy BaselineScenario/MunipalityPopulation map files."
+    echo " bm. Copy BaselineScenario/MunicipalityPopulation map files."
     echo ""
     echo " 1s. Copy Scenario1/Synopsis map files."
     echo ""
@@ -196,7 +196,7 @@ runInteractive() {
     elif [ "${answer}" = "bc" ]; then
       copyBaselineScenario_CountyPopulation
     elif [ "${answer}" = "bm" ]; then
-      copyBaselineScenario_MunicipalPopulation
+      copyBaselineScenario_MunicipalityPopulation
 
     # Scenario1 scenario
 
