@@ -2,7 +2,6 @@ StartLog(LogFile="02-create-population-graph-config.tstool.log",MaxSize="5000000
 # Create the municipal population graph configurations
 # - use the SQLite database of municipality population data that was created when processing
 #
-#
 # Time Series Identification (copy of the Political-Counties information)
 # ==========================
 #
@@ -82,7 +81,6 @@ ManipulateTableString(TableID="MunicipalityList_OWF_Table",InputColumn1="County_
 #   since DOLA does not have any data.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT DISTINCT municipalityname, placefips FROM county_pop_estimate_dola WHERE ((placefips != 0) AND (municipalityname NOT LIKE '%Unincorp%') AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%')) ORDER BY municipalityname",TableID="MunicipalityList_DOLA_Table0")
 ManipulateTableString(TableID="MunicipalityList_DOLA_Table0",InputColumn1="municipalityname",Operator="Remove",InputValue2="\s(Total)",OutputColumn="dola_municipality")
-ManipulateTableString(TableID="MunicipalityList_DOLA_Table0",InputColumn1="municipalityname",Operator="Remove",InputValue2="\s(Total)",OutputColumn="dola_municipality")
 DeleteTableRows(TableID="MunicipalityList_DOLA_Table0",Condition="municipalityname == Bonza City")
 DeleteTableRows(TableID="MunicipalityList_DOLA_Table0",Condition="municipalityname == Massa")
 CopyTable(TableID="MunicipalityList_DOLA_Table0",NewTableID="MunicipalityList_DOLA_Table",DistinctColumns="dola_municipality")
@@ -100,6 +98,7 @@ EndIf(Name="If_MunicipalityJoinCount")
 # - therefore, iterate using the 'placefips'
 #
 For(Name="For_Muni_Population",IteratorProperty="dola_municipality",TableID="MunicipalityList_DOLA_Table",TableColumn="dola_municipality",TablePropertyMap="OWF_ID_Full:OWF_ID_Full,placefips:placefips,NumCounty:NumCounty,County_CSV:County_CSV,County_CSV_NoSpace:County_CSV_NoSpace")
+Message(Message="Processing municipality ${dola_municipality}, OWF ID=${OWF_ID_Full}")
 # First get the data records from the database.
 ReadTableFromDataStore(DataStore="CountyDatabase",Sql="SELECT * FROM county_pop_estimate_dola WHERE ((placefips = ${placefips}) AND (municipalityname NOT LIKE '%Part%') AND (municipalityname NOT LIKE '%COUNTY%') AND (municipalityname NOT LIKE '%Unincorp%')) ORDER BY year",TableID="${OWF_ID_Full}_Municipality_Data_Table")
 # Convert the data records to a time series.

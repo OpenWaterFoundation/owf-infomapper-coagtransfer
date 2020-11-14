@@ -1,18 +1,20 @@
 # Colorado Agricultural Water Transfer #
 
-This website provides information about agricultural water transfer in Colorado,
-currently focusing on transfers in the Colorado Front Range.
+This website provides information about potential agricultural water transfers in Colorado,
+currently focusing on water transfers along the Colorado Front Range.
 
 Colorado's Front Range continues to experience population growth.
 The Front Range population added approximately 600,000 people in the decade from 2000 to 2010
 and is projected to add another 3 million people in the next four decades.
 The projected growth means that the Front Range population will have doubled from 2000 to 2050.
 
-In the past, significant agricultural dry-up has occurred along the Front Range,
-with the transfer of water supplies from agricultural to urban use, to fulfill the needs of population growth and development.
+In the past, significant dry-up of agricultural lands has occurred along the Front Range,
+with the transfer of water supplies from agricultural to municipal use,
+to fulfill the needs of population growth and housing development.
 There is a growing sentiment among Colorado water leaders that we
 cannot grow in the future the way that we have grown in the past.
-There are options as to how fast urbanization occurs and to what extent the dry up of agricultural lands transpires.
+There are options as to how land development occurs in each community
+and to what extent the dry up of agricultural lands occurs.
 Options include denser growth, changes in water dedications,
 and flexibility in assuring municipal water supplies and reserves.
 

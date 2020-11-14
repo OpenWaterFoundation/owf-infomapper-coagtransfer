@@ -1,7 +1,8 @@
 # Baseline Scenario / Synopsis 
 
-The baseline scenario is an analysis of urban growth onto agricultural lands using
-basic assumptions.
+The baseline scenario is an analysis of potential municipal growth onto agricultural lands using
+basic assumptions and readily available data.
+Modifications to the baseline assumptions are represented in the analysis in the ***Scenario 1*** tab.
 
 The following table lists the analysis workflow steps.
 Each ***Baseline Scenario*** menu item corresponds to results for the analysis step.

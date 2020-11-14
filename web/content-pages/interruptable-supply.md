@@ -5,7 +5,7 @@ for example to transfer water from agriculture to municipal use during a drought
 There are limits on how many years such an arrangement can be used,
 for example 3 in 10 years.
 
-**The analysis presented on this web site did not consider using IWSAs to temporarily meet urban water demand.**
+**The analysis presented on this web site did not consider using IWSAs to temporarily meet municipal water demand.**
 
 See the following information:
 
