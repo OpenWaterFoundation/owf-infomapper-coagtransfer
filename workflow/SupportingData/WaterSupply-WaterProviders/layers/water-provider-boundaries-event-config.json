@@ -1,0 +1,12 @@
+{
+  "id" : "water-provider-boundaries-event-config",
+  "name": "Water provider boundaries event configuration",
+  "description":  "List important attributes.",
+  "layerAttributes" : {
+    "include" : [ "LGNAME", "MAIL_CITY", "LGID", "URL" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

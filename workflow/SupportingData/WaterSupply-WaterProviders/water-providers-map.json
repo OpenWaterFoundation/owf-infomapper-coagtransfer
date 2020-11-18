@@ -290,6 +290,34 @@
           ]
         },
         {
+          "geoLayerId": "DenverWaterBoundaryLayer",
+          "name": "Denver Water Boundary",
+          "description": "Denver Water Boundary",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "layers/denver-water-boundary.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\SupportingData\\WaterSupply-WaterProviders\\layers\\denver-water-boundary.geojson'"
+          ]
+        },
+        {
+          "geoLayerId": "WaterProviderBoundariesLayer",
+          "name": "Colorado Water Provider Boundaries",
+          "description": "Colorado Water Provider Boundaries",
+          "crs": "EPSG:4326",
+          "geometryType": "WKT:Polygon",
+          "layerType": "Vector",
+          "sourceFormat": "GeoJSON",
+          "sourcePath": "layers/water-provider-boundaries.geojson",
+          "properties": {},
+          "history:": [
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\SupportingData\\WaterSupply-WaterProviders\\layers\\water-provider-boundaries.geojson'"
+          ]
+        },
+        {
           "geoLayerId": "WaterProvidersLayer",
           "name": "Colorado Water Providers",
           "description": "Colorado Water Providers",
@@ -309,9 +337,7 @@
           "geoLayerViewGroupId": "WaterProvidersGroup",
           "name": "Colorado Water Providers",
           "description": "Colorado Water Providers",
-          "properties": {
-            "selectedInitial": "true"
-          },
+          "properties": {},
           "geoLayerViews": [
             {
               "geoLayerViewId": "WaterProvidersLayerView",
@@ -346,6 +372,86 @@
                   "description": "Click event configuration",
                   "properties": {
                     "eventConfigPath": "layers/water-providers-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "WaterProviderBoundariesLayerView",
+              "name": "Water Provider Boundaries (Districts)",
+              "description": "Colorado Water Provider Boundaries from DOLA",
+              "geoLayerId": "WaterProviderBoundariesLayer",
+              "properties": {
+                "docPath": "layers/water-provider-boundaries.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorado Water Provider Boundaries",
+                "description": "Colorado Water Provider Boundaries",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#595959",
+                  "opacity": "1.0",
+                  "fillColor": "#595959",
+                  "fillOpacity": "0.3",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/water-provider-boundaries-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/water-provider-boundaries-event-config.json"
+                  }
+                }
+              ]
+            },
+            {
+              "geoLayerViewId": "DenverWaterBoundaryLayerView",
+              "name": "Denver Water Boundary",
+              "description": "Denver Water Boundary",
+              "geoLayerId": "DenverWaterBoundaryLayer",
+              "properties": {
+                "docPath": "layers/denver-water-boundary.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Denver Water Boundary",
+                "description": "Denver Water Boundary",
+                "classificationType": "SingleSymbol",
+                "classificationAttribute": "",
+                "properties": {
+                  "color": "#cc7a00",
+                  "opacity": "1.0",
+                  "fillColor": "#cc7a00",
+                  "fillOpacity": "0.3",
+                  "weight": "2"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/denver-water-boundary-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/denver-water-boundary-event-config.json"
                   }
                 }
               ]

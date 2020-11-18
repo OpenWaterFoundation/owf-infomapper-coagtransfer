@@ -119,6 +119,12 @@ copySupportingData_MunicipalDedicationPolicies() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-WaterDedicationPolicies ${folder}
 }
 
+copySupportingData_WaterProviders() {
+  checkSupportingDataFolder
+
+  # Copy water providers map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/WaterSupply-WaterProviders ${folder}
+}
 
 copyWaterDistricts() {
   checkSupportingDataFolder

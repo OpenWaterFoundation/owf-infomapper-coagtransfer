@@ -1,0 +1,12 @@
+{
+  "id" : "denver-water-boundary-event-config",
+  "name": "Denver Water boundary event configuration",
+  "description":  "List no attributes.",
+  "layerAttributes" : {
+    "include" : [],
+    "exclude" : [ "*"],
+    "formats": []
+  },
+  "actions": [
+  ]
+}
