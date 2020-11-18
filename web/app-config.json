@@ -10,28 +10,29 @@
       "align": "left",
       "menus": [
         {
-          "id": "codwr-waterdistricts-map",
+          "id": "data-codwr-waterdistricts-map",
           "name": "Administration - CO DWR Water Districts",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
         },
         {
-          "id": "entities-counties",
+          "id": "data-counties",
           "name": "Political - Counties",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Political-Counties/counties-map.json",
           "separatorBefore" : true
         },
         {
-          "id": "stream-reaches-map",
+          "id": "data-stream-reaches-map",
           "name": "Physical - Stream Reaches",
           "action": "displayMap",
           "enabled": false,
+          "visible": false,
           "mapProject" : "data-maps/SupportingData/Physical-StreamReaches/stream-reaches-map.json",
           "separatorBefore" : true
         },
         {
-          "id": "entities-ditches",
+          "id": "data-ditches",
           "name":  "Agriculture - Ditch Service Areas",
           "enabled": "false",
           "action": "displayMap",
@@ -39,16 +40,38 @@
           "separatorBefore" : true
         },
         {
-          "id": "irrigated-lands-map",
+          "id": "data-irrigated-lands-map",
           "name":  "Agriculture - Irrigated Lands",
           "enabled": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
         },
         {
-          "id": "conservation-easements-map",
+          "id": "data-municipalities",
+          "name": "Municipal - Municipalities",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Municipal-Municipalities/municipalities-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "data-water-providers",
+          "name": "Water Supply - Water Providers",
+          "separatorBefore" : true,
+          "action": "displayMap",
+          "mapProject": "data-maps/SupportingData/WaterSupply-WaterProviders/water-providers-map.json"
+        },
+        {
+          "id": "data-rasters",
+          "name": "Model Data - Rasters",
+          "separatorBefore" : true,
+          "action": "displayMap",
+          "mapProject": "data-maps/SupportingData/ModelData-Rasters/rasters-map.json"
+        },
+        {
+          "id": "data-conservation-easements-map",
           "name":  "Agriculture - Conservation Easements (*)",
           "action": "contentPage",
+          "separatorBefore" : true,
           "markdownFile": "content-pages/conservation-easements.md",
           "x-action": "displayMap",
           "x-mapProject" : "data-maps/SupportingData/Agriculture-ConservationEasements/conservation-easements-map.json"
@@ -63,13 +86,6 @@
           "x-mapProject" : "data-maps/SupportingData/Environment-OpenLands/open-lands-map.json"
         },
         {
-          "id": "municipalities",
-          "name": "Municipal - Municipalities",
-          "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Municipal-Municipalities/municipalities-map.json",
-          "separatorBefore" : true
-        },
-        {
           "id": "data-dedication",
           "name":  "Municipal - Water Dedication Policies (*)",
           "action": "displayMap",
@@ -80,13 +96,6 @@
           "name":  "Municipal - Water Rental Programs (*)",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Municipal-WaterRentals/municipal-water-rentals-map.json"
-        },
-        {
-          "id": "entities-water-providers",
-          "name": "Water Supply - Water Providers",
-          "separatorBefore" : true,
-          "action": "displayMap",
-          "mapProject": "data-maps/SupportingData/WaterSupply-WaterProviders/water-providers-map.json"
         },
         {
           "id": "data-case-studies",

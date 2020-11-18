@@ -1,0 +1,115 @@
+#
+# This file contains a list of water providers to be included in the Front Range analysis.
+# This is a copy of the file that was used with WestWater Research, adding only this header.
+#
+WaterEntity,County1,County2,County3,FIPS_ID,GNIS_ID,DOLA_LG_ID,LocalGovtType
+Arapahoe County Water and Wastewater Authority,Douglas,Arapahoe,,,,64247,Water Authority
+Arvada,Jefferson,Adams,,3455,2409737,64009,Municipality
+Ault,Weld,,,3950,2411653,62003,Municipality
+Aurora,Arapahoe,Douglas,Adams,4000,2409757,64010,Municipality
+Bennett,Arapahoe,Adams,,6090,2411676,64258,Municipality
+Berthoud,Larimer,Weld,,6255,2411681,64237,Municipality
+Boone,Pueblo,,,7795,2411709,51005,Municipality
+Boulder,Boulder,,,7850,2409883,7006,Municipality
+Bow Mar,Arapahoe,Jefferson,,8070,2411713,64026,Municipality
+Brighton,Adams,Weld,,8675,2409911,64029,Municipality
+Broomfield,Broomfield,,,9280,2409919,64030,Municipality
+Calhan,El Paso,,,11260,2413149,21006,Municipality
+Castle Pines,Douglas,,,12387,2500981,65986,Municipality
+Castle Pines North Metropolitan District,Douglas,,,,,18044,Metropolitan District
+Castle Rock,Douglas,,,12415,2413179,18003,Municipality
+Centennial,Arapahoe,,,12815,2409422,3163,Municipality
+Centennial Water and Sanitation District,Douglas,,,,,18025,Water and Sanitation District
+Central Weld County Water District,Weld,,,,,62005,Water District
+Cherokee Metropolitan District,El Paso,,,,,21010,Metropolitan District
+Cherry Hills Village,Arapahoe,,,13845,2409443,3023,Municipality
+Colorado Springs,El Paso,,,16000,2410198,21015,Municipality
+Columbine Valley,Arapahoe,,,16385,2413232,3029,Municipality
+Commerce City,Adams,,,16495,2410212,1005,Municipality
+Consolidated Mutual Water Company,Jefferson,,,,,,Company
+Cottonwood Water and Sanitation District,Douglas,,,,,18006,Water and Sanitation District
+Dacono,Weld,,,19080,2410283,62007,Municipality
+Deer Trail,Arapahoe,,,19630,2412415,3033,Municipality
+Denver,Denver,,,20000,2410324,16002,Municipality
+Denver Southeast Suburban Water and Sanitation District,Douglas,,,,,18007,Water and Sanitation District
+Donala Water and Sanitation District,El Paso,,,,,21016,Water and Sanitation District
+East Cherry Creek Valley Water and Sanitation District,Arapahoe,,,,,3038,Water and Sanitation District
+East Larimer County Water District,Larimer,Weld,,,,64056,Water District
+Eaton,Weld,,,22860,2412462,62008,Municipality
+Edgewater,Jefferson,,,23135,2410399,30020,Municipality
+Elizabeth,Elbert,,,23740,2412474,20004,Municipality
+Englewood,Arapahoe,,,24785,2410441,3041,Municipality
+Erie,Boulder,Weld,,24950,2412599,64060,Municipality
+Evans,Weld,,,25280,2410467,62011,Municipality
+Federal Heights,Adams,,,26270,2410493,1009,Municipality
+Firestone,Weld,,,26600,2412626,62012,Municipality
+Forest View Acres Water District,El Paso,,,,,21022,Water District
+Fort Collins,Larimer,,,27425,2410526,35009,Municipality
+Fort Collins - Loveland Water District,Larimer,Weld,,,,35007,Water District
+Fort Lupton,Weld,,,27700,2410528,62014,Municipality
+Fountain,El Paso,,,27865,2410535,21026,Municipality
+Foxfield,Arapahoe,,,28105,2412649,3134,Municipality
+Frederick,Weld,,,28360,2412656,62016,Municipality
+Garden City,Weld,,,29185,2412667,62018,Municipality
+Gilcrest,Weld,,,29955,2412683,62020,Municipality
+Glendale,Arapahoe,,,30340,2410598,3043,Municipality
+Golden,Jefferson,,,30835,2410611,30035,Municipality
+Greeley,Weld,,,32155,2410654,62022,Municipality
+Greenwood Village,Arapahoe,,,33035,2410661,3051,Municipality
+Grover,Weld,,,33310,2412712,62023,Municipality
+Hudson,Weld,,,37820,2412776,62029,Municipality
+Inverness Water and Sanitation District,Douglas,Arapahoe,,,,64080,Water and Sanitation District
+Johnstown,Larimer,Weld,,39855,2412807,64266,Municipality
+Keenesburg,Weld,,,40185,2412820,62033,Municipality
+Kersey,Weld,,,40515,2412828,62035,Municipality
+Kiowa,Elbert,,,40790,2412838,20005,Municipality
+La Salle,Weld,,,43605,2412856,62037,Municipality
+Lafayette,Boulder,,,41835,2411592,7020,Municipality
+Lakeside,Jefferson,,,42495,2412865,30053,Municipality
+Lakewood,Jefferson,,,43000,2411614,30055,Municipality
+Larkspur,Douglas,,,43550,2412878,18021,Municipality
+Left Hand Water District,Boulder,Weld,,,,64194,Water District
+Little Thompson Water District,Larimer,Weld,Boulder,,,64083,Water District
+Littleton,Arapahoe,Douglas,Jefferson,45255,2410845,64085,Municipality
+Lochbuie,Adams,Weld,,45530,2412905,62038,Municipality
+Lone Tree,Douglas,,,45955,2410864,18104,Municipality
+Longmont,Boulder,Weld,,45970,2410869,64205,Municipality
+Longs Peak Water District,Boulder,Weld,,,,64206,Water District
+Louisville,Boulder,,,46355,2410884,7029,Municipality
+Louviers Water and Sanitation District,Douglas,,,,,66078,Water and Sanitation District
+Loveland,Larimer,,,46465,2410886,35026,Municipality
+Manitou Springs,El Paso,,,48445,2411021,21030,Municipality
+Mead,Weld,,,49600,2412970,62040,Municipality
+Milliken,Weld,,,50480,2413000,62043,Municipality
+Monument,El Paso,,,51800,2413009,21032,Municipality
+Morrison,Jefferson,,,52075,2413014,30065,Municipality
+Mountain View,Jefferson,,,52350,2413021,30067,Municipality
+North Table Mountain Water and Sanitation District,Jefferson,,,,,30070,Water and Sanitation District
+North Weld County Water District,Larimer,Weld,,,,64103,Water District
+Northglenn,Adams,Weld,,54330,2411280,64198,Municipality
+Nunn,Weld,,,55045,2413059,62045,Municipality
+Palmer Lake,El Paso,,,57025,2413103,21034,Municipality
+Parker,Douglas,,,57630,2413117,18028,Municipality
+Parker Water and Sanitation District,Douglas,,,,,18027,Water and Sanitation District
+Perry Park Water and Sanitation District,Douglas,,,,,18030,Water and Sanitation District
+Pierce,Weld,,,59005,2413129,62046,Municipality
+Platteville,Weld,,,60160,2412489,62050,Municipality
+Pueblo,Pueblo,,,62000,2411501,51016,Municipality
+Pueblo West Metropolitan District,Pueblo,,,,,51015,Metropolitan District
+Ramah,El Paso,,,62660,2412523,21036,Municipality
+Raymer,Weld,,,63045,2412533,62051,Municipality
+Roxborough Water and Sanitation District,Douglas,Jefferson,,,,18031,Water and Sanitation District
+Security Water District,El Paso,,,,,21040,Water District
+Severance,Weld,,,69150,2413272,62053,Municipality
+Sheridan,Arapahoe,,,69645,2411885,3065,Municipality
+Simla,Elbert,,,70635,2413290,20006,Municipality
+South Adams County Water and Sanitation District,Adams,,,,,1021,Water and Sanitation District
+St. Charles Mesa Water District,Pueblo,,,,,51028,Water District
+Superior,Boulder,,,75640,2413354,64183,Municipality
+Thornton,Adams,,,77290,2412064,64264,Municipality
+Timnath,Larimer,,,77510,2413391,35044,Municipality
+Wellington,Larimer,,,83230,2413464,35047,Municipality
+Westminster,Jefferson,Adams,,83835,2412237,64153,Municipality
+Wheat Ridge,Jefferson,,,84440,2412248,30093,Municipality
+Windsor,Larimer,Weld,,85485,2413496,64225,Municipality
+Woodmoor Water and Sanitation District No. 1,El Paso,,,,,21050,Water and Sanitation District

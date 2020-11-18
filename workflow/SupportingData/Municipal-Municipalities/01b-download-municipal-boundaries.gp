@@ -1,6 +1,11 @@
 # Download municipal boundaries layer.
 # - this should only need to be done periodically
 # - download from Colorado Information Marketplace
+#
+# Alternate source is directly from DOLA, but they publish to CIM.
+# GIS data page:  https://demography.dola.colorado.gov/gis/gis-data/#gis-data
+# Shapefile download:  https://storage.googleapis.com/co-publicdata/MuniBounds.zip
+#
 WebGet(URL="https://data.colorado.gov/resource/w6jq-7em5.geojson",OutputFile="downloads/municipal-boundaries.geojson",Timeout="10")
 # Don't do the following because CIM layer has 14 digits... cut it back
 # Copy to the 'layers' folder.  If clipping to the Poudre is implemented, use a 02* command file.
