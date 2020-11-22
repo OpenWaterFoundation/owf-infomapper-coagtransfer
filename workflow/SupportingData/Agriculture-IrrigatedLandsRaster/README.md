@@ -35,4 +35,4 @@ The following describes the workflow steps, which should be run in the order sho
 
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
-| `03-create-irrigated-lands-raster-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |
+| `03-create-irrigated-lands-raster-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper and copy to the `web` folder. |

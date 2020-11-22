@@ -44,4 +44,4 @@ The following describes the workflow steps, which should be run in the order sho
 | `02a-create-county-sqlite-database.tstool` | TSTool | Create SQLite database in `db` folder containing DOLA population data, to facilitate data processing. |
 | `02a-create-owf-county-sqlite-table.sql` | SQLite | SQL to create database population data table. |
 | `02b-create-population-graph-config.tstool` | TSTool | Create graph configurations in `graphs` folder and time series in `ts` folder for population data. |
-| `03-create-counties-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |
+| `03-create-counties-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper and copy to the `web` folder. |
