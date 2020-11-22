@@ -37,4 +37,4 @@ The following describes the workflow steps, which should be run in the order sho
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
 | `01-download-irrigated-lands-from-dwr.gp` | GeoProcessor | Download irrigated lands layers from CDSS data website and save to `layers` folder. |
-| `03-create-irrigated-lands-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |
+| `03-create-irrigated-lands-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper and copy to the `web` folder. |
