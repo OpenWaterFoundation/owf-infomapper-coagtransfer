@@ -66,23 +66,24 @@ owf-infomapper-coagtransfer/           Workflow files to process input for web a
 ## Application Menus and Corresponding Workflow ##
 
 The web application provides menus that display maps, as follows.
-The README for each map provides information about data sources and workflow processing.
+The README for each map provides information about data sources and workflow processing from developer perspective.
+The Info for each map provides information from web application user perspective.
 
-| **Menu** | **README** | **Description** |
+| **Menu** | **README** | **Info** |
 | -- | -- | -- |
 | ***Supporting Data /*** | ===========| ===============================|
-| ***Administration - CO DWR Water Districts*** | [README](workflow/SupportingData/Administration-CoDwrWaterDistricts/README.md) | Colorado Division of Water Resources administrative water divisions and districts map. |
-| ***Political - Counties*** | [README](workflow/SupportingData/Political-Counties/README.md) | Counties map, with historical population time series. |
+| ***Administration - CO DWR Water Districts*** | [README](workflow/SupportingData/Administration-CoDwrWaterDistricts/README.md) | [Info](workflow/SupportingFiles/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.md) |
+| ***Political - Counties*** | [README](workflow/SupportingData/Political-Counties/README.md) | [Info](workflow/SupportingFiles/Political-Counties/counties-map.md) |
 | ***Physical - Stream Reaches*** | | Currently not enabled. |
 | ***Agriculture - Ditches*** | | Currently not enabled. |
-| ***Agriculture - Irrigated Lands (Raster)*** | [README](workflow/SupportingData/Agriculture-IrrigatedLandsRaster/README.md) | Irrigated lands raster layer map. |
-| ***Agriculture - Irrigated Lands*** | [README](workflow/SupportingData/Agriculture-IrrigatedLands/README.md) | Irrigated lands parcel layers and raster layer map. |
-| ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | Municipalities map, with historical population time series. |
-| ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | Water providers map. |
+| ***Agriculture - Irrigated Lands (Raster)*** | [README](workflow/SupportingData/Agriculture-IrrigatedLandsRaster/README.md) | [Info](workflow/SupportingFiles/Agriculture-IrrigatedLandsRaster/irrigated-lands-raster-map.md) |
+| ***Agriculture - Irrigated Lands*** | [README](workflow/SupportingData/Agriculture-IrrigatedLands/README.md) | [Info](workflow/SupportingFiles/Agriculture-IrrigatedLands/irrigated-lands-map.md) |
+| ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | [Info](workflow/SupportingFiles/Municipal-Municipalities/municipalities-map.md) |
+| ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | [Info](workflow/SupportingFiles/WaterSupply-WaterProviders/water-providers-map.md) |
 | ***Baseline Scenario /*** | ===========| ===============================|
-| ***Synopsis - Summary of Baseline Analysis*** | [README](workflow/BaselineScenario/Synopsis/README.md) | Summary of Baseline scenario analysis. |
-| ***County Population*** | [README](workflow/BaselineScenario/CountyPopulation/README.md) | County map, with historical and forecast population time series. |
-| ***Municipality Population*** | [README](workflow/BaselineScenario/MunicipalityPopulation/README.md) | Municipality map, with historical and forecast population time series. |
+| ***Synopsis - Summary of Baseline Analysis*** | | [Info](workflow/BaselineScenario/00-Synopsis/synopsis.md) |
+| ***County Population*** | [README](workflow/BaselineScenario/CountyPopulation/README.md) | [Info](workflow/BaselineScenario/01-CountyPopulation/county-population.md) |
+| ***Municipality Population*** | [README](workflow/BaselineScenario/MunicipalityPopulation/README.md) | [Info](workflow/BaselineScenario/02-MunicipalityPopulation/municipalities-map.md) |
 | ***Scenario 1 /*** | ===========| ===============================|
 | ***Synopsis - Placeholder for Additional Scenarios*** | | Summary of Scenario 1 analysis (placeholder for future scenario analysis). |
 

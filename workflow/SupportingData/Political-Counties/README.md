@@ -1,4 +1,4 @@
-# Political-Counties #
+# SupportingData / Political-Counties #
 
 This folder contains files for the ***Political - Counties*** map.
 
@@ -11,7 +11,7 @@ This folder contains files for the ***Political - Counties*** map.
 
 ## Overview ##
 
-The ***Political - Counties*** map includes counties and associated population time series.
+The ***Supporting Data / Political - Counties*** map includes counties and associated population time series.
 
 ## Update Frequency ##
 

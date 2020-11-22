@@ -1,4 +1,4 @@
-# WaterSupply-WaterProviders #
+# SupportingData / WaterSupply-WaterProviders #
 
 This folder contains files for the ***Water Supply - Water Providers*** map.
 
@@ -11,7 +11,7 @@ This folder contains files for the ***Water Supply - Water Providers*** map.
 
 ## Overview ##
 
-The ***Water Supply - Water Providers*** map includes the locations of water providers as markers and boundaries.
+The ***Supporting Data / Water Supply - Water Providers*** map includes the locations of water providers as markers and boundaries.
 
 ## Update Frequency ##
 
@@ -38,6 +38,6 @@ The following describes the workflow steps, which should be run in the order sho
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
 | `01a-download-water-providers-from-owf.gp` | GeoProcessor | Download the water-providers data from Open Water Foundation GitHub repository and save to the `layers` folder for points. |
-| `01b-download-special-districts-from-dola.gp` | GeoProcessor | Download the special districts boundaries data from Colorado Department of Local Affairs and save to the `layers folder. |
-| `01c-download-denver-water-boundary.gp` | GeoProcessor | Process the Denver Water service area boundary provided by Denver Water and save to the `layers folder. |
+| `01b-download-special-districts-from-dola.gp` | GeoProcessor | Download the special districts boundaries data from Colorado Department of Local Affairs and save to the `layers` folder. |
+| `01c-download-denver-water-boundary.gp` | GeoProcessor | Process the Denver Water service area boundary provided by Denver Water and save to the `layers` folder. |
 | `03-create-water-providers-map.gp` | GeoProcessor | Create the map configuration file for use with the InfoMapper and copy files to the `web` folder. |
