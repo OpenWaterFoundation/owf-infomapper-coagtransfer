@@ -1,0 +1,12 @@
+{
+  "id" : "div2-irrigated-lands-2018-event-config",
+  "name": "Division 2 irrigated lands (2018) event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "CAL_YEAR", "PARCEL_ID", "CROP_TYPE", "IRRIG_TYPE", "ACRES", "DIV", "DISTRICT" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

@@ -40,9 +40,14 @@
           "separatorBefore" : true
         },
         {
-          "id": "data-irrigated-lands-map",
-          "name":  "Agriculture - Irrigated Lands",
-          "enabled": "false",
+          "id": "data-irrigated-lands-raster",
+          "name":  "Agriculture - Irrigated Lands (raster - FAST)",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Agriculture-IrrigatedLandsRaster/irrigated-lands-raster-map.json"
+        },
+        {
+          "id": "data-irrigated-lands",
+          "name":  "Agriculture - Irrigated Lands (parcels - SLOW)",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Agriculture-IrrigatedLands/irrigated-lands-map.json"
         },

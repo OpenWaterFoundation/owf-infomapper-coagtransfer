@@ -83,6 +83,30 @@ junk
 # - ignore images created for prototype
 /workflow/SupportingData/Political-Counties/graphs/*.png
 
+# SupportingData/Agriculture-IrrigatedLands
+/workflow/SupportingData/Agriculture-IrrigatedLands/downloads/*
+!/workflow/SupportingData/Agriculture-IrrigatedLands/downloads/README.md
+/workflow/SupportingData/Agriculture-IrrigatedLands/layers/*
+!/workflow/SupportingData/Agriculture-IrrigatedLands/layers/README.md
+!/workflow/SupportingData/Agriculture-IrrigatedLands/layers/*.csv
+!/workflow/SupportingData/Agriculture-IrrigatedLands/layers/*.json
+!/workflow/SupportingData/Agriculture-IrrigatedLands/layers/*.md
+!/workflow/SupportingData/Agriculture-IrrigatedLands/layers/*doc
+# Dynamic map configurations
+#/workflow/SupportingData/Agriculture-IrrigatedLands/*.json
+
+# SupportingData/Agriculture-IrrigatedLandsRaster
+/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/downloads/*
+!/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/downloads/README.md
+/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/layers/*
+!/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/layers/README.md
+!/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/layers/*.csv
+!/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/layers/*.json
+!/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/layers/*.md
+!/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/layers/*doc
+# Dynamic map configurations
+#/workflow/SupportingData/Agriculture-IrrigatedLandsRaster/*.json
+
 # SupportingData/Municipal-WaterDedicationPolicies
 /workflow/SupportingData/Municipal-WaterDedicationPolicies/downloads/*
 !/workflow/SupportingData/Municipal-WaterDedicationPolicies/downloads/README.md
