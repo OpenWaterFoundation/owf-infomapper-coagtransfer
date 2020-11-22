@@ -1,8 +1,8 @@
-# Administration-WaterDistricts/doc #
+# Administration-CoDwrWaterDistricts #
 
 This folder contains files for the ***Administration - CO DWR Water Districts*** map.
 
-* [Introduction](#introduction)
+* [Overview](#overview)
 * [Update Frequency](#update-frequency)
 * [Datasets](#datasets)
 * [Files](#files)
@@ -10,9 +10,9 @@ This folder contains files for the ***Administration - CO DWR Water Districts***
 
 -----------------------------
 
-## Introduction ##
+## Overview ##
 
-The ***Administration - CO DWR Water Districts*** map indicates Colorado Division of Water Resources (DWR)
+The ***Administration - CO DWR Water Districts*** map includes Colorado Division of Water Resources (DWR)
 Water Divisions and Districts, which correspond to river basins that are used in water administration.
 
 Many datasets use "water district identifier" (WDID), which is a two-digit, zero padded water district
@@ -22,15 +22,6 @@ concatenated with 5 digit, zero padded, structure/location identifier.
 
 This map is updated infrequently,
 based on changes in CDSS water districts dataset.
-
-## Datasets ##
-
-The following are map layer groups for the map.
-
-| **Layer Group** | **Description** |
-| -- | -- | -- |
-| CO DWR Water Districts | Colorado Division of Water Resources water division boundaries, water district boundaries, and water division offices. |
-| Continental Divide | Continental divide in Colorado. |
 
 ## Files ##
 
@@ -52,5 +43,5 @@ The following describes the workflow steps, which should be run in the order sho
 | -- | -- | -- |
 | `01a-download-water-districts-from-cdss.gp` | GeoProcessor | Download water districts layer from CDSS data website and save to `layers` folder. |
 | `01b-download-water-divisions-from-cdss.gp` | GeoProcessor | Download water divisions layer from CDSS data website and save to `layers` folder. |
-| `02b-create-dwr-offices-layer.tstool` | TSTool | Create water division offices layer from Excel file. |
+| `02b-create-dwr-offices-layer.tstool` | TSTool | Create water division offices layer from Excel data file. |
 | `03-create-codwr-waterdistricts-map.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |
