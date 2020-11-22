@@ -98,6 +98,13 @@ copySupportingData_IrrigatedLands() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Agriculture-IrrigatedLands ${folder}
 }
 
+copySupportingData_IrrigatedLandsRaster() {
+  checkSupportingDataFolder
+
+  # Copy irrigated lands (raster) map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Agriculture-IrrigatedLandsRaster ${folder}
+}
+
 copySupportingData_Municipalities() {
   checkSupportingDataFolder
 
@@ -157,6 +164,7 @@ runInteractive() {
     echo " sc. Copy SupportingData/Political - Counties map files and time series."
     #echo " ss. Copy SupportingData/Physical - StreamReaches map files."
     echo " sl. Copy SupportingData/Agriculture - IrrigatedLands map files."
+    echo "slr. Copy SupportingData/Agriculture - IrrigatedLands (Raster) map files."
     echo " sm. Copy SupportingData/Municipal - Municipalities map files and time series."
     echo "swp. Copy SupportingData/WaterSupply - Water Providers map files."
     echo "     ----"
@@ -185,6 +193,8 @@ runInteractive() {
       #copyStreamReaches
     elif [ "${answer}" = "sl" ]; then
       copySupportingData_IrrigatedLands
+    elif [ "${answer}" = "slr" ]; then
+      copySupportingData_IrrigatedLandsRaster
     elif [ "${answer}" = "sm" ]; then
       copySupportingData_Municipalities
     elif [ "${answer}" = "smd" ]; then

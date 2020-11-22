@@ -1,0 +1,7 @@
+# Category classification table for Irrigation raster.
+# - the value corresponds to raster data value
+value,label,color,opacity,fillColor,fillOpacity,weight,label
+# Not irrigated - no color and totally opaque (see through)
+1,Not irrigated,#000000,0.0,#000000,0.0,2
+# Irrigated - lime green so can see
+2,Irrigated,#00ff00,1.0,#00ff00,0.3,2

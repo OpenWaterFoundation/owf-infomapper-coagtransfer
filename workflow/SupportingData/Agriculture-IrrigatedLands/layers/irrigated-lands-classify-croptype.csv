@@ -1,0 +1,33 @@
+# Category classification table for irrigated lands
+# - the value corresponds to CROP_TYPE attribute
+# - the fill color is varies but all other properties are constant
+# - the label uses CROP_TYPE
+# - use for all basins and years
+value,color,opacity,fillColor,fillOpacity,weight,label
+NO_CROP,#000000,1.0,#000000,0.3,2,"NO_CROP"
+ALFALFA,#b30000,1.0,#b30000,0.3,2,"ALFALFA"
+BARLEY,#ff9900,1.0,#ff9900,0.3,2,"BARLEY"
+BLUEGRASS,#59b300,1.0,#59b300,0.3,2,"BLUEGRASS"
+CORN,#ffff00,1.0,#ffff00,0.3,2,"CORN"
+CORN_GRAIN,#ffff00,1.0,#ffff00,0.3,2,"CORN_GRAIN"
+# CORN_SILAGE is in the Arkansas
+CORN_SILAGE,#ffff00,1.0,#ffff00,0.3,2,"CORN_SILAGE"
+DRY_BEANS,#003cb3,1.0,#003cb3,0.3,2,"DRY_BEANS"
+GRAPES,#66a3ff,1.0,#66a3ff,0.3,2,"GRAPES"
+GRASS_PASTURE,#ff6600,1.0,#ff6600,0.3,2,"GRASS_PASTURE"
+ORCHARD_WITH_COVER,#b3ff66,1.0,#b3ff66,0.3,2,"ORCHARD_WITH_COVER"
+ORCHARD_WO_COVER,#00ffff,1.0,#00ffff,0.3,2,"ORCHARD_WO_COVER"
+POTATOES,#996633,1.0,#996633,0.3,2,"POTATOES"
+SMALL_GRAINS,#33cc33,1.0,#33cc33,0.3,2,"SMALL_GRAINS"
+# SNAP_BEANS is in Republican
+SNAP_BEANS,#003cb3,1.0,#003cb3,0.3,2,"SNAP_BEANS"
+SOD_FARM,#3400b3,1.0,#3400b3,0.3,2,"SOD_FARM"
+SORGHUM_GRAIN,#6a00b3,1.0,#6a00b3,0.3,2,"SORGHUM_GRAIN"
+# SPRING_GRAIN is in the Arkansas
+SPRING_GRAIN,#6a00b3,1.0,#6a00b3,0.3,2,"SPRING_GRAIN"
+SUGAR_BEETS,#cc0099,1.0,#cc0099,0.3,2,"SUGAR_BEETS"
+SUNFLOWER,#ffff99,1.0,#ffff99,0.3,2,"SUNFLOWER"
+VEGETABLES,#9b00b3,1.0,#9b00b3,0.3,2,"VEGETABLES"
+# WHEAT_FALL is in Arkansas and Republican
+WHEAT_FALL,#6a00b3,1.0,#6a00b3,0.3,2,"WHEAT_FALL"
+WHEAT_SPRING,#6a00b3,1.0,#6a00b3,0.3,2,"WHEAT_SPRING"
