@@ -4,8 +4,7 @@ This folder contains files for the ***Administration - CO DWR Water Districts***
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)
-* [Datasets](#datasets)
-* [Files](#files)
+* [Files and Folders](#files-and-folders)
 * [Workflow](#workflow)
 
 -----------------------------
@@ -44,4 +43,4 @@ The following describes the workflow steps, which should be run in the order sho
 | `01a-download-water-districts-from-cdss.gp` | GeoProcessor | Download water districts layer from CDSS data website and save to `layers` folder. |
 | `01b-download-water-divisions-from-cdss.gp` | GeoProcessor | Download water divisions layer from CDSS data website and save to `layers` folder. |
 | `02b-create-dwr-offices-layer.tstool` | TSTool | Create water division offices layer from Excel data file. |
-| `03-create-codwr-waterdistricts-map.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |
+| `03-create-codwr-waterdistricts-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |
