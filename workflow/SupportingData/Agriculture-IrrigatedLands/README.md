@@ -1,4 +1,4 @@
-# Agriculture-IrrigatedLands #
+# SupportingData / Agriculture-IrrigatedLands #
 
 This folder contains files for the ***Agriculture - Irrigated Lands*** map.
 
@@ -11,7 +11,7 @@ This folder contains files for the ***Agriculture - Irrigated Lands*** map.
 
 ## Overview ##
 
-The ***Agriculture - Irrigated Lands*** map includes irrigated lands as a parcel layer and raster layer.
+The ***Supporting Data / Agriculture - Irrigated Lands*** map includes irrigated lands as a parcel layer and raster layer.
 The raster layer is used to perform the analysis.
 A separate map is provided for only raster layer because this map is slower to load and use.
 

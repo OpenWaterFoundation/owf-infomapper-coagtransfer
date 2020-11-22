@@ -1,4 +1,4 @@
-# Administration-CoDwrWaterDistricts #
+# SupportingData / Administration-CoDwrWaterDistricts #
 
 This folder contains files for the ***Administration - CO DWR Water Districts*** map.
 
@@ -11,7 +11,7 @@ This folder contains files for the ***Administration - CO DWR Water Districts***
 
 ## Overview ##
 
-The ***Administration - CO DWR Water Districts*** map includes Colorado Division of Water Resources (DWR)
+The ***Supporting Data / Administration - CO DWR Water Districts*** map includes Colorado Division of Water Resources (DWR)
 Water Divisions and Districts, which correspond to river basins that are used in water administration.
 
 Many datasets use "water district identifier" (WDID), which is a two-digit, zero padded water district
