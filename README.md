@@ -101,13 +101,13 @@ The Info for each map provides information from web application user perspective
 | ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | [Info](workflow/SupportingData/Municipal-Municipalities/municipalities-map.md) |
 | ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | [Info](workflow/SupportingData/WaterSupply-WaterProviders/water-providers-map.md) |
 |                           | -----------| -------------------------------|
-| ***Agriculture - Conservation Easements*** | | [Content Page](content-pages/conservation-easements.md) |
-| ***Environment - Open Lands*** | | [Content Page](content-pages/open-lands.md) |
+| ***Agriculture - Conservation Easements*** | | [Content Page](web/content-pages/conservation-easements.md) |
+| ***Environment - Open Lands*** | | [Content Page](web/content-pages/open-lands.md) |
 | ***Municipal - Water Dedication Policies*** | [README](workflow/SupportingData/Municipal-WaterDedicationPolicies/README.md) | [Info](workflow/SupportingData/Municipal-WaterDedicationPolicies/municipal-water-dedication-policies-map.md) |
 | ***Municipal - Water Rental Programs*** | [README](workflow/SupportingData/Municipal-WaterRentals/README.md) | [Info](workflow/SupportingData/Municipal-WaterRentals/municipal-water-rentals-map.md) |
 | ***Water Transfer - Case Studies*** | [README](workflow/SupportingData/WaterTransfer-CaseStudies/README.md) | [Info](workflow/SupportingData/WaterTransfer-CaseStudies/transfer-case-studies-map.md) |
-| ***Water Transfer - Interruptible Supply Agreements*** | | [Content Page](content-pages/interruptible-supply.md) |
-| ***Water Transfer - Substitute Water Supply Plans*** | | [Content Page](content-pages/swsp.md) |
+| ***Water Transfer - Interruptible Supply Agreements*** | | [Content Page](web/content-pages/interruptible-supply.md) |
+| ***Water Transfer - Substitute Water Supply Plans*** | | [Content Page](web/content-pages/swsp.md) |
 | ***Baseline Scenario /*** | ===========| ===============================|
 | ***Synopsis - Summary of Baseline Analysis*** | | [Info](workflow/BaselineScenario/00-Synopsis/synopsis.md) |
 | ***County Population*** | [README](workflow/BaselineScenario/01-CountyPopulation/README.md) | [Info](workflow/BaselineScenario/01-CountyPopulation/county-population.md) |
