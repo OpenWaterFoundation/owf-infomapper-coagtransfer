@@ -276,6 +276,18 @@
           "history:": []
         },
         {
+          "geoLayerId": "WaterProvidersRasterLayer",
+          "name": "Colorado Water Providers (Raster)",
+          "description": "Colorado Water Providers area derived from polygons",
+          "crs": "EPSG:4326",
+          "geometryType": "Raster",
+          "layerType": "Raster",
+          "sourceFormat": null,
+          "sourcePath": "layers/WaterProviders.tif",
+          "properties": {},
+          "history:": []
+        },
+        {
           "geoLayerId": "StateBoundaryLayer",
           "name": "Colorado State Boundary",
           "description": "Colorado state boundary from CDPHE.",
@@ -292,7 +304,7 @@
         {
           "geoLayerId": "DenverWaterBoundaryLayer",
           "name": "Denver Water Boundary",
-          "description": "Denver Water Boundary",
+          "description": "Denver Water Boundary from Denver Water",
           "crs": "EPSG:4326",
           "geometryType": "WKT:Polygon",
           "layerType": "Vector",
@@ -379,7 +391,7 @@
             {
               "geoLayerViewId": "WaterProviderBoundariesLayerView",
               "name": "Water Provider Boundaries (Districts)",
-              "description": "Colorado Water Provider Boundaries from DOLA",
+              "description": "Water Provider Boundaries from DOLA special and metro districts",
               "geoLayerId": "WaterProviderBoundariesLayer",
               "properties": {
                 "docPath": "layers/water-provider-boundaries.md"
@@ -482,6 +494,33 @@
                   "fillColor": "#000000",
                   "fillOpacity": "0.0",
                   "weight": "2"
+                }
+              },
+              "eventHandlers": []
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "WaterProvidersRasterGroup",
+          "name": "Colorado Water Providers (Raster)",
+          "description": "Colorado water providers area derived from polygons",
+          "properties": {},
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "WaterProvidersRasterLayerView",
+              "name": "Colorado Water Providers (Raster)",
+              "description": "Colorado Water Providers area derived from polygons",
+              "geoLayerId": "WaterProvidersRasterLayer",
+              "properties": {
+                "docPath": "layers/WaterProviders.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize Water Providers",
+                "description": "Symbol for the water providers raster",
+                "classificationType": "Categorized",
+                "classificationAttribute": "1",
+                "properties": {
+                  "classificationFile": "layers/WaterProviders-classify-waterprovider.csv"
                 }
               },
               "eventHandlers": []

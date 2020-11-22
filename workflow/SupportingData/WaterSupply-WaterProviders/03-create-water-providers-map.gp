@@ -9,6 +9,7 @@
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/WaterSupply-WaterProviders")
+SetProperty(PropertyName="WWRRepoFolder",PropertyType="str",PropertyValue="../../../../owf-infomapper-coagtransfer-data-wwr")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WaterProvidersProject
@@ -64,6 +65,20 @@ AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrain
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial: true,separatorBefore:true")
 # = = = = = = = = = =
+# Water providers raster data:  read layers and add to a layer view group.
+# - copy from the repository that contains WWR data
+# GeoLayerViewGroupID: WaterProvidersRasterGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProvidersRasterGroup",Name="Colorado Water Providers (Raster)",Description="Colorado water providers area derived from polygons",InsertPosition="Top")
+#
+CopyFile(SourceFile="${WWRRepoFolder}/Rasters/WaterProviders.tif",DestinationFile="layers/WaterProviders.tif")
+CopyFile(SourceFile="${WWRRepoFolder}/Rasters/WaterProviders.csv",DestinationFile="layers/WaterProviders.csv")
+ReadRasterGeoLayerFromFile(InputFile="layers/WaterProviders.tif",GeoLayerID="WaterProvidersRasterLayer",Name="Colorado Water Providers (Raster)",Description="Colorado Water Providers area derived from polygons")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersRasterLayer",GeoLayerViewID="WaterProvidersRasterLayerView",Name="Colorado Water Providers (Raster)",Description="Colorado Water Providers area derived from polygons",Properties="docPath:'layers/WaterProviders.md'")
+# Use category colors
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterProvidersRasterLayerView",Name="Colorize Water Providers",Description="Symbol for the water providers raster",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-divisions-classify-division.csv'")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterProvidersRasterLayerView",Name="Colorize Water Providers",Description="Symbol for the water providers raster",ClassificationAttribute="1",Properties="classificationFile:'layers/WaterProviders-classify-waterprovider.csv'")
+# = = = = = = = = = =
 # Colorado state boundary:  read layer and add to layer view group.
 # StateBoundaryGroupID: StateBoundaryGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateBoundaryGroup",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE.",Properties="selectedInitial: true",InsertPosition="Top")
@@ -77,7 +92,7 @@ SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State 
 #
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterProvidersGroup",Name="Colorado Water Providers",Description="Colorado Water Providers",InsertPosition="Top")
 #
-ReadGeoLayerFromGeoJSON(InputFile="layers/denver-water-boundary.geojson",GeoLayerID="DenverWaterBoundaryLayer",Name="Denver Water Boundary",Description="Denver Water Boundary")
+ReadGeoLayerFromGeoJSON(InputFile="layers/denver-water-boundary.geojson",GeoLayerID="DenverWaterBoundaryLayer",Name="Denver Water Boundary",Description="Denver Water Boundary from Denver Water")
 AddGeoLayerViewToGeoMap(GeoLayerID="DenverWaterBoundaryLayer",GeoLayerViewID="DenverWaterBoundaryLayerView",Name="Denver Water Boundary",Description="Denver Water Boundary",InsertPosition="Top",Properties="docPath:'layers/denver-water-boundary.md'")
 # For now use single symbol
 # - grey
@@ -89,7 +104,7 @@ SetGeoLayerViewEventHandler(GeoLayerViewID="DenverWaterBoundaryLayerView",EventT
 # GeoLayerViewGroupID: WaterProvidersGroup
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/water-provider-boundaries.geojson",GeoLayerID="WaterProviderBoundariesLayer",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Water Provider Boundaries (Districts)",Description="Colorado Water Provider Boundaries from DOLA",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md'")
+AddGeoLayerViewToGeoMap(GeoLayerID="WaterProviderBoundariesLayer",GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Water Provider Boundaries (Districts)",Description="Water Provider Boundaries from DOLA special and metro districts",InsertPosition="Top",Properties="docPath:'layers/water-provider-boundaries.md'")
 # For now use single symbol
 # - grey
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="WaterProviderBoundariesLayerView",Name="Colorado Water Provider Boundaries",Description="Colorado Water Provider Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
@@ -112,6 +127,11 @@ WriteGeoMapProjectToJSON(GeoMapProjectID="WaterProvidersProject",Indent="2",Outp
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="water-providers-map.json",DestinationFile="${MapFolder}/water-providers-map.json")
 CopyFile(SourceFile="water-providers-map.md",DestinationFile="${MapFolder}/water-providers-map.md")
+# Rasters
+CopyFile(SourceFile="layers/WaterProviders.tif",DestinationFile="${MapFolder}/layers/WaterProviders.tif")
+CopyFile(SourceFile="layers/WaterProviders.csv",DestinationFile="${MapFolder}/layers/WaterProviders.csv")
+CopyFile(SourceFile="layers/WaterProviders-classify-waterprovider.csv",DestinationFile="${MapFolder}/layers/WaterProviders-classify-waterprovider.csv")
+CopyFile(SourceFile="layers/WaterProviders.md",DestinationFile="${MapFolder}/layers/WaterProviders.md")
 #
 CopyFile(SourceFile="layers/denver-water-boundary.geojson",DestinationFile="${MapFolder}/layers/denver-water-boundary.geojson")
 CopyFile(SourceFile="layers/denver-water-boundary.md",DestinationFile="${MapFolder}/layers/denver-water-boundary.md")

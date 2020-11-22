@@ -9,6 +9,7 @@
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Municipal-Municipalities")
+SetProperty(PropertyName="WWRRepoFolder",PropertyType="str",PropertyValue="../../../../owf-infomapper-coagtransfer-data-wwr")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  MunicipalitiesProject
@@ -64,6 +65,34 @@ AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrain
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial: true,separatorBefore:true")
 # = = = = = = = = = =
+# Municipality raster data:  read layers and add to a layer view group.
+# - copy from the repository that contains WWR data
+# GeoLayerViewGroupID: MunicipalitiesRasterGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesRasterGroup",Name="Colorado Municipalities (Raster)",Description="Colorado Municipality area derived from polygons (CDP=Census Designated Place)",InsertPosition="Top")
+#
+#CopyFile(SourceFile="${WWRRepoFolder}/Rasters/Municipality.tif",DestinationFile="layers/Municipality.tif")
+CopyFile(SourceFile="${WWRRepoFolder}/Rasters/Municipality.csv",DestinationFile="layers/Municipality.csv")
+ReadRasterGeoLayerFromFile(InputFile="layers/Municipality.tif",GeoLayerID="MunicipalitiesRasterLayer",Name="Colorado Municipalities (Raster)",Description="Colorado Municipality area derived from polygons")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesRasterLayer",GeoLayerViewID="MunicipalitiesRasterLayerView",Name="Colorado Municipalities (Raster)",Description="Colorado Municipality area derived from polygons",Properties="docPath:'layers/Municipality.md'")
+# Use category colors
+#SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesRasterLayerView",Name="Colorize municipalities",Description="Symbol for the municipality raster",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-divisions-classify-division.csv'")
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesRasterLayerView",Name="Colorize municipalities",Description="Symbol for the municipality raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipality-classify-municipality.csv'")
+# = = = = = = = = = =
+# Land development raster data:  read layers and add to a layer view group.
+# - copy from the repository that contains WWR data
+# GeoLayerViewGroupID: LandDevelopmentRasterGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="LandDevelopmentRasterGroup",Name="Colorado Land Development (Raster)",Description="Colorado land development area",InsertPosition="Top")
+#
+#CopyFile(SourceFile="${WWRRepoFolder}/Rasters/LandDevelopment.tif",DestinationFile="layers/LandDevelopment.tif")
+# csv file is not available so create in 'layers'
+#CopyFile(SourceFile="${WWRRepoFolder}/Rasters/LandDevelopment.csv",DestinationFile="layers/LandDevelopment.csv")
+ReadRasterGeoLayerFromFile(InputFile="layers/LandDevelopment.tif",GeoLayerID="LandDevelopmentRasterLayer",Name="Colorado Land Development (Raster)",Description="Colorado land development area")
+AddGeoLayerViewToGeoMap(GeoLayerID="LandDevelopmentRasterLayer",GeoLayerViewID="LandDevelopmentRasterLayerView",Name="Colorado Land Development (Raster)",Description="Colorado land development area",Properties="docPath:'layers/LandDevelopment.md'")
+# Use category colors
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="LandDevelopmentRasterLayerView",Name="Colorize Land Development",Description="Symbol for the land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/LandDevelopment-classify-landdevelopment.csv'")
+# = = = = = = = = = =
 # Colorado state boundary:  read layer and add to layer view group.
 # StateBoundaryGroupID: StateBoundaryGroup
 AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StateBoundaryGroup",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE.",Properties="selectedInitial: true",InsertPosition="Top")
@@ -73,9 +102,9 @@ AddGeoLayerViewToGeoMap(GeoLayerID="StateBoundaryLayer",GeoLayerViewID="StateBou
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State boundary symbol",Description="State boundary in black.",Properties="color:#000000,opacity:0.0,fillColor:#000000,fillOpacity:0.0,weight:2")
 # = = = = = = = = = =
 # Municipal boundaries:  read layer and add to a layer view group.
-# - TODO smalers 2020-06-13 this seems to hang the app when in production
-# GeoLayerViewGroupID: MunicipalBoundariesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
+# GeoLayerViewGroupID: MunicipalitiesGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities from DOLA",InsertPosition="Top")
 #
 ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
 AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
@@ -105,6 +134,16 @@ CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExi
 CopyFile(SourceFile="municipalities-map.json",DestinationFile="${MapFolder}/municipalities-map.json")
 CopyFile(SourceFile="municipalities-map.md",DestinationFile="${MapFolder}/municipalities-map.md")
 # ---------
+# Rasters
+CopyFile(SourceFile="layers/Municipality.tif",DestinationFile="${MapFolder}/layers/Municipality.tif")
+CopyFile(SourceFile="layers/Municipality.csv",DestinationFile="${MapFolder}/layers/Municipality.csv")
+CopyFile(SourceFile="layers/Municipality-classify-municipality.csv",DestinationFile="${MapFolder}/layers/Municipality-classify-waterprovider.csv")
+CopyFile(SourceFile="layers/Municipality.md",DestinationFile="${MapFolder}/layers/Municipality.md")
+#
+CopyFile(SourceFile="layers/LandDevelopment.tif",DestinationFile="${MapFolder}/layers/LandDevelopment.tif")
+#CopyFile(SourceFile="layers/LandDevelopment.csv",DestinationFile="${MapFolder}/layers/LandDevelopment.csv")
+CopyFile(SourceFile="layers/LandDevelopment-classify-landdevelopment.csv",DestinationFile="${MapFolder}/layers/LandDevelopment-classify-landdevelopment.csv")
+CopyFile(SourceFile="layers/LandDevelopment.md",DestinationFile="${MapFolder}/layers/LandDevelopment.md")
 # Layers
 CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
 CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")

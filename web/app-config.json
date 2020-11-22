@@ -2,7 +2,7 @@
   "title": "Colorado Agricultural Water Transfer",
   "homePage": "/content-pages/home.md",
   "favicon": "/img/owf-favicon-32x32.ico",
-  "version": "0.2.0 (2020-09-16)",
+  "version": "0.3.0 (2020-11-18)",
   "mainMenu": [
     {
       "id": "SupportingData",
