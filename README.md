@@ -72,18 +72,18 @@ The Info for each map provides information from web application user perspective
 | **Menu** | **README** | **Info** |
 | -- | -- | -- |
 | ***Supporting Data /*** | ===========| ===============================|
-| ***Administration - CO DWR Water Districts*** | [README](workflow/SupportingData/Administration-CoDwrWaterDistricts/README.md) | [Info](workflow/SupportingFiles/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.md) |
-| ***Political - Counties*** | [README](workflow/SupportingData/Political-Counties/README.md) | [Info](workflow/SupportingFiles/Political-Counties/counties-map.md) |
+| ***Administration - CO DWR Water Districts*** | [README](workflow/SupportingData/Administration-CoDwrWaterDistricts/README.md) | [Info](workflow/SupportingData/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.md) |
+| ***Political - Counties*** | [README](workflow/SupportingData/Political-Counties/README.md) | [Info](workflow/SupportingData/Political-Counties/counties-map.md) |
 | ***Physical - Stream Reaches*** | | Currently not enabled. |
 | ***Agriculture - Ditches*** | | Currently not enabled. |
-| ***Agriculture - Irrigated Lands (Raster)*** | [README](workflow/SupportingData/Agriculture-IrrigatedLandsRaster/README.md) | [Info](workflow/SupportingFiles/Agriculture-IrrigatedLandsRaster/irrigated-lands-raster-map.md) |
-| ***Agriculture - Irrigated Lands*** | [README](workflow/SupportingData/Agriculture-IrrigatedLands/README.md) | [Info](workflow/SupportingFiles/Agriculture-IrrigatedLands/irrigated-lands-map.md) |
-| ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | [Info](workflow/SupportingFiles/Municipal-Municipalities/municipalities-map.md) |
-| ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | [Info](workflow/SupportingFiles/WaterSupply-WaterProviders/water-providers-map.md) |
+| ***Agriculture - Irrigated Lands (Raster)*** | [README](workflow/SupportingData/Agriculture-IrrigatedLandsRaster/README.md) | [Info](workflow/SupportingData/Agriculture-IrrigatedLandsRaster/irrigated-lands-raster-map.md) |
+| ***Agriculture - Irrigated Lands*** | [README](workflow/SupportingData/Agriculture-IrrigatedLands/README.md) | [Info](workflow/SupportingData/Agriculture-IrrigatedLands/irrigated-lands-map.md) |
+| ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | [Info](workflow/SupportingData/Municipal-Municipalities/municipalities-map.md) |
+| ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | [Info](workflow/SupportingData/WaterSupply-WaterProviders/water-providers-map.md) |
 | ***Baseline Scenario /*** | ===========| ===============================|
 | ***Synopsis - Summary of Baseline Analysis*** | | [Info](workflow/BaselineScenario/00-Synopsis/synopsis.md) |
-| ***County Population*** | [README](workflow/BaselineScenario/CountyPopulation/README.md) | [Info](workflow/BaselineScenario/01-CountyPopulation/county-population.md) |
-| ***Municipality Population*** | [README](workflow/BaselineScenario/MunicipalityPopulation/README.md) | [Info](workflow/BaselineScenario/02-MunicipalityPopulation/municipalities-map.md) |
+| ***County Population*** | [README](workflow/BaselineScenario/01-CountyPopulation/README.md) | [Info](workflow/BaselineScenario/01-CountyPopulation/county-population.md) |
+| ***Municipality Population*** | [README](workflow/BaselineScenario/02-MunicipalityPopulation/README.md) | [Info](workflow/BaselineScenario/02-MunicipalityPopulation/municipalities-map.md) |
 | ***Scenario 1 /*** | ===========| ===============================|
 | ***Synopsis - Placeholder for Additional Scenarios*** | | Summary of Scenario 1 analysis (placeholder for future scenario analysis). |
 
