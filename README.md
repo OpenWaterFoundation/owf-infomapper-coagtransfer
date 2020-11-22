@@ -11,6 +11,7 @@ repository for the general InfoMapper web application code.
 
 The following sections are included in this documentation:
 
+* [Overview](#overview)
 * [Repository Contents](#repository-contents)
 * [Application Menus and Corresponding Workflow](#application-menus-and-corresponding-workflow)
 * [Development Environment](#development-environment)
@@ -20,6 +21,25 @@ The following sections are included in this documentation:
 * [Maintainers](#maintainers)
 
 --------------
+
+## Overview ##
+
+This repository implements analysis and visualization to create a municipal water demand and agricultural water transfer dashboard.
+The project is explained in the website [home page](web/content-pages/home.md).
+There are two primary objectives in the creation of a municipal water demand and agricultural water transfer dashboard:
+
+1. Automate input data processing and analysis steps so that the analysis is repeatable, updatable, and transparent.
+2. Publish the data input and results of the municipal water balance analysis to an online dashboard.
+
+The original WestWater Research analysis tool consisted of Excel workbooks containing data such as population data,
+municipal land area growth, current firm supply, total and future water supply,
+total and future water demand, and projected shortages.
+Data preparation and WWR analysis were performed in a largely manual fashion.
+The input data for the WWR analysis focused on data at a 10-year interval.
+However, many input datasets, such as population forecast data, are available on an annual basis or can be estimated as annual values.
+OWF updated the analysis to use annual data to the year 2050.
+The use of annual data provides more consistency, flexibility, and scalability of the analysis.
+Details about the analysis are provided in `README.md` files and information Markdown files for map and other analysis products.
 
 ## Repository Contents ##
 
@@ -80,6 +100,14 @@ The Info for each map provides information from web application user perspective
 | ***Agriculture - Irrigated Lands*** | [README](workflow/SupportingData/Agriculture-IrrigatedLands/README.md) | [Info](workflow/SupportingData/Agriculture-IrrigatedLands/irrigated-lands-map.md) |
 | ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | [Info](workflow/SupportingData/Municipal-Municipalities/municipalities-map.md) |
 | ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | [Info](workflow/SupportingData/WaterSupply-WaterProviders/water-providers-map.md) |
+|                           | -----------| -------------------------------|
+| ***Agriculture - Conservation Easements*** | | [Content Page](content-pages/conservation-easements.md) |
+| ***Environment - Open Lands*** | | [Content Page](content-pages/open-lands.md) |
+| ***Municipal - Water Dedication Policies*** | [README](workflow/SupportingData/Municipal-WaterDedicationPolicies/README.md) | [Info](workflow/SupportingData/Municipal-WaterDedicationPolicies/municipal-water-dedication-policies-map.md) |
+| ***Municipal - Water Rental Programs*** | [README](workflow/SupportingData/Municipal-WaterRentals/README.md) | [Info](workflow/SupportingData/Municipal-WaterRentals/municipal-water-rentals-map.md) |
+| ***Water Transfer - Case Studies*** | [README](workflow/SupportingData/WaterTransfer-CaseStudies/README.md) | [Info](workflow/SupportingData/WaterTransfer-CaseStudies/transfer-case-studies-map.md) |
+| ***Water Transfer - Interruptible Supply Agreements*** | | [Content Page](content-pages/interruptible-supply.md) |
+| ***Water Transfer - Substitute Water Supply Plans*** | | [Content Page](content-pages/swsp.md) |
 | ***Baseline Scenario /*** | ===========| ===============================|
 | ***Synopsis - Summary of Baseline Analysis*** | | [Info](workflow/BaselineScenario/00-Synopsis/synopsis.md) |
 | ***County Population*** | [README](workflow/BaselineScenario/01-CountyPopulation/README.md) | [Info](workflow/BaselineScenario/01-CountyPopulation/county-population.md) |

@@ -7,7 +7,7 @@
 
 ## Overview
 
-The Irrigated Lands map shows irrigated lands the analysis area, for most recent year of available data.
+The Irrigated Lands map shows irrigated lands the analysis area, for recent year of available data.
 
 ## Layer Groups
 

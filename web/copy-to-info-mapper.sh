@@ -1,4 +1,3 @@
-#!/bin/sh
 
 # Copy  files to 'infomapper/src/assets/app' folder.
 # Brute force way to provide content to InfoMapper and version control.
@@ -51,7 +50,7 @@ copyBaselineScenario_MunicipalityPopulation() {
 copyBaselineScenario_Synopsis() {
   checkBaselineScenarioFolder
 
-  # Copy counties map folder and files
+  # Copy synopsis files
   cp -rv ${scriptFolder}/data-maps/BaselineScenario/00-Synopsis ${folder}
 }
 
@@ -73,15 +72,15 @@ copyMainConfig() {
 copyScenario1Scenario_Synopsis() {
   checkScenario1Folder
 
-  # Copy counties map folder and files
+  # Copy synopsis files
   cp -rv ${scriptFolder}/data-maps/Scenario1/00-Synopsis ${folder}
 }
 
-copyStreamReaches() {
+copySupportingData_CoDwrWaterDistricts() {
   checkSupportingDataFolder
 
-  # Copy stream reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/Physical-StreamReaches ${folder}
+  # Copy water districts map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Administration-CoDwrWaterDistricts ${folder}
 }
 
 copySupportingData_Counties() {
@@ -126,6 +125,20 @@ copySupportingData_MunicipalDedicationPolicies() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/Municipal-WaterDedicationPolicies ${folder}
 }
 
+copySupportingData_StreamReaches() {
+  checkSupportingDataFolder
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Physical-StreamReaches ${folder}
+}
+
+copySupportingData_Synopsis() {
+  checkSupportingDataFolder
+
+  # Copy synopsis files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/Synopsis ${folder}
+}
+
 copySupportingData_WaterProviders() {
   checkSupportingDataFolder
 
@@ -133,25 +146,11 @@ copySupportingData_WaterProviders() {
   cp -rv ${scriptFolder}/data-maps/SupportingData/WaterSupply-WaterProviders ${folder}
 }
 
-copyWaterDistricts() {
-  checkSupportingDataFolder
-
-  # Copy water districts map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/Administration-CoDwrWaterDistricts ${folder}
-}
-
-copyWaterTransferCaseStudies() {
+copySupportingData_WaterTransferCaseStudies() {
   checkSupportingDataFolder
 
   # Copy transfer case studies map folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/WaterTransfer-CaseStudies ${folder}
-}
-
-copyWaterProviders() {
-  checkSupportingDataFolder
-
-  # Copy municipal water providers map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/WaterSupply-WaterProviders ${folder}
 }
 
 runInteractive() {
@@ -159,42 +158,45 @@ runInteractive() {
     echo ""
     echo "Enter an option to update application data."
     echo ""
-    echo "  c. Copy main configuration files."
-    echo " sw. Copy SupportingData/Administration - CoDwrWaterDistricts map files."
-    echo " sc. Copy SupportingData/Political - Counties map files and time series."
-    #echo " ss. Copy SupportingData/Physical - StreamReaches map files."
-    echo " sl. Copy SupportingData/Agriculture - IrrigatedLands map files."
-    echo "slr. Copy SupportingData/Agriculture - IrrigatedLands (Raster) map files."
-    echo " sm. Copy SupportingData/Municipal - Municipalities map files and time series."
-    echo "swp. Copy SupportingData/WaterSupply - Water Providers map files."
-    echo "     ----"
-    echo "smd. Copy SupportingData/Municipal - Water Dedication Policies map files."
-    echo "smr. Copy SupportingData/Municipal - Water Rentals map files."
-    echo "stc. Copy SupportingData/WaterTransfer - Case Studies map files."
+    echo "    c. Copy main configuration files."
+    echo " ssyn. Copy SupportingData/Synopsis files."
+    echo "   sw. Copy SupportingData/Administration - CoDwrWaterDistricts map files."
+    echo "   sc. Copy SupportingData/Political - Counties map files and time series."
+    #echo "   ss. Copy SupportingData/Physical - StreamReaches map files."
+    echo "  slr. Copy SupportingData/Agriculture - IrrigatedLands (Raster) map files."
+    echo "   sl. Copy SupportingData/Agriculture - IrrigatedLands map files."
+    echo "   sm. Copy SupportingData/Municipal - Municipalities map files and time series."
+    echo "  swp. Copy SupportingData/WaterSupply - Water Providers map files."
+    echo "       ----"
+    echo "  smd. Copy SupportingData/Municipal - Water Dedication Policies map files."
+    echo "  smr. Copy SupportingData/Municipal - Water Rentals map files."
+    echo "  stc. Copy SupportingData/WaterTransfer - Case Studies map files."
     echo ""
-    echo " bs. Copy BaselineScenario/Synopsis map files."
-    echo " bc. Copy BaselineScenario/CountyPopulation map files."
-    echo " bm. Copy BaselineScenario/MunicipalityPopulation map files."
+    echo "   bs. Copy BaselineScenario/Synopsis map files."
+    echo "   bc. Copy BaselineScenario/CountyPopulation map files."
+    echo "   bm. Copy BaselineScenario/MunicipalityPopulation map files."
     echo ""
-    echo " 1s. Copy Scenario1/Synopsis map files."
+    echo "   1s. Copy Scenario1/Synopsis map files."
     echo ""
-    echo "  q. Quit"
+    echo "    q. Quit"
     echo ""
     read -p "Enter command: " answer
     # The following are in the order above
     if [ "${answer}" = "c" ]; then
       copyMainConfig
 
+    elif [ "${answer}" = "ssyn" ]; then
+      copySupportingData_Synopsis
     elif [ "${answer}" = "sw" ]; then
-      copySupportingData_WaterDistricts
+      copySupportingData_CoDwrWaterDistricts
     elif [ "${answer}" = "sc" ]; then
       copySupportingData_Counties
     #elif [ "${answer}" = "ss" ]; then
-      #copyStreamReaches
-    elif [ "${answer}" = "sl" ]; then
-      copySupportingData_IrrigatedLands
+      #copySupportingData_StreamReaches
     elif [ "${answer}" = "slr" ]; then
       copySupportingData_IrrigatedLandsRaster
+    elif [ "${answer}" = "sl" ]; then
+      copySupportingData_IrrigatedLands
     elif [ "${answer}" = "sm" ]; then
       copySupportingData_Municipalities
     elif [ "${answer}" = "smd" ]; then

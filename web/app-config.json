@@ -10,10 +10,18 @@
       "align": "left",
       "menus": [
         {
+          "id": "data-synopsis",
+          "name": "Synopsis",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "data-maps/SupportingData/Synopsis/synopsis.md"
+        },
+        {
           "id": "data-codwr-waterdistricts-map",
           "name": "Administration - CO DWR Water Districts",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json"
+          "mapProject" : "data-maps/SupportingData/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json",
+          "separatorBefore" : true
         },
         {
           "id": "data-counties",
@@ -34,7 +42,8 @@
         {
           "id": "data-ditches",
           "name":  "Agriculture - Ditch Service Areas",
-          "enabled": "false",
+          "enabled": false,
+          "visible": false,
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Agriculture-Ditches/ditches.json",
           "separatorBefore" : true
