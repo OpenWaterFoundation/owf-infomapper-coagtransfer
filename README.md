@@ -5,14 +5,14 @@ the Colorado Agriculture Water Transfer website.
 The OWF InfoMapper web application provides access to maps, graphs, and other information products.
 See also:
 
+* [Deployed website](http://coagtransfer.openwaterfoundation.org/latest/)
 * [owf-app-infomapper-ng](https://github.com/OpenWaterFoundation/owf-app-infomapper-ng)
 repository for the general InfoMapper web application code.
-* [Deployed website](http://coagtransfer.openwaterfoundation.org/latest/)
 
 The following sections are included in this documentation:
 
 * [Repository Contents](#repository-contents)
-* [Application Menus and Corresponding Workflow](#application-menus-and-corresponding-workflows)
+* [Application Menus and Corresponding Workflow](#application-menus-and-corresponding-workflow)
 * [Development Environment](#development-environment)
 	+ [Quick Start](#quick-start)
 	+ [Development Tools](#development-tools)
@@ -65,8 +65,8 @@ owf-infomapper-coagtransfer/           Workflow files to process input for web a
 
 ## Application Menus and Corresponding Workflow ##
 
-The web application provides menus, which display context-specific maps, as follows.
-The README for each product provides information about data sources and workflow processing.
+The web application provides menus that display maps, as follows.
+The README for each map provides information about data sources and workflow processing.
 
 | **Menu** | **README** | **Description** |
 | -- | -- | -- |
