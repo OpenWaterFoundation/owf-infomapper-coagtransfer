@@ -1,6 +1,6 @@
 # SupportingData / Agriculture-IrrigatedLandsRaster #
 
-This folder contains files for the ***Agriculture - Irrigated Lands (Raster)*** map.
+This folder contains files for the ***Supporting Data / Agriculture - Irrigated Lands (Raster)*** map.
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)

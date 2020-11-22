@@ -1,6 +1,6 @@
 # SupportingData / WaterSupply-WaterProviders #
 
-This folder contains files for the ***Water Supply - Water Providers*** map.
+This folder contains files for the ***Supporting Data / Water Supply - Water Providers*** map.
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)

@@ -1,6 +1,6 @@
 # SupportingData / Administration-CoDwrWaterDistricts #
 
-This folder contains files for the ***Administration - CO DWR Water Districts*** map.
+This folder contains files for the ***Supporting Data / Administration - CO DWR Water Districts*** map.
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)

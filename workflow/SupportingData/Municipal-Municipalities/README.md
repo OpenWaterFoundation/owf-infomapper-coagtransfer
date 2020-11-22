@@ -11,7 +11,7 @@ This folder contains files for the ***Municipal - Municipalities*** map.
 
 ## Overview ##
 
-The ***Supporting Data / Municipal - Municipalities*** map includes the locations of municipalities as markers and boundaries,
+This ***Supporting Data / Municipal - Municipalities*** map includes the locations of municipalities as markers and boundaries,
 with historical population time series.
 
 ## Update Frequency ##

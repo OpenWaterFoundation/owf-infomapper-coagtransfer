@@ -1,6 +1,6 @@
 # SupportingData / Political-Counties #
 
-This folder contains files for the ***Political - Counties*** map.
+This folder contains files for the ***Supporting Data / Political - Counties*** map.
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)
