@@ -12,6 +12,9 @@ junk
 # Ignore log files
 *.log
 
+# Ignore temporary junk files (throw-away files)
+*.junk
+
 # Ignore temporary HTML files
 *.tmp.html
 

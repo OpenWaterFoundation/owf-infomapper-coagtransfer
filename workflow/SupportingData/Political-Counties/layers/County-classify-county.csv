@@ -1,0 +1,54 @@
+# Category classification table for County raster.
+# - the value corresponds to raster data value
+# - set colors so that adjacent counties have different colors
+# - the County.csv file corresponding to County.tif was
+#   pasted into this file (first 2 columns) and classification properties were added,
+#   'NAME' was changed to 'label' consistent with InfoMapper conventions
+#Value,NAME,color,opacity,fillColor,fillOpacity,weight,label
+value,label,color,opacity,fillColor,fillOpacity,weight,label
+# Blue
+1,Fremont,#0099ff,1.0,#0099ff,0.3,2
+# Deep sky blue
+2,Huerfano,#00bfff,1.0,#00bfff,0.3,2
+# Light green
+3,Douglas,#00cc44,1.0,#00cc44,0.3,2
+# Yellow
+4,Jefferson,#ffff00,1.0,#ffff00,0.3,2
+# Light red
+5,Boulder,#ff4d4d,1.0,#ff4d4d,0.3,2
+# Orange
+6,Broomfield,#ff9900,1.0,#ff9900,0.3,2
+# Purple
+7,Larimer,#9933ff,1.0,#9933ff,0.3,2
+# Brownish
+8,Cheyenne,#b32d00,1.0,#b32d00,0.3,2
+# Tomato
+9,Crowley,#ff6347,1.0,#ff6347,0.3,2
+# Pink
+10,El Paso,#ff4dff,1.0,#ff4dff,0.3,2
+# Gold
+11,Kiowa,#ffd700,1.0,#ffd700,0.3,2
+# Coral
+12,Otero,#ff7f50,1.0,#ff7f50,0.3,2
+# Maroon
+13,Pueblo,#cc0044,1.0,#cc0044,0.3,2
+# Green
+14,Arapahoe,#88cc00,1.0,#88cc00,0.3,2
+# Purple
+15,Denver,#c44dff,1.0,#c44dff,0.3,2
+# Goldenrod
+16,Elbert,#daa520,1.0,#daa520,0.3,2
+# Cyan
+17,Lincoln,#00ffff,1.0,#00ffff,0.3,2
+# Light slate gray
+18,Adams,#778899,1.0,#778899,0.3,2
+# Cornsilk
+19,Morgan,#fff8dc,1.0,#fff8dc,0.3,2
+# Turquise
+20,Weld,#40e0d0,1.0,#40e0d0,0.3,2
+# Orange
+21,Kit Carson,#ffa500,1.0,#ffa500,0.3,2
+# Brown
+22,Washington,#cc4400,1.0,#cc4400,0.3,2
+# Magenta
+23,Logan,#ff00ff,1.0,#ff00ff,0.3,2

@@ -11,6 +11,7 @@ SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 #SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BasinEntities/Political-Counties")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/Political-Counties")
+SetProperty(PropertyName="WWRRepoFolder",PropertyType="str",PropertyValue="../../../../owf-infomapper-coagtransfer-data-wwr")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  CountiesProject
@@ -65,6 +66,19 @@ AddGeoLayerViewToGeoMap(GeoLayerID="GoogleTerrain",GeoLayerViewID="GoogleTerrain
 # Other
 ReadRasterGeoLayerFromTileMapService(InputUrl="https://basemap.nationalmap.gov/ArcGIS/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",GeoLayerID="USGSTopo",Name="USGS Topo (USGS)",Description="Topo background map from USGS.",Properties="attribution: 'USGS',isBackground: true")
 AddGeoLayerViewToGeoMap(GeoLayerID="USGSTopo",GeoLayerViewID="USGSTopoView",Name="USGS Topo (USGS)",Description="USGS Topo background map from USGS.",Properties="selectedInitial: true,separatorBefore:true")
+# = = = = = = = = = =
+# County raster data:  read layers and add to a layer view group.
+# - copy from the repository that contains WWR data
+# GeoLayerViewGroupID: CountiesRasterGroup
+#
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="CountiesRasterGroup",Name="Colorado Counties (Raster)",Description="Colorado County area derived from polygons",InsertPosition="Top")
+#
+CopyFile(SourceFile="${WWRRepoFolder}/Rasters/County.tif",DestinationFile="layers/County.tif")
+CopyFile(SourceFile="${WWRRepoFolder}/Rasters/County.csv",DestinationFile="layers/County.csv")
+ReadRasterGeoLayerFromFile(InputFile="layers/County.tif",GeoLayerID="CountiesRasterLayer",Name="Colorado Counties (Raster)",Description="Colorado County area derived from polygons")
+AddGeoLayerViewToGeoMap(GeoLayerID="CountiesRasterLayer",GeoLayerViewID="CountiesRasterLayerView",Name="Colorado Counties (Raster)",Description="Colorado County area derived from polygons",Properties="docPath:'layers/County.md'")
+# Use category colors
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CountiesRasterLayerView",Name="Colorize Counties",Description="Symbol for the county raster",ClassificationAttribute="1",Properties="classificationFile:'layers/County-classify-county.csv'")
 # = = = = = = = = = =
 # Colorado state boundary:  read layer and add to layer view group.
 # StateBoundaryGroupID: StateBoundaryGroup
@@ -126,6 +140,11 @@ CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExi
 CopyFile(SourceFile="counties-map.json",DestinationFile="${MapFolder}/counties-map.json")
 CopyFile(SourceFile="counties-map.md",DestinationFile="${MapFolder}/counties-map.md")
 # -----
+# Rasters
+CopyFile(SourceFile="layers/County.tif",DestinationFile="${MapFolder}/layers/County.tif")
+CopyFile(SourceFile="layers/County.csv",DestinationFile="${MapFolder}/layers/County.csv")
+CopyFile(SourceFile="layers/County-classify-county.csv",DestinationFile="${MapFolder}/layers/County-classify-county.csv")
+CopyFile(SourceFile="layers/County.md",DestinationFile="${MapFolder}/layers/County.md")
 # Layers
 CopyFile(SourceFile="layers/co-dwr-water-division.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-division-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division-classify-division.csv")

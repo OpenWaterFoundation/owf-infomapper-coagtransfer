@@ -1,0 +1,19 @@
+# Category classification table for Land Development raster.
+# - the value corresponds to raster data value
+# - set colors so that adjacent municipalities have different colors
+value,label,color,opacity,fillColor,fillOpacity,weight,label
+# Undeveloped
+# - White does not show up on topo so don't use.
+# - cyan
+#1,Undeveloped,#ffffff,1.0,#ffffff,0.3,2
+1,"Undeveloped (ag land, muni areas not built out)",#00ffff,1.0,#00ffff,0.3,2
+# Developed
+# - gray with transparency does not show up well with other layers
+# - yellow
+#2,Developed,#999999,1.0,#999999,0.3,2
+2,Developed,#ffff00,1.0,#ffff00,0.3,2
+# Undevelopable
+# - black with transparency looks too much like other layers so use magenta
+# - magenta
+#3,Undevelopable,#000000,1.0,#000000,0.3,2
+3,"Undevelopable (water, public lands, etc.)",#ff00ff,1.0,#ff00ff,0.3,2

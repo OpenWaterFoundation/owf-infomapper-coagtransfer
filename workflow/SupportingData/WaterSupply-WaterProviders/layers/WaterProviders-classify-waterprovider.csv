@@ -1,0 +1,128 @@
+# Category classification table for Water Providers raster.
+# - the value corresponds to raster data value
+# - set colors so that adjacent municipalities have different colors
+# - the WaterProviders.csv file corresponding to WaterProviders.tif was
+#   pasted into this file (first 2 columns) and classification properties were added,
+#   'Name' was changed to 'label' consistent with InfoMapper conventions
+#Value,Name,color,opacity,fillColor,fillOpacity,weight,label
+value,label,color,opacity,fillColor,fillOpacity,weight,label
+53,ACADEMY SWD,#0033cc,1.0,#0033cc,0.3,2
+69,Arapahoe County Water and Wastewater Authority,#0033cc,1.0,#0033cc,0.3,2
+2,Arvada,#0033cc,1.0,#0033cc,0.3,2
+3,Aurora,#0033cc,1.0,#0033cc,0.3,2
+102,Avondale Water & Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+116,Baseline Water District,#0033cc,1.0,#0033cc,0.3,2
+72,Bell Mountain Ranch Metro District,#0033cc,1.0,#0033cc,0.3,2
+122,Berthoud,#0033cc,1.0,#0033cc,0.3,2
+73,Beverly Hills Mutual Water Company,#0033cc,1.0,#0033cc,0.3,2
+38,BLUE MOUNTAIN WATER,#0033cc,1.0,#0033cc,0.3,2
+4,Boulder,#0033cc,1.0,#0033cc,0.3,2
+5,Brighton,#0033cc,1.0,#0033cc,0.3,2
+6,Broomfield,#0033cc,1.0,#0033cc,0.3,2
+7,Brush,#0033cc,1.0,#0033cc,0.3,2
+8,Canon City,#0033cc,1.0,#0033cc,0.3,2
+74,Castle Pines Metropolitan District,#0033cc,1.0,#0033cc,0.3,2
+75,Castle Pines North Metropolitan District,#0033cc,1.0,#0033cc,0.3,2
+9,Castle Rock,#0033cc,1.0,#0033cc,0.3,2
+77,Centennial Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+65,Central Weld County Water District,#0033cc,1.0,#0033cc,0.3,2
+78,Chatfield South Water District,#0033cc,1.0,#0033cc,0.3,2
+105,Cherokee Metropolitan District,#0033cc,1.0,#0033cc,0.3,2
+39,Consolidated Mutual Water Company,#0033cc,1.0,#0033cc,0.3,2
+10,Colorado Springs,#0033cc,1.0,#0033cc,0.3,2
+80,Cottonwood Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+11,Dacono,#0033cc,1.0,#0033cc,0.3,2
+66,Denver Water,#0033cc,1.0,#0033cc,0.3,2
+81,Dominion Water & Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+52,Donala Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+54,Donala Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+118,East Boulder County Water District,#0033cc,1.0,#0033cc,0.3,2
+67,East Cherry Creek Valley Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+70,EAST VALLEY METRO WATER & SANITATION DISTRICT,#0033cc,1.0,#0033cc,0.3,2
+108,East Larimer County Water District,#0033cc,1.0,#0033cc,0.3,2
+47,Englewood,#0033cc,1.0,#0033cc,0.3,2
+12,Erie,#0033cc,1.0,#0033cc,0.3,2
+13,Evans,#0033cc,1.0,#0033cc,0.3,2
+14,Firestone,#0033cc,1.0,#0033cc,0.3,2
+61,Forest View Acres Water District,#0033cc,1.0,#0033cc,0.3,2
+110,Fort Collins - Loveland Water District,#0033cc,1.0,#0033cc,0.3,2
+107,Fort Collins Utilities (Water),#0033cc,1.0,#0033cc,0.3,2
+15,Fort Lupton,#0033cc,1.0,#0033cc,0.3,2
+16,Fort Morgan,#0033cc,1.0,#0033cc,0.3,2
+17,Fountain,#0033cc,1.0,#0033cc,0.3,2
+18,Fowler,#0033cc,1.0,#0033cc,0.3,2
+19,Frederick,#0033cc,1.0,#0033cc,0.3,2
+51,GARDEN VALLEY SWD,#0033cc,1.0,#0033cc,0.3,2
+55,GARDEN VALLEY SWD #2,#0033cc,1.0,#0033cc,0.3,2
+20,Golden,#0033cc,1.0,#0033cc,0.3,2
+45,Greatrock North Water & Sanitation,#0033cc,1.0,#0033cc,0.3,2
+21,Greeley,#0033cc,1.0,#0033cc,0.3,2
+117,Hoover Hill Water & Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+22,Hudson,#0033cc,1.0,#0033cc,0.3,2
+68,Inverness Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+82,Inverness Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+23,Lafayette,#0033cc,1.0,#0033cc,0.3,2
+113,Left Hand Water District,#0033cc,1.0,#0033cc,0.3,2
+115,Little Thompson Water District,#0033cc,1.0,#0033cc,0.3,2
+24,Longmont,#0033cc,1.0,#0033cc,0.3,2
+114,Longs Peak Water District,#0033cc,1.0,#0033cc,0.3,2
+25,Louisville,#0033cc,1.0,#0033cc,0.3,2
+83,Louviers Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+26,Loveland,#0033cc,1.0,#0033cc,0.3,2
+84,Meridian Metropolitan District,#0033cc,1.0,#0033cc,0.3,2
+27,Monument,#0033cc,1.0,#0033cc,0.3,2
+101,Morgan County Quality Water District,#0033cc,1.0,#0033cc,0.3,2
+104,Navajo Western Water District,#0033cc,1.0,#0033cc,0.3,2
+1,None,#000000,1.0,#000000,0.3,2
+40,North Table Mountain Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+64,North Weld County Water District,#0033cc,1.0,#0033cc,0.3,2
+112,Northern Colorado Water Association,#0033cc,1.0,#0033cc,0.3,2
+28,Northglenn,#0033cc,1.0,#0033cc,0.3,2
+29,Nunn,#0033cc,1.0,#0033cc,0.3,2
+119,Olde Stage Water District,#0033cc,1.0,#0033cc,0.3,2
+100,Park Center Water District,#0033cc,1.0,#0033cc,0.3,2
+59,PARK FOREST WD,#0033cc,1.0,#0033cc,0.3,2
+85,Parker Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+99,Penrose Water District,#0033cc,1.0,#0033cc,0.3,2
+86,Perry Park Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+120,Pine Brook Water District,#0033cc,1.0,#0033cc,0.3,2
+87,Denver Southeast Suburban Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+56,PIONEER LOOKOUT WD,#0033cc,1.0,#0033cc,0.3,2
+30,Platteville,#0033cc,1.0,#0033cc,0.3,2
+41,PLEASANT VIEW WATER & SANITATION,#0033cc,1.0,#0033cc,0.3,2
+71,PROSPER WATER & SANITATION FINANCING METRO DISTRICT,#0033cc,1.0,#0033cc,0.3,2
+31,Pueblo,#0033cc,1.0,#0033cc,0.3,2
+106,Pueblo West Metropolitan District,#0033cc,1.0,#0033cc,0.3,2
+42,RALSTON VALLEY WATER & SANITATION,#0033cc,1.0,#0033cc,0.3,2
+88,Ravenna Metro District,#0033cc,1.0,#0033cc,0.3,2
+62,RED ROCK VALLEY ESTATES WD,#0033cc,1.0,#0033cc,0.3,2
+60,ROCK CREEK MESA WD,#0033cc,1.0,#0033cc,0.3,2
+98,Roxborough Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+57,Security Water District,#0033cc,1.0,#0033cc,0.3,2
+89,Sedalia Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+121,Shannon Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+46,Shaw Heights Water,#0033cc,1.0,#0033cc,0.3,2
+90,Sierra Vista Douglas Mutual Water Company,#0033cc,1.0,#0033cc,0.3,2
+91,Silver Heights Water and Sanitation,#0033cc,1.0,#0033cc,0.3,2
+92,Soliltude Metro District,#0033cc,1.0,#0033cc,0.3,2
+44,South Adams County Water and Sanitation District,#0033cc,1.0,#0033cc,0.3,2
+93,Southwest Metro WSD,#0033cc,1.0,#0033cc,0.3,2
+103,St. Charles Mesa Water District,#0033cc,1.0,#0033cc,0.3,2
+94,Stonegate Village Metro,#0033cc,1.0,#0033cc,0.3,2
+58,STRATMOOR HILLS WD,#0033cc,1.0,#0033cc,0.3,2
+109,Sunset Water District,#0033cc,1.0,#0033cc,0.3,2
+32,Superior,#0033cc,1.0,#0033cc,0.3,2
+33,Thornton,#0033cc,1.0,#0033cc,0.3,2
+95,Thunderbird Water and Sanitation District (4/3/08),#0033cc,1.0,#0033cc,0.3,2
+43,Todd Creek Village Metro,#0033cc,1.0,#0033cc,0.3,2
+96,Town of Larkspur,#0033cc,1.0,#0033cc,0.3,2
+63,TURKEY CANON RANCH WD,#0033cc,1.0,#0033cc,0.3,2
+97,View Ridge Mutual Water Company,#0033cc,1.0,#0033cc,0.3,2
+34,Wellington,#0033cc,1.0,#0033cc,0.3,2
+111,West Fort Collins Water District,#0033cc,1.0,#0033cc,0.3,2
+35,Westminster,#0033cc,1.0,#0033cc,0.3,2
+48,WESTMOOR SWD,#0033cc,1.0,#0033cc,0.3,2
+50,WIDEFIELD SWD,#0033cc,1.0,#0033cc,0.3,2
+36,Wiggins,#0033cc,1.0,#0033cc,0.3,2
+37,Windsor,#0033cc,1.0,#0033cc,0.3,2
+49,Woodmoor Water and Sanitation District No. 1,#0033cc,1.0,#0033cc,0.3,2

@@ -276,6 +276,18 @@
           "history:": []
         },
         {
+          "geoLayerId": "CountiesRasterLayer",
+          "name": "Colorado Counties (Raster)",
+          "description": "Colorado County area derived from polygons",
+          "crs": "EPSG:4326",
+          "geometryType": "Raster",
+          "layerType": "Raster",
+          "sourceFormat": null,
+          "sourcePath": "layers/County.tif",
+          "properties": {},
+          "history:": []
+        },
+        {
           "geoLayerId": "StateBoundaryLayer",
           "name": "Colorado State Boundary",
           "description": "Colorado state boundary from CDPHE.",
@@ -440,6 +452,33 @@
                   "fillColor": "#000000",
                   "fillOpacity": "0.0",
                   "weight": "2"
+                }
+              },
+              "eventHandlers": []
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "CountiesRasterGroup",
+          "name": "Colorado Counties (Raster)",
+          "description": "Colorado County area derived from polygons",
+          "properties": {},
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "CountiesRasterLayerView",
+              "name": "Colorado Counties (Raster)",
+              "description": "Colorado County area derived from polygons",
+              "geoLayerId": "CountiesRasterLayer",
+              "properties": {
+                "docPath": "layers/County.md"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize Counties",
+                "description": "Symbol for the county raster",
+                "classificationType": "Categorized",
+                "classificationAttribute": "1",
+                "properties": {
+                  "classificationFile": "layers/County-classify-county.csv"
                 }
               },
               "eventHandlers": []
