@@ -4,8 +4,7 @@ This folder contains files for the ***Political - Counties*** map.
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)
-* [Datasets](#datasets)
-* [Files](#files)
+* [Files and Folders](#files-and-folders)
 * [Workflow](#workflow)
 
 -----------------------------
@@ -39,10 +38,10 @@ The following describes the workflow steps, which should be run in the order sho
 
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
-| `01a-download-county-boundaries-from-cim.gp` | GeoProcessor | Download county boundaries from Colorado Information Marketplace. |
-| `01b-download-county-data-from-owf.gp` | GeoProcessor | Download county dataset from Open Water Foundation, used to cross-reference identifiers. |
-| `01c-download-county-population-data-from-dola.gp` | GeoProcessor | Download county population data from Department of Local Affairs. |
-| `02a-create-county-sqlite-database.tstool` | TSTool | Create SQLite database containing DOLA population data, to facilitate data processing. |
+| `01a-download-county-boundaries-from-cim.gp` | GeoProcessor | Download county boundaries from Colorado Information Marketplace and save to `layers` folder. |
+| `01b-download-county-data-from-owf.gp` | GeoProcessor | Download county dataset from Open Water Foundation and save to `layers` folder, used to cross-reference identifiers. |
+| `01c-download-county-population-data-from-dola.gp` | GeoProcessor | Download county population data from Department of Local Affairs and save to `layers` folder. |
+| `02a-create-county-sqlite-database.tstool` | TSTool | Create SQLite database in `db` folder containing DOLA population data, to facilitate data processing. |
 | `02a-create-owf-county-sqlite-table.sql` | SQLite | SQL to create database population data table. |
-| `02b-create-population-graph-config.tstool` | TSTool | Create graph configurations for population data. |
-| `03-create-counties-map.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |
+| `02b-create-population-graph-config.tstool` | TSTool | Create graph configurations in `graphs` folder and time series in `ts` folder for population data. |
+| `03-create-counties-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |

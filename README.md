@@ -71,20 +71,20 @@ The README for each map provides information about data sources and workflow pro
 | **Menu** | **README** | **Description** |
 | -- | -- | -- |
 | ***Supporting Data /*** | ===========| ===============================|
-| ***Administration - CO DWR Water Districts*** | [README](workflow/SupportingData/Administration-CoDwrWaterDistricts/README.md) | Colorado Division of Water Resources administrative water divisions and districts. |
-| ***Political - Counties*** | [README](workflow/SupportingData/Political-Counties/README.md) | Counties, with population time series. |
+| ***Administration - CO DWR Water Districts*** | [README](workflow/SupportingData/Administration-CoDwrWaterDistricts/README.md) | Colorado Division of Water Resources administrative water divisions and districts map. |
+| ***Political - Counties*** | [README](workflow/SupportingData/Political-Counties/README.md) | Counties map, with historical population time series. |
 | ***Physical - Stream Reaches*** | | Currently not enabled. |
 | ***Agriculture - Ditches*** | | Currently not enabled. |
-| ***Agriculture - Irrigated Lands (Raster)*** | | |
-| ***Agriculture - Irrigated Lands*** | | |
-| ***Municipal - Municipalities*** | | |
-| ***Water Supply - Water Providers*** | | |
+| ***Agriculture - Irrigated Lands (Raster)*** | [README](workflow/SupportingData/Agriculture-IrrigatedLandsRaster/README.md) | Irrigated lands raster layer map. |
+| ***Agriculture - Irrigated Lands*** | [README](workflow/SupportingData/Agriculture-IrrigatedLands/README.md) | Irrigated lands parcel layers and raster layer map. |
+| ***Municipal - Municipalities*** | [README](workflow/SupportingData/Municipal-Municipalities/README.md) | Municipalities map, with historical population time series. |
+| ***Water Supply - Water Providers*** | [README](workflow/SupportingData/WaterSupply-WaterProviders/README.md) | Water providers map. |
 | ***Baseline Scenario /*** | ===========| ===============================|
-| ***Synopsis - Summary of Baseline Analysis*** | | |
-| ***County Population*** | | |
-| ***Municipality Population*** | | |
+| ***Synopsis - Summary of Baseline Analysis*** | [README](workflow/BaselineScenario/Synopsis/README.md) | Summary of Baseline scenario analysis. |
+| ***County Population*** | [README](workflow/BaselineScenario/CountyPopulation/README.md) | County map, with historical and forecast population time series. |
+| ***Municipality Population*** | [README](workflow/BaselineScenario/MunicipalityPopulation/README.md) | Municipality map, with historical and forecast population time series. |
 | ***Scenario 1 /*** | ===========| ===============================|
-| ***Synopsis - Placeholder for Additional Scenarios*** | | |
+| ***Synopsis - Placeholder for Additional Scenarios*** | | Summary of Scenario 1 analysis (placeholder for future scenario analysis). |
 
 ## Development Environment ##
 
