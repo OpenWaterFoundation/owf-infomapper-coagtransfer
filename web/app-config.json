@@ -66,13 +66,6 @@
           "mapProject": "data-maps/SupportingData/WaterSupply-WaterProviders/water-providers-map.json"
         },
         {
-          "id": "data-rasters",
-          "name": "Model Data - Rasters",
-          "separatorBefore" : true,
-          "action": "displayMap",
-          "mapProject": "data-maps/SupportingData/ModelData-Rasters/rasters-map.json"
-        },
-        {
           "id": "data-conservation-easements-map",
           "name":  "Agriculture - Conservation Easements (*)",
           "action": "contentPage",
