@@ -42,5 +42,5 @@ The following describes the workflow steps, which should be run in the order sho
 | `01a-download-municipalities-from-owf.gp` | GeoProcessor | Download the municipalities data from Open Water Foundation GitHub repository and save to the `layers` folder for points. |
 | `01b-download-municipal-boundaries-from-cim.gp` | GeoProcessor | Download the municipality boundaries data from Colorado Information Marketplace and save to the `layers folder. |
 | `01c-download-municipal-rasters-from-owf.gp` | GeoProcessor | Download the municipality and development raster layers from Open Water Foundation repository and save to the `layers folder. |
-| `02b-create-population-graph-config.tstool` | TSTool | Create graph configurations in `graphs` folder and time series in `ts` folder for population data. |
+| `02-create-population-graph-config.tstool` | TSTool | Create graph configurations in `graphs` folder and time series in `ts` folder for population data. |
 | `03-create-municipalities-map.gp` | GeoProcessor | Create the map configuration file for use with the InfoMapper and copy files to the `web` folder. |
