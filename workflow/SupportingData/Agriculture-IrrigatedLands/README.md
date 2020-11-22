@@ -1,6 +1,6 @@
-# Agriculture-IrrigatedLandsRaster #
+# Agriculture-IrrigatedLands #
 
-This folder contains files for the ***Agriculture - Irrigated Lands (Raster)*** map.
+This folder contains files for the ***Agriculture - Irrigated Lands*** map.
 
 * [Overview](#overview)
 * [Update Frequency](#update-frequency)
@@ -11,9 +11,9 @@ This folder contains files for the ***Agriculture - Irrigated Lands (Raster)*** 
 
 ## Overview ##
 
-The ***Agriculture - Irrigated Lands (Raster)*** map includes irrigated lands as a raster layer,
-which is used to perform the analysis.
-A separate map is provided for raster layer because the other map with parcel data is slower to load and use.
+The ***Agriculture - Irrigated Lands*** map includes irrigated lands as a parcel layer and raster layer.
+The raster layer is used to perform the analysis.
+A separate map is provided for only raster layer because this map is slower to load and use.
 
 ## Update Frequency ##
 
@@ -25,8 +25,9 @@ The following files and folders are used.  Workflow files are described in the [
 
 | **File/Folder** | **Description** | **Include in Repository?** |
 | -- | -- | -- |
-| `irrigated-lands-raster-map.json` | Map configuration file. | Yes |
-| `irrigated-lands-raster-map.md` | Map information file. | Yes |
+| `irrigated-lands-map.json` | Map configuration file. | Yes |
+| `irrigated-lands-map.md` | Map information file. | Yes |
+| `downloads/` | Downloaded files. | No |
 | `layers/` | Layers and supporting files used in the map. | <ul><li>Yes - for configuration files</li><li>No - for generated files</li></ul> |
 
 ## Workflow ##
@@ -35,4 +36,5 @@ The following describes the workflow steps, which should be run in the order sho
 
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
-| `03-create-irrigated-lands-raster-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |
+| `01-download-irrigated-lands-from-dwr.gp` | GeoProcessor | Download irrigated lands layers from CDSS data website and save to `layers` folder. |
+| `03-create-irrigated-lands-map.gp` | GeoProcessor | Create a GeoMapProject map configuration file for use with the InfoMapper. |

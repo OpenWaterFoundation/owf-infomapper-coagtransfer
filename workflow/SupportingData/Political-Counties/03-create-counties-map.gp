@@ -17,7 +17,7 @@ SetProperty(PropertyName="WWRRepoFolder",PropertyType="str",PropertyValue="../..
 # - GeoMapProjectID:  CountiesProject
 # - GeoMapID:  CountiesMap
 CreateGeoMapProject(NewGeoMapProjectID="CountiesProject",ProjectType="SingleMap",Name="CO Counties",Description="Colorado Counties",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="CountiesMap",Name="Colorado Counties",Description="Colorado Counties",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.385,40,8',docPath:counties-map.md")
+CreateGeoMap(NewGeoMapID="CountiesMap",Name="Colorado Counties",Description="Colorado Counties",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-105.705,38.959,7.6',docPath:counties-map.md")
 AddGeoMapToGeoMapProject(GeoMapProjectID="CountiesProject",GeoMapID="CountiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group

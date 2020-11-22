@@ -16,7 +16,7 @@
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
-        "extentInitial": "ZoomLevel:-105.385,40,8",
+        "extentInitial": "ZoomLevel:-105.705,38.959,7.6",
         "docPath": "counties-map.md"
       },
       "geoLayers": [
