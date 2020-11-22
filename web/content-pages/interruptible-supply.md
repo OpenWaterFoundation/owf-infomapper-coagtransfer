@@ -1,6 +1,6 @@
-# Interruptble Supply Agreements
+# Interruptible Supply Agreements
 
-Interruptable Water Supply Agreements (IWSAs) allow for temporary water transfers,
+Interruptible Water Supply Agreements (IWSAs) allow for temporary water transfers,
 for example to transfer water from agriculture to municipal use during a drought.
 There are limits on how many years such an arrangement can be used,
 for example 3 in 10 years.

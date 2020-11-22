@@ -113,11 +113,11 @@
         },
         {
           "id": "data-isa",
-          "name": "Water Transfer - Interruptable Supply Agreements (*)",
+          "name": "Water Transfer - Interruptible Supply Agreements (*)",
           "action": "contentPage",
-          "markdownFile": "content-pages/interruptable-supply.md",
+          "markdownFile": "content-pages/interruptible-supply.md",
           "x-action": "displayMap",
-          "x-mapProject" : "data-maps/SupportingData/WaterTransfer-InterruptableSupply/interruptable-supply-map.json"
+          "x-mapProject" : "data-maps/SupportingData/WaterTransfer-InterruptibleSupply/interruptible-supply-map.json"
         },
         {
           "id": "data-swsp",
