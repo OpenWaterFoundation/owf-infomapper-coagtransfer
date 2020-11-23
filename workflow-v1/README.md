@@ -2,7 +2,7 @@
 
 This folder contains the original workflow scripts and command files created by the Open Water Foundation
 (see the `owf-infomapper-coagtransfer-v0` archive repository),
-but which have been updated to use relative paths.
+but which have been updated to use relative paths and copy files from the archive repositories, as needed.
 Python and R are primarily used for processing.
 Running the analysis in this folder therefore recreates the original work to automate processing.
 
