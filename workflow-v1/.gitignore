@@ -56,6 +56,8 @@
 # Ignore the csv files that are created.
 /data-processing/05-Calculate-WaterDistrictPopulation-withinMunis/waterdistrict-area.csv
 /data-processing/05-Calculate-WaterDistrictPopulation-withinMunis/waterdistrict-proportions.csv
+#
+/data-processing/05-Calculate-WaterDistrictPopulation-withinMunis/future-municipal-density.csv
 
 # Step 06
 # Ignore the csv files that are created.
