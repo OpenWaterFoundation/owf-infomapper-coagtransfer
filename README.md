@@ -64,6 +64,8 @@ C:\Users\user\                                 User's home folder for Windows.
       git-repos/                               Git repositories for the web application.
         owf-app-infomapper-ng/                 InfoMapper web application.
         owf-infomapper-coagtransfer/           Workflow files to process input for web application.
+        owf-infomapper-coagtransfer-v0/        Initial version of the workflow prior to InfoMapper integration
+                                               (private repository).
         owf-infomapper-coagtransfer-data-wwr/  Data from WestWater Research (private repository).
 ```
 
@@ -81,6 +83,14 @@ owf-infomapper-coagtransfer/           Workflow files to process input for web a
                                        Will be copied to InfoMapper 'assets/app' folder.
   workflow/                            Command files and scripts to download and process data into maps
                                        and perform analysis steps.  Folders match menu organization.
+                                       TSTool and GeoProcessor have been phased in for some
+                                       analysis steps and to prepare information products for the website.
+                                       Python and R are still also used for analysis similar to workflow-v2.
+  workflow-v1/                         Initial version of the workflow that uses relative paths and is portable. 
+                                       Python and R are primarily used.  This workflow is used for some
+                                       analysis steps given the initial focus to get automation working,
+                                       if not fully optimized in terms of technologies.
+    .gitignore                         File to ignore dynamic output files and folders in workflow-v1/ folder.
 ```
 
 ## Application Menus and Corresponding Workflow ##

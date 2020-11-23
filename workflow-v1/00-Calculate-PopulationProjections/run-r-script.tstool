@@ -1,0 +1,19 @@
+StartLog(LogFile="run-r-script.tstool.log")
+# Run the R script to process county population data.
+# Run from TSTool to ensure that the working directory is correct.
+# R Studio will only use proper working directory if the R script is opened from File Explorer
+# but not R Studio File...Open.
+# TODO smalers 2020-11-22 need to implement a similar command in GeoProcessor.
+#
+# Copy input files from the legacy repository to get the analysis started.
+# - TODO smalers 2020-11-22 need to feed in the more recent TSTool output.
+SetProperty(PropertyName="v0RepoFolder",PropertyType=String,PropertyValue="../../../owf-infomapper-coagtransfer-v0")
+SetProperty(PropertyName="v0CalculatePopulationProjectionsFolder",PropertyType=String,PropertyValue="${v0RepoFolder}/data-processing/00-Calculate-PopulationProjections")
+CopyFile(InputFile="${v0CalculatePopulationProjectionsFolder}/county-population.csv",OutputFile="county-population.csv",IfInputNotFound=Fail)
+CopyFile(InputFile="${v0CalculatePopulationProjectionsFolder}/municipal-population.csv",OutputFile="municipal-population.csv",IfInputNotFound=Fail)
+CopyFile(InputFile="${v0CalculatePopulationProjectionsFolder}/municipal-proportions.csv",OutputFile="municipal-proportions.csv",IfInputNotFound=Fail)
+#
+# Run the R script that was written to process county population data.
+# Use the -e because rscript.exe does not recognize installed packages by default,
+# such as those added in R Studio.
+RunR(ScriptFile="municipal-population-proportions.R",SetwdHow="IncludedInArguments",ScriptArguments="${WorkingDirPortable}",ROptions="-e \".libPaths()\"")

@@ -1,0 +1,11 @@
+# .gitignore for workflow-v1/ folder
+# - Ignore files and folders that are dynamic output of the processing
+
+# Input files copied from other folders.
+# - TODO smalers 2020-11-22 need to replace with TSTool time series or database query.
+/00-Calculate-PopulationProjections/county-population.csv
+/00-Calculate-PopulationProjections/municipal-population.csv
+/00-Calculate-PopulationProjections/municipal-population-forecast.csv
+# Output from this step.
+/00-Calculate-PopulationProjections/municipal-proportions.csv
+
