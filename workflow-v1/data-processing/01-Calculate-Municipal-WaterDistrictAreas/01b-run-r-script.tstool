@@ -1,0 +1,26 @@
+StartLog(LogFile="01b-run-r-script.tstool.log")
+# Run the R script to process rasters to compute municipal and water district areas.
+# Run from TSTool to ensure that the working directory is correct.
+# R Studio will only use proper working directory if the R script is opened from File Explorer
+# but not R Studio File...Open.
+# TODO smalers 2020-11-22 need to implement a similar command in GeoProcessor.
+#
+# Copy input tif files from the legacy repository.
+SetProperty(PropertyName="v0RepoFolder",PropertyType=String,PropertyValue="../../../../owf-infomapper-coagtransfer-v0")
+SetProperty(PropertyName="v0CalculateMunicipalWaterDistrictAreasFolder",PropertyType=String,PropertyValue="${v0RepoFolder}/data-processing/01-Calculate-Municipal-WaterDistrictAreas")
+SetProperty(PropertyName="v0DataOrigFolder",PropertyType=String,PropertyValue="${v0RepoFolder}/data-orig")
+SetProperty(PropertyName="WWRRepoFolder",PropertyType=String,PropertyValue="../../../../owf-infomapper-coagtransfer-data-wwr")
+# Copy the tif from previous work.
+CopyFile(InputFile="${v0CalculateMunicipalWaterDistrictAreasFolder}/Virtual_Raster.tif",OutputFile="Virtual_Raster.tif",IfInputNotFound=Fail)
+CopyFile(InputFile="${v0CalculateMunicipalWaterDistrictAreasFolder}/Virtual_Raster.vrt",OutputFile="Virtual_Raster.vrt",IfInputNotFound=Fail)
+# Copy classification data from previous work.
+CopyFile(InputFile="${WWRRepoFolder}/Rasters/County.csv",OutputFile="../../data-orig/Rasters/County.csv",IfInputNotFound=Fail)
+CopyFile(InputFile="${WWRRepoFolder}/Rasters/Municipality.csv",OutputFile="../../data-orig/Rasters/Municipality.csv",IfInputNotFound=Fail)
+CopyFile(InputFile="${WWRRepoFolder}/Rasters/WaterProviders.csv",OutputFile="../../data-orig/Rasters/WaterProviders.csv",IfInputNotFound=Fail)
+# Copy entity list from previous work.
+CopyFile(InputFile="${v0RepoFolder}/data-downloads-and-preprocessing/00-Create-WaterEntities-MasterList/water-entities-master-list.csv",OutputFile="../../data-downloads-and-preprocessing/00-Create-WaterEntities-MasterList/water-entities-master-list.csv",IfInputNotFound=Fail)
+#
+# Run the R script that was written to process county population data.
+# Use the -e because rscript.exe does not recognize installed packages by default,
+# such as those added in R Studio.
+RunR(ScriptFile="raster-processing-initial.R",SetwdHow="IncludedInArguments",ScriptArguments="${WorkingDirPortable}",ROptions="-e \".libPaths()\"")

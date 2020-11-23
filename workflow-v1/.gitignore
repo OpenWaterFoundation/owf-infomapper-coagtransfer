@@ -1,11 +1,55 @@
 # .gitignore for workflow-v1/ folder
 # - Ignore files and folders that are dynamic output of the processing
+#
 
-# Input files copied from other folders.
+# =================================================================================================
+
+# /data-downloads-and-preprocessing
+#
+# Step 00
+# Ignore input files copied from other repository folders.
+/data-downloads-and-preprocessing/00-Create-WaterEntities-MasterList/water-entities-master-list.csv
+
+# =================================================================================================
+
+# /data-orig
+#
+# Ignore input files copied from other repository folders.
+/data-orig/Rasters/County.csv
+/data-orig/Rasters/Municipality.csv
+/data-orig/Rasters/README.md
+/data-orig/Rasters/WaterProviders.csv
+
+# =================================================================================================
+
+# /data-processing
+#
+# Step 00
+# Ignore input files copied from other repository folders.
 # - TODO smalers 2020-11-22 need to replace with TSTool time series or database query.
-/00-Calculate-PopulationProjections/county-population.csv
-/00-Calculate-PopulationProjections/municipal-population.csv
-/00-Calculate-PopulationProjections/municipal-population-forecast.csv
+/data-processing/00-Calculate-PopulationProjections/county-population.csv
+/data-processing/00-Calculate-PopulationProjections/municipal-population.csv
+/data-processing/00-Calculate-PopulationProjections/municipal-population-forecast.csv
 # Output from this step.
-/00-Calculate-PopulationProjections/municipal-proportions.csv
+/data-processing/00-Calculate-PopulationProjections/municipal-proportions.csv
 
+# Step 01
+# Ignore the raster file that is created.
+/data-processing/01-Calculate-Municipal-WaterDistrictAreas/*.tif
+/data-processing/01-Calculate-Municipal-WaterDistrictAreas/*.vrt
+
+# Step 02
+# Ignore the csv files that are created.
+/data-processing/02-Calculate-PopulationDensity/county-area.csv
+/data-processing/02-Calculate-PopulationDensity/municipal-area.csv
+/data-processing/02-Calculate-PopulationDensity/municipal-land-development.csv
+
+# Step 05
+# Ignore the csv files that are created.
+/data-processing/05-Calculate-WaterDistrictPopulation-withinMunis/waterdistrict-area.csv
+/data-processing/05-Calculate-WaterDistrictPopulation-withinMunis/waterdistrict-proportions.csv
+
+# Step 06
+# Ignore the csv files that are created.
+/data-processing/06-Calculate-WaterDistrictPopulation-withinUnincorporated/unincorporated-land-development.csv
+/data-processing/06-Calculate-WaterDistrictPopulation-withinUnincorporated/waterdistrict-land-development.csv
