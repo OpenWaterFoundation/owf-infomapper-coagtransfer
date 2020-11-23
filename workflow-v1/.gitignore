@@ -48,6 +48,10 @@
 # Ignore the csv files that are created.
 /data-processing/03-Calculate-LandAreaGrowth/population-density.csv
 
+# Step 04
+# Ignore the csv files that are created.
+/data-processing/04-Calculate-FutureMunicipalDensity/municipal-land-area-growth.csv
+
 # Step 05
 # Ignore the csv files that are created.
 /data-processing/05-Calculate-WaterDistrictPopulation-withinMunis/waterdistrict-area.csv
