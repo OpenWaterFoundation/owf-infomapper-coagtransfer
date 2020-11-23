@@ -81,3 +81,7 @@
 # Step 11
 # Ignore the csv files that are created.
 /data-processing/11-Map-LandDevelopment/district-land-area-growth.csv
+#
+/data-processing/11-Map-LandDevelopment/district-cells-to-reclassify.csv
+/data-processing/11-Map-LandDevelopment/municipal-cells-to-reclassify.csv
+/data-processing/11-Map-LandDevelopment/*.tif

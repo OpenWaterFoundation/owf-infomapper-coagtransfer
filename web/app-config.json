@@ -35,7 +35,7 @@
           "name": "Physical - Stream Reaches",
           "action": "displayMap",
           "enabled": false,
-          "visible": false,
+          "visible": "false",
           "mapProject" : "data-maps/SupportingData/Physical-StreamReaches/stream-reaches-map.json",
           "separatorBefore" : true
         },
@@ -43,7 +43,7 @@
           "id": "data-ditches",
           "name":  "Agriculture - Ditch Service Areas",
           "enabled": false,
-          "visible": false,
+          "visible": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Agriculture-Ditches/ditches.json",
           "separatorBefore" : true
