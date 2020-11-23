@@ -75,3 +75,4 @@
 # Step 10
 # Ignore the csv files that are created.
 /data-processing/10-Calculate-Demand/waterdistrict-population.csv
+/data-processing/10-Calculate-Demand/municipal-population.csv
