@@ -76,7 +76,8 @@
 # Ignore the csv files that are created.
 /data-processing/10-Calculate-Demand/waterdistrict-population.csv
 /data-processing/10-Calculate-Demand/municipal-population.csv
+/data-processing/10-Calculate-Demand/gpcd.csv
 
-# Step 10
+# Step 11
 # Ignore the csv files that are created.
 /data-processing/11-Map-LandDevelopment/district-land-area-growth.csv
