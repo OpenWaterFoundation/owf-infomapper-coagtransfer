@@ -2,6 +2,8 @@
 # - used with git-util scripts
 # - assumes that local folder name will match the repository name
 owf-infomapper-coagtransfer
+# Initial version of the analysis from Kristin Swaim, private because transitioned to current version.
+owf-infomapper-coagtransfer-v0
 # Original data from WestWater Research, private repository since some private data.
 owf-infomapper-coagtransfer-data-wwr
 # The Info Mapper software is used to serve the portal.

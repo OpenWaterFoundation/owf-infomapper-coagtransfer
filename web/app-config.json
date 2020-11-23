@@ -154,6 +154,12 @@
           "name": "Municipality Population",
           "action": "displayMap",
           "mapProject" : "data-maps/BaselineScenario/02-MunicipalityPopulation/municipalities-map.json"
+        },
+        {
+          "id": "baseline-muni-and-district-area",
+          "name": "Municipality and Water District Area",
+          "action": "displayMap",
+          "mapProject" : "data-maps/BaselineScenario/03-MuniAndWaterDistrictArea/municipalities-map.json"
         }
       ]
     },
