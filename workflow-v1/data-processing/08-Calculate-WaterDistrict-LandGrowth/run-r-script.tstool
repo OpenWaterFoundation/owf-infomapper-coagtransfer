@@ -1,0 +1,11 @@
+StartLog(LogFile="run-r-script.tstool.log")
+# Run the R script to process rasters to compute municipal and water district areas.
+# Run from TSTool to ensure that the working directory is correct.
+# R Studio will only use proper working directory if the R script is opened from File Explorer
+# but not R Studio File...Open.
+# TODO smalers 2020-11-22 need to implement a similar command in GeoProcessor.
+#
+# Run the R script that was written to process county population data.
+# Use the -e because rscript.exe does not recognize installed packages by default,
+# such as those added in R Studio.
+RunR(ScriptFile="district-land-area-growth.R",SetwdHow="IncludedInArguments",ScriptArguments="${WorkingDirPortable}",ROptions="-e \".libPaths()\"")
