@@ -1,0 +1,123 @@
+For urban districts, the population of the district within unincorporated county areas is based on land area 
+#     multiplied by a proximal municipality's population density.  The logic is as follows (THIS MAY NEED TO BE 
+#     REVISED BASED ON INPUT FROM WESTWATER RESEARCH):
+# Arapahoe County Water and Wastewater Authority, East Cherry Creek Valley WSD, Inverness WSD will use Centennial
+# Castle Pines North Metro District, Louviers WSD, and Roxborough WSD will use Larkspur (has increasing pop density)
+# Centennial WSD will use Littleton (Arapahoe County)
+# Cherokee Metro District will use Colorado Springs
+# Consolidated Mutual Water Company will use Morrison
+# Cottonwood WSD, Parker WSD, and Denver Southeast Suburban WSD will use Greenwood Village (has increasing pop density)
+# Donala WSD and Woodmoor WSD No. 1 will use Colorado Springs
+# Forest View Acres WD will use Palmer Lake
+# North Table Mountain WSD will use Wheat Ridge
+# Pueblo West MD will use Boulder County unincorporated area.  Even though Pueblo is much closer, its density 
+# results in really high population numbers for Pueblo West.  Used an iterative process to determine Boulder Co.'s 
+# density was appropriate.
+# Security WD will use Colorado Springs
+# South Adams County WSD will use Deer Trail
+
+# Create separate datasets as needed and then will merge back together
+acwwa = urban %>%
+  filter(WaterProvider %in% c("Arapahoe County Water and Wastewater Authority", 
+                              "East Cherry Creek Valley Water and Sanitation District", 
+                              "Inverness Water and Sanitation District")) %>%
+  # Remove its density column to avoid confusion about which density to use; will do for other datasets
+  dplyr::select(-Density)
+centennial = density %>%
+  filter(MunicipalityName == "Centennial")
+acwwa = left_join(acwwa, centennial, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+cpnorth = urban %>%
+  filter(WaterProvider %in% c("Castle Pines North Metropolitan District", "Louviers Water and Sanitation District", 
+         "Roxborough Water and Sanitation District")) %>%
+  dplyr::select(-Density)
+larkspur = density %>%
+  filter(MunicipalityName == "Larkspur")
+cpnorth = left_join(cpnorth, larkspur, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+centennialwsd = urban %>%
+  filter(WaterProvider == "Centennial Water and Sanitation District") %>%
+  dplyr::select(-Density)
+littleton = density %>%
+  filter(MunicipalityName == "Littleton", County == "Arapahoe")
+centennialwsd = left_join(centennialwsd, littleton, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+cherokee = urban %>%
+  filter(WaterProvider == "Cherokee Metropolitan District") %>%
+  dplyr::select(-Density)
+cosprings = density %>%
+  filter(MunicipalityName == "Colorado Springs")
+cherokee = left_join(cherokee, cosprings, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+conmutual = urban %>%
+  filter(WaterProvider == "Consolidated Mutual Water Company") %>%
+  dplyr::select(-Density)
+morrison = density %>%
+  filter(MunicipalityName == "Morrison")
+conmutual = left_join(conmutual, morrison, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+cottonwood = urban %>%
+  filter(WaterProvider %in% c("Cottonwood Water and Sanitation District", "Parker Water and Sanitation District",
+                              "Denver Southeast Suburban Water and Sanitation District")) %>%
+  dplyr::select(-Density)
+gvillage = density %>%
+  filter(MunicipalityName == "Greenwood Village")
+cottonwood = left_join(cottonwood, gvillage, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+donala = urban %>%
+  filter(WaterProvider == "Donala Water and Sanitation District") %>%
+  dplyr::select(-Density)
+woodmoor = urban %>%
+  filter(WaterProvider == "Woodmoor Water and Sanitation District No. 1") %>%
+  dplyr::select(-Density)
+csprings = density %>%
+  filter(MunicipalityName == "Colorado Springs")
+donala = left_join(donala, csprings, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+woodmoor = left_join(woodmoor, csprings, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+donala = full_join(donala, woodmoor)
+
+forestview = urban %>%
+  filter(WaterProvider == "Forest View Acres Water District") %>%
+  dplyr::select(-Density)
+palmerlake = density %>%
+  filter(MunicipalityName == "Palmer Lake")
+forestview = left_join(forestview, palmerlake, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+ntmtn = urban %>%
+  filter(WaterProvider == "North Table Mountain Water and Sanitation District") %>%
+  dplyr::select(-Density)
+wheatridge = density %>%
+  filter(MunicipalityName == "Wheat Ridge")
+ntmtn = left_join(ntmtn, wheatridge, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+wpueblo = urban %>%
+  filter(WaterProvider == "Pueblo West Metropolitan District") %>%
+  dplyr::select(-Density)
+boco = density %>%
+  filter(MunicipalityName == "Boulder County Unincorporated Area")
+wpueblo = left_join(wpueblo, boco, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+security = urban %>%
+  filter(WaterProvider == "Security Water District") %>%
+  dplyr::select(-Density)
+security = left_join(security, csprings, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+sadams = urban %>%
+  filter(WaterProvider == "South Adams County Water and Sanitation District") %>%
+  dplyr::select(-Density)
+deertrail = density %>%
+  filter(MunicipalityName == "Deer Trail")
+sadams = left_join(sadams, deertrail, by = c("Year" = "Year", "Density_Option" = "Density_Option"))
+
+# Join all datasets together
+urban2 = full_join(acwwa, cpnorth)
+urban2 = full_join(urban2, centennialwsd)
+urban2 = full_join(urban2, cherokee)
+urban2 = full_join(urban2, conmutual)
+urban2 = full_join(urban2, cottonwood)
+urban2 = full_join(urban2, donala)
+urban2 = full_join(urban2, forestview)
+urban2 = full_join(urban2, ntmtn)
+urban2 = full_join(urban2, wpueblo)
+urban2 = full_join(urban2, security)
+urban2 = full_join(urban2, sadams)
