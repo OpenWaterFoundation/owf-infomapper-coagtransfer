@@ -67,3 +67,11 @@
 # Step 07
 # Ignore the csv files that are created.
 /data-processing/07-Adjust-MunicipalPopulation/district-municipal-population.csv
+
+# Step 08
+# Ignore the csv files that are created.
+/data-processing/08-Calculate-WaterDistrict-LandGrowth/district-unincorporated-population.csv
+
+# Step 10
+# Ignore the csv files that are created.
+/data-processing/10-Calculate-Demand/waterdistrict-population.csv
