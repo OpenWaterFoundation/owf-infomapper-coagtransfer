@@ -142,8 +142,19 @@
           "markdownFile": "data-maps/BaselineScenario/00-Synopsis/synopsis.md"
         },
         {
+          "comment": "Point to the Supporing Data",
           "id": "baseline-county-population",
           "name": "County Population",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Political-Counties/counties-map.json",
+          "separatorBefore" : true
+        },
+        {
+          "comment": "Disable this and just re-use the main county data",
+          "id": "x-baseline-county-population",
+          "name": "County Population",
+          "enabled": "false",
+          "visible": "false",
           "action": "contentPage",
           "align": "right",
           "separatorBefore" : true,
