@@ -85,3 +85,7 @@
 /data-processing/11-Map-LandDevelopment/district-cells-to-reclassify.csv
 /data-processing/11-Map-LandDevelopment/municipal-cells-to-reclassify.csv
 /data-processing/11-Map-LandDevelopment/*.tif
+
+# Step 12
+# Ignore the csv files that are created.
+# - step is not complete
