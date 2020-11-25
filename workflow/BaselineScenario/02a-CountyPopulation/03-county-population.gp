@@ -7,7 +7,7 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BaselineScenario/01-CountyPopulation")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BaselineScenario/02a-CountyPopulation")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions

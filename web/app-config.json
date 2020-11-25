@@ -142,12 +142,19 @@
           "markdownFile": "data-maps/BaselineScenario/00-Synopsis/synopsis.md"
         },
         {
-          "comment": "Point to the Supporing Data",
+          "id": "baseline-data-prep",
+          "name": "1. Data Preparation",
+          "separatorBefore" : true,
+          "action": "contentPage",
+          "markdownFile": "content-pages/1-data-prep.md"
+        },
+        {
+          "comment": "Point to the Supporting Data",
           "id": "baseline-county-population",
-          "name": "County Population",
+          "name": "2a. County Population",
+          "separatorBefore" : true,
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Political-Counties/counties-map.json",
-          "separatorBefore" : true
+          "mapProject" : "data-maps/SupportingData/Political-Counties/counties-map.json"
         },
         {
           "comment": "Disable this and just re-use the main county data",
@@ -158,19 +165,103 @@
           "action": "contentPage",
           "align": "right",
           "separatorBefore" : true,
-          "markdownFile": "data-maps/BaselineScenario/01-CountyPopulation/county-population.md"
+          "markdownFile": "data-maps/BaselineScenario/02a-CountyPopulation/county-population.md"
         },
         {
           "id": "baseline-municipality-population",
-          "name": "Municipality Population",
+          "name": "2b. Municipality Population",
           "action": "displayMap",
-          "mapProject" : "data-maps/BaselineScenario/02-MunicipalityPopulation/municipalities-map.json"
+          "mapProject" : "data-maps/BaselineScenario/02b-MunicipalityPopulation/municipalities-map.json"
         },
         {
           "id": "baseline-muni-and-district-area",
-          "name": "Municipality and Water District Area",
+          "name": "3. Municipality and Water District Area",
+          "action": "contentPage",
+          "markdownFile": "content-pages/3-muni-and-wd-area.md"
+        },
+        {
+          "id": "baseline-population-density",
+          "name": "4. Population Density",
+          "action": "contentPage",
+          "markdownFile": "content-pages/4-population-density.md"
+        },
+        {
+          "id": "baseline-muni-land-growth",
+          "name": "5. Municipal Land Area Growth",
+          "action": "contentPage",
+          "markdownFile": "content-pages/5-muni-land-growth.md"
+        },
+        {
+          "id": "baseline-future-density",
+          "name": "6. Future Municipal Population Density",
+          "action": "contentPage",
+          "markdownFile": "content-pages/6-future-muni-density.md"
+        },
+        {
+          "id": "baseline-wd-population-in-muni",
+          "name": "7. Water District Population within Municipalities",
+          "action": "contentPage",
+          "markdownFile": "content-pages/7-wd-population-in-muni.md"
+        },
+        {
+          "id": "baseline-wd-population-in-unincorp",
+          "name": "8. Water District Population within Unincorporated Areas",
+          "action": "contentPage",
+          "markdownFile": "content-pages/8-wd-population-in-unincorp.md"
+        },
+        {
+          "id": "baseline-adjust-muni-population",
+          "name": "9. Adjust Municipal Population Based on Water District Population",
+          "action": "contentPage",
+          "markdownFile": "content-pages/9-adjust-muni-population.md"
+        },
+        {
+          "id": "baseline-wd-land-growth",
+          "name": "10. Water District Land Growth",
+          "action": "contentPage",
+          "markdownFile": "content-pages/10-wd-land-growth.md"
+        },
+        {
+          "id": "baseline-population-checks",
+          "name": "11. Population Checks",
+          "action": "contentPage",
+          "markdownFile": "content-pages/11-population-checks.md"
+        },
+        {
+          "id": "baseline-water-demand",
+          "name": "12. Water Demand",
+          "action": "contentPage",
+          "markdownFile": "content-pages/12-water-demand.md"
+        },
+        {
+          "id": "baseline-land-development",
+          "name": "13. Land Development",
           "action": "displayMap",
-          "mapProject" : "data-maps/BaselineScenario/03-MuniAndWaterDistrictArea/municipalities-map.json"
+          "mapProject" : "data-maps/BaselineScenario/13-LandDevelopment/land-development-map.json"
+        },
+        {
+          "id": "baseline-water-supply",
+          "name": "14. Water Supply",
+          "action": "contentPage",
+          "enabled": "false",
+          "visible": "false",
+          "markdownFile": "content-pages/14-water-supply.md"
+        },
+        {
+          "id": "baseline-water-shortage",
+          "name": "15. Water Shortage",
+          "action": "contentPage",
+          "enabled": "false",
+          "visible": "false",
+          "markdownFile": "content-pages/15-water-shortage.md"
+        },
+        {
+          "id": "baseline-acquisition-alternatives",
+          "name": "16. Acquisition Alternatives",
+          "action": "contentPage",
+          "enabled": "false",
+          "visible": "false",
+          "markdownFile": "content-pages/16-acquisition-alternatives.md"
         }
       ]
     },

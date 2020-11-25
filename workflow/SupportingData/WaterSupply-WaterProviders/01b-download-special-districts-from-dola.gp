@@ -55,7 +55,7 @@ AddGeoLayerAttribute(GeoLayerID="ACWWALayer",AttributeName="URL",AttributeType="
 AddGeoLayerAttribute(GeoLayerID="ACWWALayer",AttributeName="PREV_NAME",AttributeType="string")
 #
 # Merge the special districts and ACWWA layer into water providers layer
-ConvertGeoLayerGeometry(InputGeoLayerID="ACWWALayer",OutputGeometry="Polygon",OutputGeoLayerID="ACWWAPolygonLayer")
+ChangeGeoLayerGeometry(InputGeoLayerID="ACWWALayer",OutputGeometry="Polygon",OutputGeoLayerID="ACWWAPolygonLayer")
 MergeGeoLayers(GeoLayerIDs="SpecialDistrictsLayer,ACWWAPolygonLayer",OutputGeoLayerID="WaterProvidersLayer",Name="Water Providers",Description="Water Providers (DOLA districts and ACWWA)")
 RemoveGeoLayerAttributes(GeoLayerID="WaterProvidersLayer",AttributeNames="layer,path")
 WriteGeoLayerToGeoJSON(GeoLayerID="WaterProvidersLayer",OutputFile="layers/water-provider-boundaries.geojson")
