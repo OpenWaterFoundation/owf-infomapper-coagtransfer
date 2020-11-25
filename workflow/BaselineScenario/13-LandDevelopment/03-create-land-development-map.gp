@@ -1,4 +1,4 @@
-# Create a GeoMapProject file for municipality populations, including forecasts
+# Create a GeoMapProject file for land development
 # - read the previously downloaded layer file
 # - output to the web folder for use by the InfoMapper
 # - layer view groups are added from 1st drawn (bottom) to last drawn (top)
@@ -8,14 +8,16 @@
 # - AssetsFolder is where map files exist for the InfoMapper tool
 SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BaselineScenario/02-MunicipalityPopulation")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/BaselineScenario/13-LandDevelopment")
+#SetProperty(PropertyName="WWRRepoFolder",PropertyType="str",PropertyValue="../../../../owf-infomapper-coagtransfer-data-wwr")
+SetProperty(PropertyName="AnalysisFolder",PropertyType="str",PropertyValue="../../../workflow-v1/data-processing/11-Map-LandDevelopment")
 #
 # Create a single map project and map for that project.
-# - GeoMapProjectID:  BaselineScenarioMunicipalitiesProject
-# - GeoMapID:  BaselineScenarioMunicipalitiesMap
-CreateGeoMapProject(NewGeoMapProjectID="BaselineScenarioMunicipalitiesProject",ProjectType="SingleMap",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="BaselineScenarioMunicipalitiesMap",Name="Colorado Municipalities",Description="Colorado Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'municipalities-map.md'")
-AddGeoMapToGeoMapProject(GeoMapProjectID="BaselineScenarioMunicipalitiesProject",GeoMapID="BaselineScenarioMunicipalitiesMap")
+# - GeoMapProjectID:  MunicipalLandDevelopmentProject
+# - GeoMapID:  MunicipalitiesMap
+CreateGeoMapProject(NewGeoMapProjectID="MunicipalLandDevelopmentProject",ProjectType="SingleMap",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="author:'Open Water Foundation',specificationFlavor:'',specificationVersion:'1.0.0'")
+CreateGeoMap(NewGeoMapID="MunicipalitiesMap",Name="Colorado Municipalities",Description="Colorado Municipalities",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.473,39.106,7.5',docPath:'municipalities-map.md'")
+AddGeoMapToGeoMapProject(GeoMapProjectID="MunicipalLandDevelopmentProject",GeoMapID="MunicipalitiesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
 # GeoLayerViewGroupID: BackgroundGroup
@@ -72,50 +74,40 @@ ReadGeoLayerFromGeoJSON(InputFile="https://opendata.arcgis.com/datasets/4402a8e0
 AddGeoLayerViewToGeoMap(GeoLayerID="StateBoundaryLayer",GeoLayerViewID="StateBoundaryLayerView",Name="Colorado State Boundary",Description="Colorado state boundary from CDPHE",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StateBoundaryLayerView",Name="State boundary symbol",Description="State boundary in black.",Properties="color:#000000,opacity:1.0,fillColor:#000000,fillOpacity:0.0,weight:2")
 # = = = = = = = = = =
-# Municipal boundaries:  read layer and add to a layer view group.
-# - TODO smalers 2020-06-13 this seems to hang the app when in production
-# GeoLayerViewGroupID: MunicipalBoundariesGroup
-AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalitiesGroup",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top")
+# Municipal growth raster data:  read layers and add to a layer view group.
+# - copy from the repository that contains WWR data
+# GeoLayerViewGroupID: MunicipalLandDevelopmentGroup
 #
-CopyFile(SourceFile="../../SupportingData/Municipal-Municipalities/layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/municipal-boundaries.geojson")
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipal-boundaries.geojson",GeoLayerID="MunicipalBoundariesLayer",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalBoundariesLayer",GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="docPath:'layers/municipal-boundaries.md'")
-# For now use single symbol
-# - grey
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalBoundariesLayerView",Name="Colorado Municipal Boundaries",Description="Colorado Municipal Boundaries",Properties="color:#595959,opacity:1.0,fillColor:#595959,fillOpacity:0.3,weight:2")
-SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="click",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalBoundariesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipal-boundaries-event-config.json")
-# = = = = = = = = = =
-# Municipalities:  read layer and add to a layer view group.
-# GeoLayerViewGroupID: MunicipalitiesGroup
-CopyFile(SourceFile="../../SupportingData/Municipal-Municipalities/layers/municipalities.geojson",DestinationFile="${MapFolder}/municipalities.geojson")
-ReadGeoLayerFromGeoJSON(InputFile="layers/municipalities.geojson",GeoLayerID="MunicipalitiesLayer",Name="Colorado Municipalities",Description="Colorado Municipalities")
-AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesLayer",GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",InsertPosition="Top",Properties="docPath:'layers/municipalities.md'")
-# For now use single symbol
-# - TODO smalers 2020-05-22 need to enable a graduated symbol based on flow value
-SetGeoLayerViewSingleSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",Properties="symbolImage:/img/group-2-32x37.png,imageAnchorPoint:Bottom")
-# SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesLayerView",Name="Colorado Municipalities",Description="Colorado Municipalities",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
-SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="click",Properties="eventConfigPath:layers/municipalities-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesLayerView",EventType="hover",Properties="eventConfigPath:layers/municipalities-event-config.json")
+AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalLandDevelopmentGroup",Name="Municipal Land Development (Raster)",Description="Municipal Land Development",InsertPosition="Top",Properties="selectBehavior:Single")
+#
+# Low
+ReadRasterGeoLayerFromFile(InputFile="layers/Low_Density_Municipal_Growth.tif",GeoLayerID="MunicipalLandDevelopmentLowDensityRasterLayer",Name="Municipal Land Development - Low Density (Raster)",Description="Municipal land development, low density (estimate by year)")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalLandDevelopmentLowDensityRasterLayer",GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",Name="Municipal Land Development - Low Density (Raster)",Description="Municipal land development, low density (estimate by year)",Properties="docPath:'layers/Municipal_Growth.md'")
+# Use category colors
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv'")
+# Medium
+ReadRasterGeoLayerFromFile(InputFile="layers/Medium_Density_Municipal_Growth.tif",GeoLayerID="MunicipalLandDevelopmentMediumDensityRastherLayer",Name="Municipal Land Development - Medium Density (Raster)",Description="Municipal land development, medium density (estimate by year)")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalLandDevelopmentMediumDensityRastherLayer",GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRastherLayerView",Name="Municipal Land Development - Medium Density (Raster)",Description="Municipal land development, medium density (estimate by year)",Properties="docPath:'layers/Municipal_Growth.md'")
+# Use category colors
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRastherLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv'")
+# High
+ReadRasterGeoLayerFromFile(InputFile="layers/High_Density_Municipal_Growth.tif",GeoLayerID="MunicipalLandDevelopmentHighDensityRasterLayer",Name="Municipal Land Development - High Density (Raster)",Description="Municipal land development, high density (estimate by year)")
+AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalLandDevelopmentHighDensityRasterLayer",GeoLayerViewID="MunicipalLandDevelopmentHighDensityRasterLayerView",Name="Municipal Land Development - High Density (Raster)",Description="Municipal land development, high density (estimate by year)",Properties="docPath:'layers/Municipal_Growth.md'")
+# Use category colors
+SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalLandDevelopmentHighDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="BaselineScenarioMunicipalitiesProject",Indent="2",OutputFile="municipalities-map.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="MunicipalLandDevelopmentProject",Indent="2",OutputFile="land-development-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 # ---------
 # Map
-CopyFile(SourceFile="municipalities-map.json",DestinationFile="${MapFolder}/municipalities-map.json")
-CopyFile(SourceFile="municipalities-map.md",DestinationFile="${MapFolder}/municipalities-map.md")
+CopyFile(SourceFile="land-development-map.json",DestinationFile="${MapFolder}/land-development-map.json")
+CopyFile(SourceFile="land-development-map.md",DestinationFile="${MapFolder}/land-development-map.md")
 # ---------
-# Layers
-CopyFile(SourceFile="layers/municipal-boundaries.geojson",DestinationFile="${MapFolder}/layers/municipal-boundaries.geojson")
-CopyFile(SourceFile="layers/municipal-boundaries.md",DestinationFile="${MapFolder}/layers/municipal-boundaries.md")
-CopyFile(SourceFile="layers/municipal-boundaries-event-config.json",DestinationFile="${MapFolder}/layers/municipal-boundaries-event-config.json")
-#
-CopyFile(SourceFile="layers/municipalities.geojson",DestinationFile="${MapFolder}/layers/municipalities.geojson")
-CopyFile(SourceFile="layers/municipalities.md",DestinationFile="${MapFolder}/layers/municipalities.md")
-CopyFile(SourceFile="layers/municipalities-event-config.json",DestinationFile="${MapFolder}/layers/municipalities-event-config.json")
-# -------
-# Graphs
-CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="graphs/municipality-population-graph-config.json",DestinationFile="${MapFolder}/graphs/municipality-population-graph-config.json")
+# Rasters
+CopyFile(SourceFile="layers/Low_Density_Municipal_Growth.tif",DestinationFile="${MapFolder}/layers/Low_Density_Municipal_Growth.tif")
+CopyFile(SourceFile="layers/Medium_Density_Municipal_Growth.tif",DestinationFile="${MapFolder}/layers/Medium_Density_Municipal_Growth.tif")
+CopyFile(SourceFile="layers/High_Density_Municipal_Growth.tif",DestinationFile="${MapFolder}/layers/High_Density_Municipal_Growth.tif")
+CopyFile(SourceFile="layers/Municipal_Growth-classify-year.csv",DestinationFile="${MapFolder}/layers/Municipal_Growth-classify-year.csv")
+CopyFile(SourceFile="layers/Municipal_Growth.md",DestinationFile="${MapFolder}/layers/Municipal_Growth.md")

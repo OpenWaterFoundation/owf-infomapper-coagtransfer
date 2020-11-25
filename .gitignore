@@ -181,40 +181,59 @@ junk
 # Baseline Scenario menu
 # ======================================================
 
-# BaselineScenario/01-CountyPopulation
-/workflow/BaselineScenario/01-CountyPopulation/downloads/*
-!/workflow/BaselineScenario/01-CountyPopulation/downloads/README.md
-/workflow/BaselineScenario/01-CountyPopulation/layers/*
-!/workflow/BaselineScenario/01-CountyPopulation/layers/README.md
-!/workflow/BaselineScenario/01-CountyPopulation/layers/*.csv
-!/workflow/BaselineScenario/01-CountyPopulation/layers/*.json
-!/workflow/BaselineScenario/01-CountyPopulation/layers/*.md
-!/workflow/BaselineScenario/01-CountyPopulation/layers/*doc
+# BaselineScenario/02a-CountyPopulation
+/workflow/BaselineScenario/02a-CountyPopulation/downloads/*
+!/workflow/BaselineScenario/02a-CountyPopulation/downloads/README.md
+/workflow/BaselineScenario/02a-CountyPopulation/layers/*
+!/workflow/BaselineScenario/02a-CountyPopulation/layers/README.md
+!/workflow/BaselineScenario/02a-CountyPopulation/layers/*.csv
+!/workflow/BaselineScenario/02a-CountyPopulation/layers/*.json
+!/workflow/BaselineScenario/02a-CountyPopulation/layers/*.md
+!/workflow/BaselineScenario/02a-CountyPopulation/layers/*doc
 # Dynamic map configurations
-#/workflow/BaselineScenario/01-CountyPopulation/*.json
+#/workflow/BaselineScenario/02a-CountyPopulation/*.json
 # ts/
 # - ignore generated time series files
-/workflow/BaselineScenario/01-CountyPopulation/ts/*
-!/workflow/BaselineScenario/01-CountyPopulation/ts/README.md
+/workflow/BaselineScenario/02a-CountyPopulation/ts/*
+!/workflow/BaselineScenario/02a-CountyPopulation/ts/README.md
 # graphs/
 # - ignore images created for prototype
-/workflow/BaselineScenario/01-CountyPopulation/graphs/*.png
+/workflow/BaselineScenario/02a-CountyPopulation/graphs/*.png
 
-# BaselineScenario/02-MunicipalityPopulation
-/workflow/BaselineScenario/02-MunicipalityPopulation/downloads/*
-!/workflow/BaselineScenario/02-MunicipalityPopulation/downloads/README.md
-/workflow/BaselineScenario/02-MunicipalityPopulation/layers/*
-!/workflow/BaselineScenario/02-MunicipalityPopulation/layers/README.md
-!/workflow/BaselineScenario/02-MunicipalityPopulation/layers/*.csv
-!/workflow/BaselineScenario/02-MunicipalityPopulation/layers/*.json
-!/workflow/BaselineScenario/02-MunicipalityPopulation/layers/*.md
-!/workflow/BaselineScenario/02-MunicipalityPopulation/layers/*doc
+# BaselineScenario/02b-MunicipalityPopulation
+/workflow/BaselineScenario/02b-MunicipalityPopulation/downloads/*
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/downloads/README.md
+/workflow/BaselineScenario/02b-MunicipalityPopulation/layers/*
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/layers/README.md
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/layers/*.csv
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/layers/*.json
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/layers/*.md
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/layers/*doc
 # Dynamic map configurations
-#/workflow/BaselineScenario/02-MunicipalityPopulation/*.json
+#/workflow/BaselineScenario/02b-MunicipalityPopulation/*.json
 # ts/
 # - ignore generated time series files
-/workflow/BaselineScenario/02-MunicipalityPopulation/ts/*
-!/workflow/BaselineScenario/02-MunicipalityPopulation/ts/README.md
+/workflow/BaselineScenario/02b-MunicipalityPopulation/ts/*
+!/workflow/BaselineScenario/02b-MunicipalityPopulation/ts/README.md
 # graphs/
 # - ignore images created for prototype
-/workflow/BaselineScenario/02-MunicipalityPopulation/graphs/*.png
+/workflow/BaselineScenario/02b-MunicipalityPopulation/graphs/*.png
+
+# BaselineScenario/13-LandDevelopment
+/workflow/BaselineScenario/13-LandDevelopment/downloads/*
+!/workflow/BaselineScenario/13-LandDevelopment/downloads/README.md
+/workflow/BaselineScenario/13-LandDevelopment/layers/*
+!/workflow/BaselineScenario/13-LandDevelopment/layers/README.md
+!/workflow/BaselineScenario/13-LandDevelopment/layers/*.csv
+!/workflow/BaselineScenario/13-LandDevelopment/layers/*.json
+!/workflow/BaselineScenario/13-LandDevelopment/layers/*.md
+!/workflow/BaselineScenario/13-LandDevelopment/layers/*doc
+# Dynamic map configurations
+#/workflow/BaselineScenario/13-LandDevelopment/*.json
+# ts/
+# - ignore generated time series files
+/workflow/BaselineScenario/13-LandDevelopment/ts/*
+!/workflow/BaselineScenario/13-LandDevelopment/ts/README.md
+# graphs/
+# - ignore images created for prototype
+/workflow/BaselineScenario/13-LandDevelopment/graphs/*.png
