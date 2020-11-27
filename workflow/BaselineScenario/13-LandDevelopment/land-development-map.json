@@ -1,7 +1,7 @@
 {
   "geoMapProjectId": "MunicipalLandDevelopmentProject",
-  "name": "Colorado Municipalities",
-  "description": "Colorado Municipalities",
+  "name": "Land Development",
+  "description": "Municipality and district land development",
   "projectType": "SingleMap",
   "properties": {
     "author": "Open Water Foundation",
@@ -11,13 +11,13 @@
   "geoMaps": [
     {
       "geoMapId": "MunicipalitiesMap",
-      "name": "Colorado Municipalities",
-      "description": "Colorado Municipalities",
+      "name": "Land Development",
+      "description": "Municipality and district land development",
       "dataPath": ".",
       "crs": "EPSG:4326",
       "properties": {
         "extentInitial": "ZoomLevel:-107.473,39.106,7.5",
-        "docPath": "municipalities-map.md"
+        "docPath": "land-development-map.md"
       },
       "geoLayers": [
         {
@@ -290,9 +290,21 @@
           ]
         },
         {
+          "geoLayerId": "DistrictGrowthRasterLayer",
+          "name": "District Land Development (Raster)",
+          "description": "District land development (year of dev)",
+          "crs": "EPSG:4326",
+          "geometryType": "Raster",
+          "layerType": "Raster",
+          "sourceFormat": null,
+          "sourcePath": "layers/District_Growth.tif",
+          "properties": {},
+          "history:": []
+        },
+        {
           "geoLayerId": "MunicipalLandDevelopmentLowDensityRasterLayer",
-          "name": "Municipal Land Development - Low Density (Raster)",
-          "description": "Municipal land development, low density (estimate by year)",
+          "name": "Municipality Land Development - Low Density (Raster)",
+          "description": "Municipal land development, low density (year of dev)",
           "crs": "EPSG:4326",
           "geometryType": "Raster",
           "layerType": "Raster",
@@ -302,9 +314,9 @@
           "history:": []
         },
         {
-          "geoLayerId": "MunicipalLandDevelopmentMediumDensityRastherLayer",
-          "name": "Municipal Land Development - Medium Density (Raster)",
-          "description": "Municipal land development, medium density (estimate by year)",
+          "geoLayerId": "MunicipalLandDevelopmentMediumDensityRasterLayer",
+          "name": "Municipality Land Development - Medium Density (Raster)",
+          "description": "Municipal land development, medium density (year of dev)",
           "crs": "EPSG:4326",
           "geometryType": "Raster",
           "layerType": "Raster",
@@ -315,8 +327,8 @@
         },
         {
           "geoLayerId": "MunicipalLandDevelopmentHighDensityRasterLayer",
-          "name": "Municipal Land Development - High Density (Raster)",
-          "description": "Municipal land development, high density (estimate by year)",
+          "name": "Municipality Land Development - High Density (Raster)",
+          "description": "Municipal land development, high density (year of dev)",
           "crs": "EPSG:4326",
           "geometryType": "Raster",
           "layerType": "Raster",
@@ -329,16 +341,16 @@
       "geoLayerViewGroups": [
         {
           "geoLayerViewGroupId": "MunicipalLandDevelopmentGroup",
-          "name": "Municipal Land Development (Raster)",
-          "description": "Municipal Land Development",
+          "name": "Municipality Land Development",
+          "description": "Municipality Land Development",
           "properties": {
             "selectBehavior": "Single"
           },
           "geoLayerViews": [
             {
               "geoLayerViewId": "MunicipalLandDevelopmentLowDensityRasterLayerView",
-              "name": "Municipal Land Development - Low Density (Raster)",
-              "description": "Municipal land development, low density (estimate by year)",
+              "name": "Municipality Land Development - Low Density (Raster)",
+              "description": "Municipal land development, low density (year of dev)",
               "geoLayerId": "MunicipalLandDevelopmentLowDensityRasterLayer",
               "properties": {
                 "docPath": "layers/Municipal_Growth.md"
@@ -352,13 +364,30 @@
                   "classificationFile": "layers/Municipal_Growth-classify-year.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipal_Growth-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipal_Growth-event-config.json"
+                  }
+                }
+              ]
             },
             {
-              "geoLayerViewId": "MunicipalLandDevelopmentMediumDensityRastherLayerView",
-              "name": "Municipal Land Development - Medium Density (Raster)",
-              "description": "Municipal land development, medium density (estimate by year)",
-              "geoLayerId": "MunicipalLandDevelopmentMediumDensityRastherLayer",
+              "geoLayerViewId": "MunicipalLandDevelopmentMediumDensityRasterLayerView",
+              "name": "Municipality Land Development - Medium Density (Raster)",
+              "description": "Municipal land development, medium density (year of dev)",
+              "geoLayerId": "MunicipalLandDevelopmentMediumDensityRasterLayer",
               "properties": {
                 "docPath": "layers/Municipal_Growth.md"
               },
@@ -371,12 +400,29 @@
                   "classificationFile": "layers/Municipal_Growth-classify-year.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipal_Growth-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipal_Growth-event-config.json"
+                  }
+                }
+              ]
             },
             {
               "geoLayerViewId": "MunicipalLandDevelopmentHighDensityRasterLayerView",
-              "name": "Municipal Land Development - High Density (Raster)",
-              "description": "Municipal land development, high density (estimate by year)",
+              "name": "Municipality Land Development - High Density (Raster)",
+              "description": "Municipal land development, high density (year of dev)",
               "geoLayerId": "MunicipalLandDevelopmentHighDensityRasterLayer",
               "properties": {
                 "docPath": "layers/Municipal_Growth.md"
@@ -390,7 +436,69 @@
                   "classificationFile": "layers/Municipal_Growth-classify-year.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipal_Growth-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipal_Growth-event-config.json"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "geoLayerViewGroupId": "DistrictGrowthGroup",
+          "name": "District Land Development",
+          "description": "District land development",
+          "properties": {},
+          "geoLayerViews": [
+            {
+              "geoLayerViewId": "DistrictGrowthRasterLayerView",
+              "name": "District Land Development (Raster)",
+              "description": "District land development (year of dev)",
+              "geoLayerId": "DistrictGrowthRasterLayer",
+              "properties": {
+                "docPath": "layers/District_Growth.md",
+                "selectedInitial": "False"
+              },
+              "geoLayerSymbol": {
+                "name": "Colorize district growth",
+                "description": "Symbol for the district land development raster",
+                "classificationType": "Categorized",
+                "classificationAttribute": "1",
+                "properties": {
+                  "classificationFile": "layers/Municipal_Growth-classify-year.csv"
+                }
+              },
+              "eventHandlers": [
+                {
+                  "eventType": "click",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/District_Growth-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "hover",
+                  "name": null,
+                  "description": "",
+                  "properties": {
+                    "eventConfigPath": "layers/District_Growth-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

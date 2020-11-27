@@ -1,0 +1,12 @@
+{
+  "id" : "District_Growth-event-config",
+  "name": "District_Growth event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}
