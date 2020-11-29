@@ -300,7 +300,7 @@
           "sourcePath": "layers/municipal-boundaries.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\BaselineScenario\\02-MunicipalityPopulation\\layers\\municipal-boundaries.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\BaselineScenario\\02b-MunicipalityPopulation\\layers\\municipal-boundaries.geojson'"
           ]
         },
         {
@@ -314,7 +314,7 @@
           "sourcePath": "layers/municipalities.geojson",
           "properties": {},
           "history:": [
-            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\BaselineScenario\\02-MunicipalityPopulation\\layers\\municipalities.geojson'"
+            "Read GeoLayer from GeoJSON file:  'C:\\Users\\sam\\owf-dev\\InfoMapper-COAgTransfer\\git-repos\\owf-infomapper-coagtransfer\\workflow\\BaselineScenario\\02b-MunicipalityPopulation\\layers\\municipalities.geojson'"
           ]
         }
       ],
