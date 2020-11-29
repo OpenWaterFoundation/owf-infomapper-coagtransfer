@@ -38,3 +38,6 @@ ReadRasterGeoLayerFromFile(InputFile="downloads/District_Growth.tif",GeoLayerID=
 ChangeRasterGeoLayerCRS(GeoLayerID="DistrictGrowthRasterLayer",CRS="EPSG:4326")
 RearrangeRasterGeoLayerBands(GeoLayerID="DistrictGrowthRasterLayer",Bands="7")
 WriteRasterGeoLayerToFile(GeoLayerID="DistrictGrowthRasterLayer",OutputFile="layers/District_Growth.tif")
+#
+# Print algorithm help.
+# QgisAlgorithmHelp(AlgorithmIDs="gdal:translate",ShowHelp="False")

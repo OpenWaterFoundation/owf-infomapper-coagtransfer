@@ -3,6 +3,8 @@
 This website provides information about potential agricultural water transfers in Colorado,
 currently focusing on water transfers along the Colorado Front Range.
 
+## Overview ##
+
 Colorado's Front Range continues to experience population growth.
 The Front Range population added approximately 600,000 people in the decade from 2000 to 2010
 and is projected to add another 3 million people in the next four decades.
@@ -40,6 +42,16 @@ There is a broader and more powerful benefit to be gained from the analytical to
 WWR by creating a public and open dashboard for evaluating alternative futures for the Front Range.
 The [Open Water Foundation (OWF)](http://openwaterfoundation.org/) has subsequently automated the analysis and
 implemented this website to publish analysis input and results.
+
+## Analysis Results ##
+
+The following image illustrates municipal growth and corresponding land development,
+with colors indicating the year of estimated development.
+Use the ***Baseline Scenario / Land Development*** menu to view analysis results in an interactive map.
+
+![home.png](home.png)
+
+## Web Application Menus ##
 
 The following main menus are provided.
 An online dashboard with maps and charts allows any user to better understand municipal growth,
