@@ -1,7 +1,6 @@
-# Download Division 1 Irrigated Lands files.
+# Download Division 1 and 2 Irrigated Lands files.
 # - this should only need to be done periodically
-# - use the file on the OWF website since it has already been clipped for District 3
-# - save the file in 'downloads' and then read and write to make sure GeoJSON uses the latest specification
+# - shapefiles from DWR are downloaded and processed into GeoJSON files
 #
 # South Platte Division 1 (no Republican) 2015 Irrigated Lands
 # - use shapefiles so don't need to deal with full GeoDatabase
