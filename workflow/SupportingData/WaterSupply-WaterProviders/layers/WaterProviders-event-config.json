@@ -1,0 +1,12 @@
+{
+  "id" : "WaterProviders-event-config",
+  "name": "WaterProviders raster event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id" : "Irrigation-event-config",
+  "name": "Irrigation raster event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

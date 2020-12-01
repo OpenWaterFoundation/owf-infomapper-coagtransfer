@@ -523,7 +523,24 @@
                   "classificationFile": "layers/WaterProviders-classify-waterprovider.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/WaterProviders-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/WaterProviders-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

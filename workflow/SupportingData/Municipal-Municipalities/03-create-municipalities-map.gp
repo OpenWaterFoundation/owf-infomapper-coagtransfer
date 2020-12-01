@@ -78,6 +78,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalitiesRasterLayer",GeoLayerViewID="M
 # Use category colors
 #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesRasterLayerView",Name="Colorize municipalities",Description="Symbol for the municipality raster",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-divisions-classify-division.csv'")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalitiesRasterLayerView",Name="Colorize municipalities",Description="Symbol for the municipality raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipality-classify-municipality.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/Municipality-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalitiesRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/Municipality-event-config.json")
 # = = = = = = = = = =
 # Land development raster data:  read layers and add to a layer view group.
 # - copy from the repository that contains WWR data
@@ -92,6 +94,8 @@ ReadRasterGeoLayerFromFile(InputFile="layers/LandDevelopment.tif",GeoLayerID="La
 AddGeoLayerViewToGeoMap(GeoLayerID="LandDevelopmentRasterLayer",GeoLayerViewID="LandDevelopmentRasterLayerView",Name="Colorado Land Development (Raster)",Description="Colorado land development area",Properties="docPath:'layers/LandDevelopment.md'")
 # Use category colors
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="LandDevelopmentRasterLayerView",Name="Colorize Land Development",Description="Symbol for the land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/LandDevelopment-classify-landdevelopment.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="LandDevelopmentRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/LandDevelopment-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="LandDevelopmentRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/LandDevelopment-event-config.json")
 # = = = = = = = = = =
 # Colorado state boundary:  read layer and add to layer view group.
 # StateBoundaryGroupID: StateBoundaryGroup

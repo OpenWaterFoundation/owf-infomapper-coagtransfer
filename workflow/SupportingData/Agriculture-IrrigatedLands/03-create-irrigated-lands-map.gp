@@ -77,6 +77,8 @@ ReadRasterGeoLayerFromFile(InputFile="layers/Irrigation.tif",GeoLayerID="Irrigat
 AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLandsRasterLayer",GeoLayerViewID="IrrigatedLandsRasterLayerView",Name="Irrigated Lands (Raster)",Description="Irrigated lands area derived from parcel polygons",Properties="docPath:'layers/Irrigation.md'")
 # Use category colors
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLandsRasterLayerView",Name="Colorize Irrigated Lands",Description="Symbol for the irrigated lands raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Irrigation-classify-irrigation.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLandsRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/Irrigation-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLandsRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/Irrigation-event-config.json")
 # = = = = = = = = = =
 # Irrigated lands
 # - select the most recent for initial view
@@ -148,5 +150,6 @@ CopyFile(SourceFile="layers/irrigated-lands-classify-croptype.csv",DestinationFi
 CopyFile(SourceFile="layers/irrigated-lands.md",DestinationFile="${MapFolder}/layers/irrigated-lands.md")
 # Rasters
 CopyFile(SourceFile="layers/Irrigation.tif",DestinationFile="${MapFolder}/layers/Irrigation.tif")
-CopyFile(SourceFile="layers/Irrigation-classify-irrigation.csv",DestinationFile="${MapFolder}/layers/Irrigation-classify-irrigation.csv")
 CopyFile(SourceFile="layers/Irrigation.md",DestinationFile="${MapFolder}/layers/Irrigation.md")
+CopyFile(SourceFile="layers/Irrigation-classify-irrigation.csv",DestinationFile="${MapFolder}/layers/Irrigation-classify-irrigation.csv")
+CopyFile(SourceFile="layers/Irrigation-event-config.json",DestinationFile="${MapFolder}/layers/Irrigation-event-config.json")
