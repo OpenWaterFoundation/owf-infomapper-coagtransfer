@@ -78,6 +78,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="WaterProvidersRasterLayer",GeoLayerViewID="W
 # Use category colors
 #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterProvidersRasterLayerView",Name="Colorize Water Providers",Description="Symbol for the water providers raster",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-divisions-classify-division.csv'")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterProvidersRasterLayerView",Name="Colorize Water Providers",Description="Symbol for the water providers raster",ClassificationAttribute="1",Properties="classificationFile:'layers/WaterProviders-classify-waterprovider.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersRasterLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/WaterProviders-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterProvidersRasterLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/WaterProviders-event-config.json")
 # = = = = = = = = = =
 # Colorado state boundary:  read layer and add to layer view group.
 # StateBoundaryGroupID: StateBoundaryGroup
@@ -130,8 +132,9 @@ CopyFile(SourceFile="water-providers-map.md",DestinationFile="${MapFolder}/water
 # Rasters
 CopyFile(SourceFile="layers/WaterProviders.tif",DestinationFile="${MapFolder}/layers/WaterProviders.tif")
 CopyFile(SourceFile="layers/WaterProviders.csv",DestinationFile="${MapFolder}/layers/WaterProviders.csv")
-CopyFile(SourceFile="layers/WaterProviders-classify-waterprovider.csv",DestinationFile="${MapFolder}/layers/WaterProviders-classify-waterprovider.csv")
 CopyFile(SourceFile="layers/WaterProviders.md",DestinationFile="${MapFolder}/layers/WaterProviders.md")
+CopyFile(SourceFile="layers/WaterProviders-classify-waterprovider.csv",DestinationFile="${MapFolder}/layers/WaterProviders-classify-waterprovider.csv")
+CopyFile(SourceFile="layers/WaterProviders-event-config.json",DestinationFile="${MapFolder}/layers/WaterProviders-event-config.json")
 #
 CopyFile(SourceFile="layers/denver-water-boundary.geojson",DestinationFile="${MapFolder}/layers/denver-water-boundary.geojson")
 CopyFile(SourceFile="layers/denver-water-boundary.md",DestinationFile="${MapFolder}/layers/denver-water-boundary.md")

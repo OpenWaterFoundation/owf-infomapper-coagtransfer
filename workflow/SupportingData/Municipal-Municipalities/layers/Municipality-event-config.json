@@ -1,0 +1,12 @@
+{
+  "id" : "Municipality-event-config",
+  "name": "Municipality raster event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id" : "LandDevelopment-event-config",
+  "name": "LandDevelopment raster event configuration",
+  "description":  "List main attributes.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+  ]
+}

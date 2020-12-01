@@ -482,7 +482,24 @@
                   "classificationFile": "layers/LandDevelopment-classify-landdevelopment.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/LandDevelopment-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/LandDevelopment-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -509,7 +526,24 @@
                   "classificationFile": "layers/Municipality-classify-municipality.csv"
                 }
               },
-              "eventHandlers": []
+              "eventHandlers": [
+                {
+                  "eventType": "hover",
+                  "name": "Hover event",
+                  "description": "Hover event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipality-event-config.json"
+                  }
+                },
+                {
+                  "eventType": "click",
+                  "name": "Click event",
+                  "description": "Click event configuration",
+                  "properties": {
+                    "eventConfigPath": "layers/Municipality-event-config.json"
+                  }
+                }
+              ]
             }
           ]
         },

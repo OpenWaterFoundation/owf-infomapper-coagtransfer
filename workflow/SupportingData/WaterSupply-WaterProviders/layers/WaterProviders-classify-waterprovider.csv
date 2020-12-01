@@ -4,8 +4,8 @@
 # - the WaterProviders.csv file corresponding to WaterProviders.tif was
 #   pasted into this file (first 2 columns) and classification properties were added,
 #   'Name' was changed to 'label' consistent with InfoMapper conventions
-#Value,Name,color,opacity,fillColor,fillOpacity,weight,label
-value,label,color,opacity,fillColor,fillOpacity,weight,label
+#Value,Name,color,opacity,fillColor,fillOpacity,weight
+value,label,color,opacity,fillColor,fillOpacity,weight
 53,ACADEMY SWD,#0033cc,1.0,#0033cc,0.3,2
 69,Arapahoe County Water and Wastewater Authority,#0033cc,1.0,#0033cc,0.3,2
 2,Arvada,#0033cc,1.0,#0033cc,0.3,2
