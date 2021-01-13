@@ -21,7 +21,7 @@
           "name": "Administration - CO DWR Water Districts",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Administration-CoDwrWaterDistricts/codwr-waterdistricts-map.json",
-          "separatorBefore" : true
+          "doubleSeparatorBefore" : true
         },
         {
           "id": "data-counties",
@@ -51,6 +51,7 @@
         {
           "id": "data-irrigated-lands-raster",
           "name":  "Agriculture - Irrigated Lands (raster - FAST)",
+          "separatorBefore" : true,
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Agriculture-IrrigatedLandsRaster/irrigated-lands-raster-map.json"
         },
@@ -95,6 +96,7 @@
         {
           "id": "data-dedication",
           "name":  "Municipal - Water Dedication Policies (*)",
+          "doubleSeparatorBefore" : true,
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/Municipal-WaterDedicationPolicies/municipal-water-dedication-policies-map.json"
         },
@@ -144,7 +146,7 @@
         {
           "id": "baseline-data-prep",
           "name": "1. Data Preparation",
-          "separatorBefore" : true,
+          "doubleSeparatorBefore" : true,
           "action": "contentPage",
           "markdownFile": "content-pages/1-data-prep.md"
         },
