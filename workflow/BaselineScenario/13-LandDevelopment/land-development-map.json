@@ -358,10 +358,11 @@
               "geoLayerSymbol": {
                 "name": "Colorize municipal land development",
                 "description": "Symbol for the municipal land development raster",
-                "classificationType": "Categorized",
+                "classificationType": "Graduated",
                 "classificationAttribute": "1",
                 "properties": {
-                  "classificationFile": "layers/Municipal_Growth-classify-year.csv"
+                  "classificationFile": "layers/Municipal_Growth-classify-year.csv",
+                  "rasterResolution": "128"
                 }
               },
               "eventHandlers": [
@@ -369,6 +370,7 @@
                   "eventType": "click",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/Municipal_Growth-event-config.json"
                   }
@@ -377,6 +379,7 @@
                   "eventType": "hover",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/Municipal_Growth-event-config.json"
                   }
@@ -394,10 +397,11 @@
               "geoLayerSymbol": {
                 "name": "Colorize municipal land development",
                 "description": "Symbol for the municipal land development raster",
-                "classificationType": "Categorized",
+                "classificationType": "Graduated",
                 "classificationAttribute": "1",
                 "properties": {
-                  "classificationFile": "layers/Municipal_Growth-classify-year.csv"
+                  "classificationFile": "layers/Municipal_Growth-classify-year.csv",
+                  "rasterResolution": "128"
                 }
               },
               "eventHandlers": [
@@ -405,6 +409,7 @@
                   "eventType": "click",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/Municipal_Growth-event-config.json"
                   }
@@ -413,6 +418,7 @@
                   "eventType": "hover",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/Municipal_Growth-event-config.json"
                   }
@@ -430,10 +436,11 @@
               "geoLayerSymbol": {
                 "name": "Colorize municipal land development",
                 "description": "Symbol for the municipal land development raster",
-                "classificationType": "Categorized",
+                "classificationType": "Graduated",
                 "classificationAttribute": "1",
                 "properties": {
-                  "classificationFile": "layers/Municipal_Growth-classify-year.csv"
+                  "classificationFile": "layers/Municipal_Growth-classify-year.csv",
+                  "rasterResolution": "128"
                 }
               },
               "eventHandlers": [
@@ -441,6 +448,7 @@
                   "eventType": "click",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/Municipal_Growth-event-config.json"
                   }
@@ -449,6 +457,7 @@
                   "eventType": "hover",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/Municipal_Growth-event-config.json"
                   }
@@ -475,10 +484,11 @@
               "geoLayerSymbol": {
                 "name": "Colorize district growth",
                 "description": "Symbol for the district land development raster",
-                "classificationType": "Categorized",
+                "classificationType": "Graduated",
                 "classificationAttribute": "1",
                 "properties": {
-                  "classificationFile": "layers/Municipal_Growth-classify-year.csv"
+                  "classificationFile": "layers/Municipal_Growth-classify-year.csv",
+                  "rasterResolution": "128"
                 }
               },
               "eventHandlers": [
@@ -486,6 +496,7 @@
                   "eventType": "click",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/District_Growth-event-config.json"
                   }
@@ -494,6 +505,7 @@
                   "eventType": "hover",
                   "name": null,
                   "description": "",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/District_Growth-event-config.json"
                   }

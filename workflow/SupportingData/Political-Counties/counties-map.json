@@ -363,7 +363,8 @@
                 {
                   "eventType": "click",
                   "name": "CountyClickEvents",
-                  "description": "",
+                  "description": "Event handler configuration for counties layer",
+                  "hasVisualization": true,
                   "properties": {
                     "eventConfigPath": "layers/counties-event-config.json"
                   }
@@ -371,7 +372,8 @@
                 {
                   "eventType": "hover",
                   "name": "CountyHoverEvents",
-                  "description": "",
+                  "description": "Event handler configuration for counties layer",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/counties-event-config.json"
                   }
@@ -412,6 +414,7 @@
                   "eventType": "hover",
                   "name": "Hover event",
                   "description": "Hover event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
                   }
@@ -420,6 +423,7 @@
                   "eventType": "click",
                   "name": "Click event",
                   "description": "Click event configuration",
+                  "hasVisualization": false,
                   "properties": {
                     "eventConfigPath": "layers/continental-divide-co-event-config.json"
                   }

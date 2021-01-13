@@ -130,8 +130,8 @@ AddGeoLayerViewToGeoMap(GeoLayerID="CountiesLayer",GeoLayerViewID="CountiesLayer
 # Use single symbol
 #SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="CountiesLayerView",Name="Colorize counties",Description="Show each county the same color except those that overlap the Poudre",ClassificationAttribute="county",Properties="classificationType:'categorized',classificationFile:'layers/counties-classify-county.csv'")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="CountiesLayerView",Name="Colorado counties",Description="Colorado counties in grey.",Properties="color:#999999,fillColor:#999999,fillOpacity:0.0,weight:4")
-SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="click",Name="CountyClickEvents","Event handler configuration for counties layer",Properties="eventConfigPath:layers/counties-event-config.json")
-SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="hover",Name="CountyHoverEvents","Event handler configuration for counties layer",Properties="eventConfigPath:layers/counties-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="click",Name="CountyClickEvents",Description="Event handler configuration for counties layer",Properties="eventConfigPath:layers/counties-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="CountiesLayerView",EventType="hover",Name="CountyHoverEvents",Description="Event handler configuration for counties layer",Properties="eventConfigPath:layers/counties-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions

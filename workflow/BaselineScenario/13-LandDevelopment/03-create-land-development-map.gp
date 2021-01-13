@@ -83,7 +83,7 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DistrictGrowthGroup",Name="Dis
 ReadRasterGeoLayerFromFile(InputFile="layers/District_Growth.tif",GeoLayerID="DistrictGrowthRasterLayer",Name="District Land Development (Raster)",Description="District land development (year of dev)")
 AddGeoLayerViewToGeoMap(GeoLayerID="DistrictGrowthRasterLayer",GeoLayerViewID="DistrictGrowthRasterLayerView",Name="District Land Development (Raster)",Description="District land development (year of dev)",Properties="docPath:'layers/District_Growth.md',selectedInitial:False")
 # Use category colors - band 1 after the raster is processed to have one band
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="DistrictGrowthRasterLayerView",Name="Colorize district growth",Description="Symbol for the district land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'128'")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="DistrictGrowthRasterLayerView",Name="Colorize district growth",Description="Symbol for the district land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'64'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DistrictGrowthRasterLayerView",EventType="click",Properties="eventConfigPath:layers/District_Growth-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="DistrictGrowthRasterLayerView",EventType="hover",Properties="eventConfigPath:layers/District_Growth-event-config.json")
 # = = = = = = = = = =
@@ -97,14 +97,14 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="MunicipalLandDevelopmentGroup"
 ReadRasterGeoLayerFromFile(InputFile="layers/Low_Density_Municipal_Growth.tif",GeoLayerID="MunicipalLandDevelopmentLowDensityRasterLayer",Name="Municipality Land Development - Low Density (Raster)",Description="Municipal land development, low density (year of dev)")
 AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalLandDevelopmentLowDensityRasterLayer",GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",Name="Municipality Land Development - Low Density (Raster)",Description="Municipal land development, low density (year of dev)",Properties="docPath:'layers/Municipal_Growth.md'")
 # Use category colors - band 1 after the raster is processed to have one band
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'128'")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'64'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",EventType="click",Properties="eventConfigPath:layers/Municipal_Growth-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalLandDevelopmentLowDensityRasterLayerView",EventType="hover",Properties="eventConfigPath:layers/Municipal_Growth-event-config.json")
 # Medium
 ReadRasterGeoLayerFromFile(InputFile="layers/Medium_Density_Municipal_Growth.tif",GeoLayerID="MunicipalLandDevelopmentMediumDensityRasterLayer",Name="Municipality Land Development - Medium Density (Raster)",Description="Municipal land development, medium density (year of dev)")
 AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalLandDevelopmentMediumDensityRasterLayer",GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRasterLayerView",Name="Municipality Land Development - Medium Density (Raster)",Description="Municipal land development, medium density (year of dev)",Properties="docPath:'layers/Municipal_Growth.md'")
 # Use category colors - band 1 after the raster is processed to have one band
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'128'")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'64'")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRasterLayerView",EventType="click",Properties="eventConfigPath:layers/Municipal_Growth-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalLandDevelopmentMediumDensityRasterLayerView",EventType="hover",Properties="eventConfigPath:layers/Municipal_Growth-event-config.json")
 # High
@@ -113,7 +113,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MunicipalLandDevelopmentHighDensityRasterLay
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalLandDevelopmentHighDensityRasterLayerView",EventType="click",Properties="eventConfigPath:layers/Municipal_Growth-event-config.json")
 SetGeoLayerViewEventHandler(GeoLayerViewID="MunicipalLandDevelopmentHighDensityRasterLayerView",EventType="hover",Properties="eventConfigPath:layers/Municipal_Growth-event-config.json")
 # Use category colors - band 1 after the raster is processed to have one band
-SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="MunicipalLandDevelopmentHighDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'128'")
+SetGeoLayerViewGraduatedSymbol(GeoLayerViewID="MunicipalLandDevelopmentHighDensityRasterLayerView",Name="Colorize municipal land development",Description="Symbol for the municipal land development raster",ClassificationAttribute="1",Properties="classificationFile:'layers/Municipal_Growth-classify-year.csv',rasterResolution:'64'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
